@@ -1,0 +1,78 @@
+.object-well h1 {
+  text-align: left;
+}
+
+.lead-image-container {
+  margin-bottom: 20px;
+}
+
+.lead-image {
+  max-height: 400px;
+  overflow: hidden;
+  background: #000;
+  text-align: center;
+  max-width: 712px;
+}
+
+.caption {
+  padding: 4px;
+  font-size: 12.6px;
+  color: #555;
+}
+
+.caption br {
+  display: none;
+}
+
+.caption .inline-credit {
+  margin-left: 5px;
+}
+
+.article-container a,
+.caption a {
+  color: #00b3f0;
+}
+
+/* inline images */
+.image-inline {
+  width: 100%;
+}
+
+.image-inline.xsm-blockstyle-align-left {
+  width: 50%;
+  float: left;
+  margin: 5px 15px 5px 0;
+}
+
+.image-inline.xsm-blockstyle-align-center,
+.image-inline.xsm-blockstyle-align-fullwidth {
+  margin: 15px 0;
+}
+
+.image-inline.xsm-blockstyle-align-right {
+  width: 50%;
+  float: right;
+  margin: 5px 0 5px 15px;
+}
+
+.image-inline.xsm-blockstyle-align-center,
+.image-inline.xsm-blockstyle-align-fullwidth,
+.image-inline.xsm-blockstyle-align-background {
+  width: initial;
+  margin-right: 20px;
+}
+
+.article-container twitterwidget,
+.article-container iframe,
+.fb_iframe_widget {
+  display: block;
+  margin: 20px auto !important;
+  text-align: center;
+}
+
+.lead-image-container .caption a,
+.bylines a {
+  color: #336d9c;
+  cursor: pointer;
+  font-weight: 600;
+}

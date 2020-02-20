@@ -31,6 +31,10 @@ const DefaultOutputType = (props) => {
           type="image/x-icon"
           href={deployment(`${contextPath}/resources/favicon.ico`)}
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway"
+        />
       </head>
       <body>
         <div id="fusion-app">{children}</div>
