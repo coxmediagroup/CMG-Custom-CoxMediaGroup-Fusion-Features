@@ -1,7 +1,7 @@
 [
   {
-    "_id": "the-gazette",
-    "display_name": "The Gazette",
-    "is_default_website": false
+    "_id": "cox-reps",
+    "display_name": "Cox Reps",
+    "is_default_website": true
   }
 ]
