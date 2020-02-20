@@ -1,0 +1,107 @@
+// Breakpoints
+@mixin breakpoint($point) {
+  /* Between 0 and 680px */
+  @if $point == mobile {
+    /* stylelint-disable-next-line */
+    @media only screen and (max-width: map-get($breakpoint,mobile)) {
+      @content;
+    }
+  }
+
+  /* Between 681px and 959px */
+  @if $point == tablet {
+    /* stylelint-disable-next-line */
+    @media only screen and (min-width: map-get($breakpoint,mobile) + 1) {
+      @content;
+    }
+  }
+
+  /* ONLY Between 681px and 959px */
+  @if $point == tablet-only {
+    /* stylelint-disable */
+    @media only screen and (min-width: map-get($breakpoint,mobile) + 1) and (max-width: map-get($breakpoint,tablet)) {
+      @content;
+    }
+    /* stylelint-enable */
+  }
+
+  /* Between 960px and 1200px */
+  @if $point == desktop {
+    /* stylelint-disable-next-line */
+    @media only screen and (min-width: map-get($breakpoint,tablet)) {
+      @content;
+    }
+  }
+
+  /* At least 1200px */
+  @if $point == widescreen {
+    /* stylelint-disable-next-line */
+    @media only screen and (min-width: map-get($breakpoint,desktop)) {
+      @content;
+    }
+  }
+}
+
+// Font Styling for different breakpoints
+@mixin text-styles-desktop($size, $line-height, $font: "") {
+  @include breakpoint(desktop) {
+    font-size: $size;
+    line-height: $line-height;
+
+    @if $font != "" {
+      font-family: $font;
+    }
+  }
+}
+
+@mixin text-styles-tablet($size, $line-height, $font: "") {
+  @include breakpoint(tablet) {
+    font-size: $size;
+    line-height: $line-height;
+
+    @if $font != "" {
+      font-family: $font;
+    }
+  }
+}
+
+@mixin text-styles-mobile($size, $line-height, $font: "") {
+  @include breakpoint(mobile) {
+    font-size: $size;
+    line-height: $line-height;
+
+    @if $font != "" {
+      font-family: $font;
+    }
+  }
+}
+
+@mixin text-styles($size, $line-height, $font: "") {
+  font-size: $size;
+  line-height: $line-height;
+
+  @if $font != "" {
+    font-family: $font;
+  }
+}
+/* stylelint-disable */
+@mixin transparent-background($imagePath) {
+  content: "";
+  background-image: url($imagePath);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+/* stylelint-enable */
+
+@mixin render-custom($rule-map) {
+  @each $prop, $value in $rule-map {
+    #{$prop}: #{$value};
+  }
+}

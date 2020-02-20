@@ -1,0 +1,53 @@
+@import "./../framework-overrides";
+
+body,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+li,
+blockquote {
+  font-family: map-get($font, primary);
+}
+
+button {
+  display: inline-block;
+  background-color: inherit;
+  border-color: inherit;
+  border-style: inherit;
+  padding: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+figure {
+  /* stylelint-disable */
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  /* stylelint-enable */
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+/* stylelint-disable */
+* {
+  box-sizing: border-box;
+}
+/* stylelint-enable */

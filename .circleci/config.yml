@@ -1,0 +1,91 @@
+default-config: &default-config
+  docker:
+    - image: circleci/node:8.11-browsers
+  working_directory: ~/repo
+
+deploy-steps: &deploy-steps
+  steps:
+    - attach_workspace:
+        at: .
+    - run:
+        name: Install deploy dependencies
+        command: |
+          npm install --prefix . @slack/client axios form-data
+    - run:
+        name: Upload the bundle
+        command: |
+          cd deploy
+          node deploy.js
+version: 2
+jobs:
+  build:
+    <<: *default-config
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+            - deps-{{ checksum "package.json" }}-
+            - deps-
+      - run:
+          name: Install dependencies
+          command: |
+            npm install --no-save
+      - save_cache:
+          key: deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run the Linter
+          command: |
+            npm run lint
+      - run:
+          name: Run the Unit Tests
+          command: |
+            npm run test
+      - run:
+          name: Build
+          command: |
+            npm run build
+      - run:
+          name: Generate the bundle zip
+          command: |
+            zip config/deploy/bundle.zip -r . -x .git/\* .env node_modules/\* coverage/\* .github/\* .fusion/\* .circleci/\* .dist/\* src/\* .stylelintrc.json documentation/\*
+      - persist_to_workspace:
+          root: config
+          paths:
+            - deploy
+
+  deploy-sandbox:
+    <<: *default-config
+    environment:
+      NODE_ENV: sandbox
+    <<: *deploy-steps
+
+  deploy-production:
+    <<: *default-config
+    environment:
+      NODE_ENV: production
+    <<: *deploy-steps
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy-sandbox:
+          requires:
+            - build
+          filters:
+            branches:
+              only: dev
+      - deploy-production-approval:
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy-production:
+          requires:
+            - deploy-production-approval

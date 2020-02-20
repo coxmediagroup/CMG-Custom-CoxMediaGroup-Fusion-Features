@@ -1,0 +1,9 @@
+/* Import site specific variables */
+
+/* Imports and extends base stylesheet, only include overrides or site-specific scss here */
+@import "./../../base/base.scss";
+
+/* Import all component styles */
+@import "components/**/*.scss";
+
+/* Import site specific overrides here */

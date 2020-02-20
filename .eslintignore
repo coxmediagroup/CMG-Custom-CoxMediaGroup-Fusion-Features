@@ -1,0 +1,8 @@
+__mocks__
+coverage
+node_modules
+**/build
+dist
+config
+resources/plugins
+package-lock.json

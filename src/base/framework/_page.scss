@@ -1,0 +1,20 @@
+/* stylelint-disable */
+.fusion-app {
+  overflow-x: hidden;
+
+  & > div[type="rendering"] {
+    & > section:not([id="0"]) {
+      transition: transform 500ms cubic-bezier(0.56, 1.65, 0.77, 0.88);
+      transition-timing-function: cubic-bezier(0.56, 1.65, 0.77, 0.88);
+      position: relative;
+    }
+  }
+
+  section {
+    &.scroll {
+      position: sticky;
+      top: 0;
+    }
+  }
+}
+/* stylelint-enable */

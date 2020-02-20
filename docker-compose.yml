@@ -1,0 +1,156 @@
+version: '3.4'
+
+x-environment: &_environment
+  DB_NAME: ${DB_NAME:-PageBuilder-Fusion-Features}
+  MONGO_URL: mongodb://data:27017/${DB_NAME:-PageBuilder-Fusion-Features}
+  PB_MONGODB_URI: mongodb://data:27017/${DB_NAME:-PageBuilder-Fusion-Features}
+
+  NODE_ENV:
+  ENVIRONMENT: localhost
+  CONTEXT_PATH: \${CONTEXT_PATH:-pb}
+  ON_DEMAND:
+  DEBUG:
+
+  HTTP_ENGINE: http://engine:8080
+  HTTP_RESOLVER: http://resolver:8080
+  LAMBDA_ENGINE:
+  LAMBDA_RESOLVER:
+
+networks:
+  fusion:
+    driver: bridge
+    external: false
+    internal: false
+
+services:
+  data:
+    image: quay.io/washpost/mongo-localhost
+    environment:
+      <<: *_environment
+      WATCH: 'true'
+    networks:
+      fusion:
+        aliases:
+          - db
+          - database
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db:rw
+      - ./data/dumps:/data/dumps:rw
+      - ./data/restore:/data/restore:rw
+
+  content-cache:
+    # memcached service runs from an image, so there is no Dockerfile
+    image: memcached
+    # max size is 10MB
+    command: memcached -I 10m
+    networks:
+      - fusion
+
+  cache-proxy:
+    image: quay.io/washpost/fusion-cache-proxy:${FUSION_RELEASE:-latest}
+    depends_on:
+      - content-cache
+    networks:
+      - fusion
+    ports:
+      - 9030:8080
+    environment:
+      CACHE_PROXY_CREDENTIALS: |
+        localhost:password
+      CACHE_NODES: |
+        content-cache:11211
+
+  engine:
+    build:
+      context: .
+      dockerfile: ./.fusion/docker/engine.Dockerfile
+      args:
+        FUSION_RELEASE: ${FUSION_RELEASE:-latest}
+    depends_on:
+      - cache-proxy
+      - data
+    env_file:
+      - .env
+    environment:
+      <<: *_environment
+      CACHE_PROXY_URL: http://localhost:password@cache-proxy:8080/cache
+      CACHE_PREFIX: '0803'
+      CONTENT_BASE:
+      MINIFY:
+      # because we import ALL variables from .env, ignore PORT
+      PORT: 8080
+    networks:
+      - fusion
+    ports:
+      - 9010:8080
+    volumes:
+      - ./src:/workdir/engine/bundle/src:rw
+      - ./.dist:/workdir/engine/bundle/dist:rw
+
+  resolver:
+    image: quay.io/washpost/fusion-resolver:${FUSION_RELEASE:-latest}
+    depends_on:
+      - data
+      - engine
+    environment:
+      <<: *_environment
+      RESOLVE_FROM_DB: 'true' # should only be 'true' for local dev environments
+      TRAILING_SLASH_RULE: # Options are FORCE, DROP, or NOOP
+    networks:
+      - fusion
+    ports:
+      - 9020:8080
+
+  admin-cache:
+    # memcached service runs from an image, so there is no Dockerfile
+    image: memcached
+    # max size is 10MB
+    command: memcached -I 10m
+    networks:
+      - fusion
+
+  admin:
+    image: quay.io/washpost/pagebuilder-nilev1:${PB_RELEASE:-fusion-admin.16}
+    depends_on:
+      - admin-cache
+      - data
+    environment:
+      <<: *_environment
+      NGINX_PORT: ''
+      TOMCAT_PORT: 8888
+      PB_AUTH_DISABLED: 'true'
+      PB_ASSETS_IMPORT_PATH: /pb/assets
+      PB_ASSETS_IMPORT_METHOD: symlink
+      PB_MEMCACHED_HOST: admin-cache:11211
+      PB_MONGODB_GARBAGE_COLLECTION: 'false'
+      PB_RENDERING_DEBUG: 'true'
+      PB_SYSTEM_LOG_CONFIG: logback-info.xml
+      PB_REPORTING_FUSION: http://origin:8080/${CONTEXT_PATH:-pb}
+    networks:
+      - fusion
+    volumes:
+      # Docker will mount the folder defined in $PROJECT_REPO environment
+      # variable inside the container as /assets so PageBuilder is agnostic
+      # to the actual location of the assets and resources
+      - ${CLASSIC_REPO:-./.fusion/classic}:/pb/assets
+    ports:
+      - 8888:8888
+
+  origin:
+    image: quay.io/washpost/fusion-origin:${FUSION_RELEASE:-latest}
+    depends_on:
+      - engine
+      - resolver
+    environment:
+      <<: *_environment
+      PB_ADMIN: http://admin:8888
+    networks:
+      - fusion
+    ports:
+      - ${PORT:-80}:8080
+      - 8081:8081
+    volumes:
+      - ./src/resources:/etc/nginx/resources:ro
+      - ./.dist:/etc/nginx/dist:ro

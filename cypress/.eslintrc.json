@@ -1,0 +1,11 @@
+{
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  },
+  "rules": {
+    "no-param-reassign": "off",
+    "global-require": "off",
+    "jest/valid-expect": "off"
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "extends": ["./config/linters/.stylelintrc.json", "stylelint-config-prettier"]
+}

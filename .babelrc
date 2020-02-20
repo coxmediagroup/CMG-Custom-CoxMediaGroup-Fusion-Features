@@ -1,0 +1,23 @@
+
+{
+  "presets": ["@babel/env", "@babel/react"],
+  "plugins": [
+    [
+      "babel-plugin-root-import",
+      {
+        "rootPathSuffix": "./",
+        "rootPathPrefix": "~"
+      }
+    ],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions",
+    ["module-resolver", {
+      "alias": {
+        "prop-types": "@arc-fusion/prop-types"
+      }
+    }],
+  ]
+}
