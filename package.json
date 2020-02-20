@@ -1,7 +1,7 @@
 {
-  "name": "StarterPack-PageBuilder-Fusion-Features",
+  "name": "CMG-Custom-PageBuilder-Fusion-Features",
   "version": "0.0.0",
-  "description": "StarterPack PageBuilder Fusion features",
+  "description": "StarterPack PageBuilder Fusion features -> StarterPack-PageBuilder-Fusion-Features",
   "scripts": {
     "build": "npm run clean && webpack --config ./config/webpack.base.js --env.prod",
     "clean": "node scripts/clean.js",
@@ -13,8 +13,7 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
-    "@arc-fusion/cli": "^1.0.3",
-    "@arc-fusion/prop-types": "^0.1.5",
+    "@arc-fusion/cli": "^1.0.8",
     "@babel/core": "^7.1.5",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.2",
@@ -33,7 +32,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.4",
-    "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-root-import": "^6.1.0",
     "babel-polyfill": "^6.26.0",
     "chalk": "^2.4.1",
@@ -91,7 +89,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm run test"
+      "pre-commit": "lint-staged"
     }
   },
   "eslintConfig": {
@@ -121,6 +119,17 @@
     },
     "rules": {
       "import/no-unresolved": "off",
+      "import/extensions": [
+        ".js",
+        ".jsx",
+        ".json",
+        ".css",
+        ".scss"
+      ],
+      "arrow-body-style": [
+        "error",
+        "always"
+      ],
       "import/no-extraneous-dependencies": [
         "error",
         {
@@ -201,5 +210,8 @@
   "bugs": {
     "url": "https://github.com/wapopartners/StarterPack-PageBuilder-Fusion-Features/issues"
   },
-  "homepage": "https://github.com/wapopartners/StarterPack-PageBuilder-Fusion-Features#readme"
+  "homepage": "https://github.com/wapopartners/StarterPack-PageBuilder-Fusion-Features#readme",
+  "dependencies": {
+    "@arc-core-components/content-source_content-api-v4": "^4.0.0"
+  }
 }
