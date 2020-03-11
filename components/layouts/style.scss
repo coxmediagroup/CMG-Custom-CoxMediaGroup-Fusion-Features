@@ -1,0 +1,23 @@
+.basic-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-layout section:nth-child(2) {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.basic-layout section:nth-child(2) .main-content {
+  flex-basis: 67%;
+}
+
+.basic-layout section:nth-child(2) .right-rail {
+  flex-basis: 33%;
+}
+
+section > div,
+footer {
+  border: 1px solid orange;
+}
