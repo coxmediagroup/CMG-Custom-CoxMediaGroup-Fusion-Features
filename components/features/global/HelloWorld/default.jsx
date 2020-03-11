@@ -1,8 +1,8 @@
 import React from 'react';
 
 const HelloWorld = () => {
-  const text = 'Hello World';
-  return <div>{text}</div>;
+  const text = 'Hello Worldly people';
+  return <div class="boop">{text}</div>;
 };
 
 export default HelloWorld;
