@@ -1,30 +1,27 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+// import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 const Parallax = (props) => {
-  const text = 'Parallax People';
-  return <section className="full-width-with-background" style={{backgroundImage: "url(http://www.coxreps.com/rf/image/Pub/Web/CoxReps/Special%20Contents/Links/Images/ourlocations.jpg)"}}>
-            {/* the background image will come from the custom field */}
+  const { headline, summary, link, image } = props.customFields
+
+  return <section className="full-width-with-background" style={{backgroundImage: `url(${image})`}}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="tease item-with-background ">
                             <h3>
                                 <span className="headline ">
-                                    {/* the headline and link will come from the custom field */}
-                                    <a href="/contact-us/" target="_self">Our Locations</a>
+                                    <a href={link}>{headline}</a>
                                 </span>
                             </h3>
                             <p>
-                                <a href="/contact-us/" target="_self"></a>
+                                <a href={link}></a>
                             </p>
                             <div className="listText">
-                                {/* the link will come from the custom field */}
-                                <a href="/contact-us/" target="_self">
-                                    {/* the summary will come from the custom field - make sure to accomodate for html in the field */}
+                                <a href={link}>
                                     <summary>
-                                        <p className="p">Headquartered in New York City, CoxReps is located in the heart of Midtown Manhattan,</p>
-                                        <p>at historic 1 Dag Hammarskjold Plaza. CoxReps regional offices are located in the most exciting cities across the country.</p>
+                                        <p>{summary}</p>
                                     </summary>
                                 </a>
                             </div>
@@ -37,6 +34,10 @@ const Parallax = (props) => {
 
 Parallax.propTypes = {
   customFields: PropTypes.shape({
+    headline: PropTypes.string,
+    summary: PropTypes.richtext,
+    link: PropTypes.string,
+    image: PropTypes.string,
     // content: PropTypes.contentConfig('single-story').tag({
     //   name: 'Content Source',
     // }),
