@@ -16,7 +16,7 @@ const DefaultOutputType = (props) => {
   return (
     <html>
       <head>
-        <title>Fusion Article</title>
+        <title>CoxReps II Article</title>
         <MetaTags />
         <Libs />
         <CssLinks />

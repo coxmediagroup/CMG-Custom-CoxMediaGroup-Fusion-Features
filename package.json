@@ -212,6 +212,8 @@
   },
   "homepage": "https://github.com/wapopartners/StarterPack-PageBuilder-Fusion-Features#readme",
   "dependencies": {
-    "@arc-core-components/content-source_content-api-v4": "^4.0.0"
+    "@arc-core-components/content-source_content-api-v4": "^4.0.0",
+    "bootstrap": "^4.4.1",
+    "react-bootstrap": "^1.0.0-beta.17"
   }
 }
