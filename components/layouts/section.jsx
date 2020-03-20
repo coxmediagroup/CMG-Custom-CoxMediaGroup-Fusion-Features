@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * The article right rail layout component
+ * The section layout component
  * */
-class Basic extends Component {
+class Section extends Component {
   /**
-   * Renders the article-one-right-rail layout component
+   * Renders the section layout component
    * */
   render() {
     const [header, full01, body01, full02, body02, full03, body03, full04, footer] = this.props.children;
 
     return (
-      <div className="basic-layout">
+      <div className="section-layout">
         <section className="container-fluid header">
           <div className="row">
             <div className="col">
@@ -89,10 +89,10 @@ class Basic extends Component {
   }
 }
 
-Basic.propTypes = {
+Section.propTypes = {
   children: PropTypes.array,
 };
 
-Basic.sections = ['header', 'full01', 'body01', 'full02', 'body02', 'full03', 'body03', 'full04', 'footer'];
+Section.sections = ['header', 'full01', 'body01', 'full02', 'body02', 'full03', 'body03', 'full04', 'footer'];
 
-export default Basic;
+export default Section;
