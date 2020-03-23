@@ -69,7 +69,7 @@ class Section extends Component {
           </div>
         </section>
 
-        <section className="container-fluid full-width">
+        <section>
           <div className="row main-content">
             <div className="col">
               {full04}
