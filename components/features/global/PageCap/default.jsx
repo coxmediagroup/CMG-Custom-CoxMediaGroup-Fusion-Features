@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 const PageCap = (props) => {
   const { pagename } = props.customFields;
 
-  console.log("pagename: ", pagename);
-
   return <div className="page-cap">
-        <div class="container">
+        <div className="container">
             <div className="row-fluid">
                 <div className="span6">
                   <h2>{ pagename }</h2>
