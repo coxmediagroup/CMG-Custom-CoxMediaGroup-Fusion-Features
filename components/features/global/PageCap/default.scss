@@ -1,0 +1,27 @@
+.page-cap {
+  height: 50px;
+  padding: 10px 0 0;
+  background-color: #292929;
+  background-image: url(images/section-hero.png);
+  background-repeat: no-repeat;
+  background-position: right -60px;
+  background-attachment: fixed;
+  color: #fff;
+
+  font-family: "Raleway", sans-serif;
+}
+
+.page-cap h2 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 2px #000;
+  text-transform: uppercase;
+}
+
+.page-cap p {
+  margin: 7px 0;
+  padding: 0;
+  font-size: 16px;
+  text-shadow: 2px 2px 2px #000;
+}

@@ -13,8 +13,9 @@ class Section extends Component {
 
     return (
       <div className="section-layout">
-        <section className="container-fluid header">
-          <div className="row">
+
+        <section>
+          <div className="row header">
             <div className="col">
               {header}
             </div>
