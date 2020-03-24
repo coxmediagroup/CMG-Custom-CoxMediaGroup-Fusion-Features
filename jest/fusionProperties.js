@@ -1,3 +1,6 @@
-const properties = require('../properties/index.json');
+/* eslint-disable */
+const properties = require("../properties/index.json");
 
-module.exports = () => properties;
+module.exports = () => {
+  return properties;
+};

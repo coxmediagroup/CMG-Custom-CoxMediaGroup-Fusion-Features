@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TopPhoto = (props) => {
-  const { headline, summary, link, image } = props.customFields;
+  const {
+    headline, summary, link, image,
+  } = props.customFields;
 
-  console.log("props: ", props)
-  console.log("props type: ", props.type)
-  console.log("length: ", props.children.length)
+  console.log('props: ', props);
 
   return <div className="top-photo">
       <div className="image-holder">
-        <a href={link} target="_blank">
+        <a href={link} target="_blank" rel="noopener noreferrer">
           <img src={image} />
         </a>
       </div>
       <h3>
         <span className="headline">
-          <a href={link} target="_blank">{headline}</a>
+          <a href={link} target="_blank" rel="noopener noreferrer">{headline}</a>
         </span>
       </h3>
       <div className="listText">{summary}</div>
