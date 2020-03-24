@@ -79,12 +79,18 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - deploy-sandbox:
+      - deploy-dev:
           requires:
             - build
           filters:
             branches:
               only: dev
+      - deploy-sandbox:
+          requires:
+            - build
+          filters:
+            branches:
+              only: sandbox
       - deploy-production-approval:
           type: approval
           requires:
