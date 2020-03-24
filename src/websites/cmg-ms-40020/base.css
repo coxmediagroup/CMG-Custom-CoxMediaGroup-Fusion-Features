@@ -1,7 +1,7 @@
 /* #00b3f0 */
 
 body {
-  padding-top: 71px;
+  /* padding-top: 71px; */
   background-color: #fff;
   color: #000;
   font-family: "Raleway", sans-serif;
@@ -94,11 +94,11 @@ img {
 }
 
 .header {
-  padding: 40px 0;
-  background-color: #292929;
-  color: #fff;
+  /* padding: 40px 0; */
+  /* background-color: #292929;
+  color: #fff; */
   border-bottom: 1px solid #ccc;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .logo {

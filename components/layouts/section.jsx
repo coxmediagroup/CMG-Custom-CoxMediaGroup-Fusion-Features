@@ -13,15 +13,16 @@ class Section extends Component {
 
     return (
       <div className="section-layout">
-        <section className="container-fluid header">
-          <div className="row">
+
+        <section>
+          <div className="row header">
             <div className="col">
               {header}
             </div>
           </div>
         </section>
 
-        <section className="container-fluid full-width">
+        <section>
           <div className="row main-content">
             <div className="col">
               {full01}
@@ -37,7 +38,7 @@ class Section extends Component {
           </div>
         </section>
 
-        <section className="container-fluid full-width">
+        <section>
           <div className="row main-content">
             <div className="col">
               {full02}
@@ -53,7 +54,7 @@ class Section extends Component {
           </div>
         </section>
 
-        <section className="container-fluid full-width">
+        <section>
           <div className="row main-content">
             <div className="col">
               {full03}
@@ -69,7 +70,7 @@ class Section extends Component {
           </div>
         </section>
 
-        <section className="container-fluid full-width">
+        <section>
           <div className="row main-content">
             <div className="col">
               {full04}

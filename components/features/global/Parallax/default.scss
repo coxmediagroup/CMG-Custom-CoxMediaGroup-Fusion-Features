@@ -1,0 +1,110 @@
+.full-width-with-background {
+  height: auto;
+  margin-bottom: 40px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #00b2ef;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center 20%;
+  background-size: auto;
+  color: #fff;
+
+  font-family: "Raleway", sans-serif;
+}
+
+.full-width-with-background h4 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.full-width-with-background a,
+.full-width-with-background a:hover,
+.full-width-with-background a:active,
+.full-width-with-background a:focus {
+  text-decoration: none;
+}
+
+.full-width-with-background img {
+  width: 100%;
+}
+
+.full-width-with-background .container,
+.full-width-with-background .row {
+  height: auto;
+}
+
+.full-width-with-background .col-md-12 {
+  display: table;
+  height: 100%;
+  padding: 0;
+}
+
+.tease.item-with-background {
+  vertical-align: middle;
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid #fff;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.tease.item-with-background i {
+  margin-right: 10px;
+}
+
+.tease.item-with-background h3,
+.tease.item-with-background h3 a {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 64px;
+  text-transform: uppercase;
+}
+
+.tease.item-with-background p,
+.tease.item-with-background .listText {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: auto;
+}
+
+@media (min-width: 768px) {
+  .full-width-with-background {
+    height: 600px;
+    margin: 0 0 40px;
+    padding: 20px 0;
+    background-size: 100% auto;
+  }
+
+  .full-width-with-background .col-md-12 {
+    padding: 70px 0;
+  }
+
+  .tease.item-with-background h3,
+  .tease.item-with-background h3 a {
+    font-size: 56px;
+  }
+
+  .tease.item-with-background p,
+  .tease.item-with-background .listText {
+    font-size: 24px;
+    line-height: 64px;
+  }
+}
+
+@media (min-width: 600px) {
+}
+
+@media (min-width: 480px) {
+  .full-width-with-background .container,
+  .full-width-with-background .row {
+    height: 100%;
+  }
+
+  .tease.item-with-background {
+    padding: 25px;
+  }
+}
