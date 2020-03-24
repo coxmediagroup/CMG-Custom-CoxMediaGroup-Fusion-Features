@@ -56,6 +56,12 @@ jobs:
           paths:
             - deploy
 
+  deploy-dev:
+    <<: *default-config
+    environment:
+      NODE_ENV: dev
+    <<: *deploy-steps
+
   deploy-sandbox:
     <<: *default-config
     environment:
