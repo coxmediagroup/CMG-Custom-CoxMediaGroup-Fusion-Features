@@ -13,6 +13,9 @@ const DefaultOutputType = (props) => {
     Libs,
     MetaTags,
   } = props;
+
+  console.log("arcSite: ", arcSite)
+
   return (
     <html>
       <head>
@@ -53,6 +56,19 @@ DefaultOutputType.propTypes = {
   Fusion: PropTypes.func,
   Libs: PropTypes.array,
   MetaTags: PropTypes.object,
+};
+
+DefaultOutputType.transform = {
+  testio({ context }) {
+    return {
+      contentType: 'application/json',
+      data: {
+        tree: context.tree,
+        globalContent: context.globalContent,
+        renderables: context.props.renderables,
+      },
+    };
+  },
 };
 
 export default DefaultOutputType;

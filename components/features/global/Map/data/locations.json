@@ -1,0 +1,205 @@
+[
+  {
+    "id": "6",
+    "code": "CA",
+    "name": "CA",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Los Angeles",
+        "code": "CA",
+        "tooltip": "Los Angeles, CA",
+        "latlon": [34.062007, -118.35216],
+        "address": "5670 Wilshire Boulevard",
+        "cityState": "Los Angeles, CA 90036",
+        "email": "hellolosangeles@coxreps.com",
+        "phone": "323-937-4644"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "code": "DC",
+    "name": "DC",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Washington",
+        "code": "DC",
+        "tooltip": "Washington, DC",
+        "latlon": [38.897549, -77.071261],
+        "address": "1901 North Moore Street",
+        "cityState": "Arlington, VA 22209",
+        "email": "hellodc@coxreps.com",
+        "phone": "703-528-7800 / 703-516-9399"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "code": "GA",
+    "name": "GA",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Atlanta",
+        "code": "GA",
+        "tooltip": "Atlanta, GA",
+        "latlon": [33.846508, -84.356098],
+        "address": "945 East Paces Ferry Road",
+        "cityState": "Atlanta, GA 30369",
+        "email": "helloatlanta@coxreps.com",
+        "phone": "404-848-0800"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "code": "IL",
+    "name": "IL",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Chicago",
+        "code": "IL",
+        "tooltip": "Chicago, IL",
+        "latlon": [41.885967, -87.623555],
+        "address": "205 North Michigan Avenue",
+        "cityState": "Chicago, IL 60601",
+        "email": "hellochicago@coxreps.com",
+        "phone": "312-228-6600 / 312-228-7000"
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "code": "MA",
+    "name": "MA",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Boston",
+        "code": "MA",
+        "tooltip": "Boston, MA",
+        "latlon": [42.349885, -71.079229],
+        "address": "699 Boylston Street",
+        "cityState": "Boston, MA 02116",
+        "email": "helloboston@coxreps.com",
+        "phone": "617-247-2555"
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "code": "MI",
+    "name": "MI",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Detroit",
+        "code": "MI",
+        "tooltip": "Detroit, MI",
+        "latlon": [42.475428, -83.243757],
+        "address": "1000 Town Center",
+        "cityState": "Southfield, MI 48075",
+        "email": "hellodetroit@coxreps.com",
+        "phone": "248-359-8100"
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "code": "MN",
+    "name": "MN",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Minneapolis",
+        "code": "MN",
+        "tooltip": "Minneapolis, MN",
+        "latlon": [44.974117, -93.266637],
+        "address": "701 4th Avenue South",
+        "cityState": "Minneapolis, MN 55415",
+        "email": "hellominneapolis@coxreps.com",
+        "phone": "612-332-7333"
+      }
+    ]
+  },
+  {
+    "id": "36",
+    "code": "NY",
+    "name": "NY",
+    "properties": [
+      {
+        "id": 1,
+        "name": "New York",
+        "code": "NY",
+        "tooltip": "New York, NY",
+        "latlon": [40.753519, -73.969971],
+        "address": "One Dag Hammarskjold Plaza",
+        "cityState": "New York, NY 10017",
+        "email": "hellonyc@coxreps.com",
+        "phone": "212-759-8787 / 212-756-3600",
+        "newspaper": "false",
+        "television": "false",
+        "radio": "false",
+        "directmail": "false",
+        "digital": "true"
+      }
+    ]
+  },
+  {
+    "id": "42",
+    "code": "PA",
+    "name": "PA",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Philadelphia",
+        "code": "PA",
+        "tooltip": "Philadelphia, PA",
+        "latlon": [40.083738, -75.41117],
+        "address": "1255 Drummer’s Lane",
+        "cityState": "Wayne, PA 19087",
+        "email": "hellophiladelphia@coxreps.com",
+        "phone": "610-293-4100"
+      }
+    ]
+  },
+  {
+    "id": "48",
+    "code": "TX",
+    "name": "TX",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Dallas",
+        "code": "TX",
+        "tooltip": "Dallas, TX",
+        "latlon": [32.924654, -96.816738],
+        "address": "5400 LBJ Freeway",
+        "cityState": "Dallas, TX 75240",
+        "email": "hellodallas@coxreps.com",
+        "phone": "972-404-8737"
+      }
+    ]
+  },
+  {
+    "id": "53",
+    "code": "WA",
+    "name": "WA",
+    "properties": [
+      {
+        "id": 1,
+        "name": "Seattle",
+        "code": "WA",
+        "tooltip": "Seattle, WA",
+        "latlon": [47.617553, -122.350537],
+        "address": "2807 Third Avenue",
+        "cityState": "Seattle, WA 98121",
+        "email": "helloseattle@coxreps.com",
+        "phone": "206-623-3939"
+      }
+    ]
+  }
+]
