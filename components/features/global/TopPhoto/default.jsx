@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const TopPhoto = (props) => {
   const { headline, summary, link, image } = props.customFields;
 
-  console.log("props: ", props)
-  console.log("props type: ", props.type)
-  console.log("length: ", props.children.length)
+  // console.log("props: ", props)
+  // console.log("props type: ", props.type)
+  // console.log("length: ", props.children.length)
 
   return <div className="top-photo">
       <div className="image-holder">

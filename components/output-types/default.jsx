@@ -14,8 +14,6 @@ const DefaultOutputType = (props) => {
     MetaTags,
   } = props;
 
-  console.log("arcSite: ", arcSite)
-
   return (
     <html>
       <head>
