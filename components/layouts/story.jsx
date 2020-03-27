@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from "fusion:prop-types";
 import { useComponentContext } from "fusion:context";
 import { useContent } from "fusion:content";
-
 import './story.scss';
 
-const Story = (props) => {
+const Story = () => {
   // console.log("props: ", props);
 
   const { globalContent } = useComponentContext();
@@ -16,8 +15,6 @@ const Story = (props) => {
   });
 
   console.log("content:", content);
-  console.log("content:", content.credits.by.length);
-  
 
   const bodyElements = content.content_elements.map(item => {
     if (item.type === "text"){
@@ -25,15 +22,9 @@ const Story = (props) => {
     } else if (item.type === "image") {
       return <img src={item.url} />;
     }
-    // else if (item.type === "oembed_response" && item.subtype === "youtube") {
-    //   return <div dangerouslySetInnerHTML={{ __html: item.raw_oembed.html }} />;
-    // }
   });
 
-
-
     // const [header, mainContent, rightRail, footer] = this.props.children;
-    
 
     return (
       <div className="story-layout">
@@ -41,6 +32,7 @@ const Story = (props) => {
 
         <section className="container">
             <div className="row">
+
                 <div className="col-sm-8 main-content">
                   <h1>{content.headlines.basic}</h1>
                   <p>
@@ -53,9 +45,7 @@ const Story = (props) => {
                     )}
                   </p>
                   <div className="lead-image-container">
-                    <div className="lead-image">
-                      <img src={ content.promo_items.lead_art.url } alt={ content.promo_items.lead_art.alt_text } alt={ content.promo_items.lead_art.alt_text } />
-                    </div>
+                    <img src={ content.promo_items.lead_art.url } alt={ content.promo_items.lead_art.alt_text } alt={ content.promo_items.lead_art.alt_text } />
                   </div>
                   {bodyElements}
                 </div>
@@ -74,8 +64,8 @@ const Story = (props) => {
                         </h3>
                       </li>
                     </ul>
-                    {/* {rightRail} */}
                 </div>
+
             </div>
         </section>
 
