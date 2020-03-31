@@ -6,6 +6,8 @@ import { useComponentContext } from "fusion:context";
 const StoryContent = (props) => {
   const { globalContent } = useComponentContext();
 
+  console.log("globalContent: ", globalContent);
+
   const bodyElements = globalContent.content_elements.map(item => {
     if (item.type === "text"){
       return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
