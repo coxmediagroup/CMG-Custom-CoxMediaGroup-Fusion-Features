@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './story.scss';
 
 class Story extends Component {
   render() {
