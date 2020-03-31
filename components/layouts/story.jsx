@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './story.scss';
 
 /**
  * The article right rail layout component
@@ -12,7 +13,7 @@ class Story extends Component {
     const [header, mainContent, rightRail, footer] = this.props.children;
 
     return (
-      <div className="basic-layout">
+      <div className="story-layout">
         <section className="width-full">{header}</section>
 
         <section className="container width-full">
