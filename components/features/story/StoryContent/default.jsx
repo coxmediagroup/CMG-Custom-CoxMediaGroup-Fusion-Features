@@ -3,16 +3,16 @@ import React from 'react';
 
 import { useComponentContext } from 'fusion:context';
 
-const StoryContent = (props) => {
+const StoryContent = () => {
   const { globalContent } = useComponentContext();
-
-  console.log('globalContent: ', globalContent);
 
   const bodyElements = globalContent.content_elements.map((item) => {
     if (item.type === 'text') {
       return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
     } else if (item.type === 'image') {
       return <img src={item.url} />;
+    } else {
+      return null;
     }
   });
 
@@ -28,7 +28,7 @@ const StoryContent = (props) => {
       )}
     </p>
     <div className="lead-image-container">
-      <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } alt={ globalContent.promo_items.lead_art.alt_text } />
+      <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
     </div>
     {bodyElements}
   </div>;

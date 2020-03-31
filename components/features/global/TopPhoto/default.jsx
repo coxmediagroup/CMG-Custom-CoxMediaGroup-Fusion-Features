@@ -12,13 +12,13 @@ const TopPhoto = (props) => {
 
   return <div className="top-photo">
       <div className="image-holder">
-        <a href={link} target="_blank">
+        <a href={link} target="_blank" rel="noopener noreferrer">
           <img src={image} />
         </a>
       </div>
       <h3>
         <span className="headline">
-          <a href={link} target="_blank">{headline}</a>
+          <a href={link} target="_blank" rel="noopener noreferrer">{headline}</a>
         </span>
       </h3>
       <div className="listText">{summary}</div>
