@@ -17,7 +17,7 @@ const DefaultOutputType = (props) => {
   return (
     <html>
       <head>
-        <title>CoxReps II Article</title>
+        <title>CoxReps</title>
         <MetaTags />
         <Libs />
         <CssLinks />

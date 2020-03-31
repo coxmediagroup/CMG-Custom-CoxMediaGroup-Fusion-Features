@@ -264,3 +264,14 @@ a.twitter-timeline .MediaCard-media {
 .footer a {
   color: #fff;
 }
+
+/* hack for now */
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+}
+
+.row {
+  margin-left: -15px;
+}

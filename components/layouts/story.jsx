@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './story.scss';
 
-/**
- * The article right rail layout component
- * */
 class Story extends Component {
-  /**
-   * Renders the article-one-right-rail layout component
-   * */
   render() {
     const [header, mainContent, rightRail, footer] = this.props.children;
 
@@ -18,11 +12,11 @@ class Story extends Component {
 
         <section className="container width-full">
           <div className="row">
-            <div className="col-8 main-content">
+            <div className="col-sm-8 main-content">
               {mainContent}
             </div>
 
-            <div className="col-4 right-rail">
+            <div className="col-sm-4 right-rail">
               {rightRail}
             </div>
           </div>
