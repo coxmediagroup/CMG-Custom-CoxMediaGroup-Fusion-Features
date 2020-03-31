@@ -1,3 +1,5 @@
-const properties = require('../properties/index.json');
+const properties = require("../properties/index.json");
 
-module.exports = () => properties;
+module.exports = () => {
+  return properties;
+};

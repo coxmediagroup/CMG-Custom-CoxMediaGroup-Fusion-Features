@@ -1,17 +1,17 @@
 /* eslint-disable no-else-return */
-import React from "react";
+import React from 'react';
 
-import { useComponentContext } from "fusion:context";
+import { useComponentContext } from 'fusion:context';
 
 const StoryContent = (props) => {
   const { globalContent } = useComponentContext();
 
-  console.log("globalContent: ", globalContent);
+  console.log('globalContent: ', globalContent);
 
-  const bodyElements = globalContent.content_elements.map(item => {
-    if (item.type === "text"){
+  const bodyElements = globalContent.content_elements.map((item) => {
+    if (item.type === 'text') {
       return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
-    } else if (item.type === "image") {
+    } else if (item.type === 'image') {
       return <img src={item.url} />;
     }
   });

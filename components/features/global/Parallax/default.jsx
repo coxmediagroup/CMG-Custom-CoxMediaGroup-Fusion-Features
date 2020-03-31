@@ -3,9 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Parallax = (props) => {
-  const { headline, summary, link, image } = props.customFields
+  const {
+    headline, summary, link, image,
+  } = props.customFields;
 
-  return <section className="full-width-with-background" style={{backgroundImage: `url(${image})`}}>
+  return <section className="full-width-with-background" style={{ backgroundImage: `url(${image})` }}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

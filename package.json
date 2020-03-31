@@ -9,6 +9,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "stylelint": "stylelint 'src/**/*.scss'",
     "eslint": "eslint --ext=js,jsx .",
+    "fixlint": "eslint --ext=jsx,js --fix .",
     "start": "fusion start",
     "test": "jest --coverage"
   },
