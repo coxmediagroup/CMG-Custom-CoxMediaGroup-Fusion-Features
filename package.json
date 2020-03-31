@@ -84,7 +84,6 @@
   "license": "ISC",
   "lint-staged": {
     "*.{js,json,css,scss,md,graphql}": [
-      "prettier --write",
       "git add"
     ]
   },

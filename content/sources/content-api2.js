@@ -3,9 +3,9 @@ const resolve = (key = {}) => {
 };
 export default {
   params: {
-    id: "text"
+    id: 'text',
   },
   resolve,
-  schemaName: "single-story",
-  filter: "{ content_elements { headlines { basic }}}"
+  schemaName: 'single-story',
+  filter: '{ content_elements { headlines { basic }}}',
 };
