@@ -1,43 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from "fusion:content";
+import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    headline, summary, link, image,
+    headline, collection, columns,
   } = props.customFields;
 
   const content = useContent({
     source: 'content-api2',
-    query:  { id: 'UUTHHPDO3ZCR7IZG7XZSN5RC7U' },
+    query: { id: collection, website: 'cmg-ms-40020' },
     filter: '',
   });
 
-  console.log('content2b: ', content)
-  // console.log("props type: ", props.type)
-  // console.log("length: ", props.children.length)
+  console.log('content: ', content);
+  console.log('columns: ', columns);
+
+  const items = content && content.content_elements.map((item, index) => {
+    return <Item key={index} article={item} />;
+  });
 
   return <div className="top-photo">
-      <div className="image-holder">
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <img src={image} />
-        </a>
-      </div>
-      <h3>
-        <span className="headline">
-          <a href={link} target="_blank" rel="noopener noreferrer">{headline}</a>
-        </span>
-      </h3>
-      <div className="listText">{summary}</div>
+      <h3>{headline}</h3>
+      {items}
   </div>;
 };
 
 TopPhoto.propTypes = {
   customFields: PropTypes.shape({
     headline: PropTypes.string,
-    summary: PropTypes.richtext,
-    link: PropTypes.string,
-    image: PropTypes.string,
+    collection: PropTypes.string,
+    columns: PropTypes.string,
   }),
 };
 
