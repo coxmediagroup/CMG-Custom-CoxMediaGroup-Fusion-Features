@@ -1,5 +1,5 @@
 const resolve = (key = {}) => {
-  return `/content/v4/collections?website=gray&_id=${key.id}`;
+  return `/content/v4/collections?website=cmg-ms-40020&_id=${key.id}`;
 };
 export default {
   params: {
@@ -7,5 +7,5 @@ export default {
   },
   resolve,
   schemaName: 'single-story',
-  filter: '{ content_elements { headlines { basic }}}',
+  filter: '',
 };
