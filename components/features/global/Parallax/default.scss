@@ -1,7 +1,6 @@
 .full-width-with-background {
   height: auto;
-  margin-bottom: 40px;
-  margin: 20px auto;
+  margin: 20px auto 40px;
   padding: 20px;
   background-color: #00b2ef;
   background-repeat: no-repeat;
@@ -9,7 +8,6 @@
   background-position: center 20%;
   background-size: auto;
   color: #fff;
-
   font-family: "Raleway", sans-serif;
 }
 
@@ -72,6 +70,7 @@
 }
 
 @media (min-width: 768px) {
+
   .full-width-with-background {
     height: 600px;
     margin: 0 0 40px;
@@ -95,10 +94,8 @@
   }
 }
 
-@media (min-width: 600px) {
-}
-
 @media (min-width: 480px) {
+
   .full-width-with-background .container,
   .full-width-with-background .row {
     height: 100%;

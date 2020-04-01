@@ -36,8 +36,8 @@ module.exports = (env, multisite) => {
     Object.keys(multisite).forEach(site => {
       sizeCheckEntries.push({
         fileName: `${site}/css/style.css`,
-        maxSize: 45000,
-        warningSize: 40000
+        maxSize: 300000,
+        warningSize: 300000
       });
     });
     plugins.push(new SizeCheckPlugin(sizeCheckEntries));

@@ -6,11 +6,11 @@ const PageCap = (props) => {
 
   return <div className="page-cap">
         <div className="container">
-            <div className="row-fluid">
-                <div className="span6">
+            <div className="row">
+                <div className="col-sm-6">
                   <h2>{ pagename }</h2>
                 </div>
-                <div className="span6">
+                <div className="col-sm-6">
                   <p className="pull-right">We are smart media</p>
                 </div>
             </div>

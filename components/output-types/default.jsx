@@ -13,10 +13,11 @@ const DefaultOutputType = (props) => {
     Libs,
     MetaTags,
   } = props;
+
   return (
     <html>
       <head>
-        <title>CoxReps II Article</title>
+        <title>CoxReps</title>
         <MetaTags />
         <Libs />
         <CssLinks />
@@ -53,6 +54,19 @@ DefaultOutputType.propTypes = {
   Fusion: PropTypes.func,
   Libs: PropTypes.array,
   MetaTags: PropTypes.object,
+};
+
+DefaultOutputType.transform = {
+  testio({ context }) {
+    return {
+      contentType: 'application/json',
+      data: {
+        tree: context.tree,
+        globalContent: context.globalContent,
+        renderables: context.props.renderables,
+      },
+    };
+  },
 };
 
 export default DefaultOutputType;
