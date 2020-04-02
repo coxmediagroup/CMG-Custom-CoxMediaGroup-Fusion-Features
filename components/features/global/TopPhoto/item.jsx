@@ -22,7 +22,23 @@ const Item = (props) => {
 
   return (
     <div key={props.index} className={cols}>
-      <a href={canonicalUrl}>
+      {props.linked && (
+        <a href={canonicalUrl}>
+          <div className='top-photo'>
+            {props.article.promo_items.lead_art.url && (
+              <div className='image-holder'>
+                <img src={props.article.promo_items.lead_art.url} />
+              </div>
+            )}
+            <h3 className='headline'>{props.article.headlines.basic}</h3>
+            {props.article.description.basic && props.summary && (
+              <div className='listText'>{props.article.description.basic}</div>
+            )}
+          </div>
+        </a>
+      )}
+
+      {!props.linked && (
         <div className='top-photo'>
           {props.article.promo_items.lead_art.url && (
             <div className='image-holder'>
@@ -34,7 +50,7 @@ const Item = (props) => {
             <div className='listText'>{props.article.description.basic}</div>
           )}
         </div>
-      </a>
+      )}
     </div>
   );
 };
