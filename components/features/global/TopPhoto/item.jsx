@@ -22,23 +22,19 @@ const Item = (props) => {
 
   return (
     <div key={props.index} className={cols}>
-      <div className='top-photo'>
-        {props.article.promo_items.lead_art.url && (
-          <div className='image-holder'>
-            <a href={canonicalUrl}>
+      <a href={canonicalUrl}>
+        <div className='top-photo'>
+          {props.article.promo_items.lead_art.url && (
+            <div className='image-holder'>
               <img src={props.article.promo_items.lead_art.url} />
-            </a>
-          </div>
-        )}
-        <h3>
-          <span className='headline'>
-            <a href={canonicalUrl}>{props.article.headlines.basic}</a>
-          </span>
-        </h3>
-        {props.article.description.basic && (
-          <div className='listText'>{props.article.description.basic}</div>
-        )}
-      </div>
+            </div>
+          )}
+          <h3 className='headline'>{props.article.headlines.basic}</h3>
+          {props.article.description.basic && props.summary && (
+            <div className='listText'>{props.article.description.basic}</div>
+          )}
+        </div>
+      </a>
     </div>
   );
 };
