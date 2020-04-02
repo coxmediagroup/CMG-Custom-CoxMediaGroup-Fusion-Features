@@ -1,37 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useContent } from "fusion:content";
+import { useContent } from 'fusion:content';
 import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    headline, collection, columns,
+    Title, Collection, Linked, Summary, Columns,
   } = props.customFields;
 
   const content = useContent({
     source: 'content-api2',
-    query: { id: collection, website: 'cmg-ms-40020' },
+    query: { id: Collection, website: 'cmg-ms-40020' },
     filter: '',
   });
 
-  console.log('content: ', content);
-  console.log('columns: ', columns);
-
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} />;
+    return <Item key={index} article={item} columns={Columns} />;
   });
 
-  return <div className="top-photo">
-      <h3>{headline}</h3>
-      {items}
+  return <div className='top-photo'>
+      {Title && (
+        <h3>{Title}</h3>
+      )}
+      <div className='row'>
+        {items}
+      </div>
   </div>;
 };
 
 TopPhoto.propTypes = {
   customFields: PropTypes.shape({
-    headline: PropTypes.string,
-    collection: PropTypes.string,
-    columns: PropTypes.string,
+    Title: PropTypes.string,
+    Collection: PropTypes.string.isRequired,
+    Linked: PropTypes.boolean,
+    Summary: PropTypes.boolean,
+    Columns: PropTypes.oneOf([
+      '1', '3', '4',
+    ]).tag({
+      defaultValue: '1',
+      description: 'This is the number of columns',
+      // group: 'examples',
+      labels: { 1: '1', 3: '3', 4: '4' },
+    }),
   }),
 };
 

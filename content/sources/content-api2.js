@@ -7,5 +7,5 @@ export default {
   },
   resolve,
   schemaName: 'single-story',
-  filter: '{ content_elements { headlines { basic }, canonical_url, promo_items { lead_art { additional_properties }}}}',
+  filter: '',
 };
