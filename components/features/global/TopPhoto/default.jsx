@@ -32,17 +32,27 @@ const TopPhoto = (props) => {
 
 TopPhoto.propTypes = {
   customFields: PropTypes.shape({
-    Title: PropTypes.string,
-    Collection: PropTypes.string.isRequired,
-    Linked: PropTypes.boolean,
-    Summary: PropTypes.boolean,
+    Title: PropTypes.string.tag({
+      group: 'Feature options',
+    }),
+    Collection: PropTypes.string.tag({
+      group: 'Feature options',
+    }),
     Columns: PropTypes.oneOf([
       '1', '3', '4',
     ]).tag({
       defaultValue: '1',
       description: 'This is the number of columns',
-      // group: 'examples',
+      group: 'Feature options',
       labels: { 1: '1', 3: '3', 4: '4' },
+    }),
+    Linked: PropTypes.boolean.tag({
+      group: 'Item options',
+      defaultValue: true,
+    }),
+    Summary: PropTypes.boolean.tag({
+      group: 'Item options',
+      defaultValue: true,
     }),
   }),
 };
