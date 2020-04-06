@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Item = (props) => {
-  console.log('all props: ', props);
-
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
 
   return (
-    <div key={props.index}>
+    <div key={props.key}>
       {props.linked && (
         <a href={canonicalUrl}>
           <li>
@@ -38,6 +37,13 @@ const Item = (props) => {
       )}
     </div>
   );
+};
+
+Item.propTypes = {
+  key: PropTypes.integer.isRequired,
+  article: PropTypes.object.isRequired,
+  summary: PropTypes.boolean.isRequired,
+  linked: PropTypes.boolean.isRequired,
 };
 
 export default Item;

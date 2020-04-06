@@ -14,8 +14,6 @@ const TopPhoto = (props) => {
     filter: '',
   });
 
-  console.log('Summary: ', Summary);
-
   const items = content && content.content_elements.map((item, index) => {
     return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} />;
   });

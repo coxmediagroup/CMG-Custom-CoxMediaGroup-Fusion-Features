@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Item = (props) => {
-  console.log('all props: ', props);
-
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
   let cols;
 
@@ -21,7 +20,7 @@ const Item = (props) => {
   }
 
   return (
-    <div key={props.index} className={cols}>
+    <div key={props.key} className={cols}>
       {props.linked && (
         <a href={canonicalUrl}>
           <div className='top-photo'>
@@ -53,6 +52,14 @@ const Item = (props) => {
       )}
     </div>
   );
+};
+
+Item.propTypes = {
+  key: PropTypes.integer.isRequired,
+  article: PropTypes.object.isRequired,
+  columns: PropTypes.string.isRequired,
+  summary: PropTypes.boolean.isRequired,
+  linked: PropTypes.boolean.isRequired,
 };
 
 export default Item;
