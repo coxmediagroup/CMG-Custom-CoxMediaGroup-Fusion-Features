@@ -40,10 +40,10 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  key: PropTypes.integer.isRequired,
-  article: PropTypes.object.isRequired,
-  summary: PropTypes.boolean.isRequired,
-  linked: PropTypes.boolean.isRequired,
+  key: PropTypes.integer,
+  article: PropTypes.object,
+  summary: PropTypes.boolean,
+  linked: PropTypes.boolean,
 };
 
 export default Item;

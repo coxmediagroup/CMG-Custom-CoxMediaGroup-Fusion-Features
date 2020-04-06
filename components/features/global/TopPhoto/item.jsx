@@ -55,11 +55,11 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  key: PropTypes.integer.isRequired,
-  article: PropTypes.object.isRequired,
-  columns: PropTypes.string.isRequired,
-  summary: PropTypes.boolean.isRequired,
-  linked: PropTypes.boolean.isRequired,
+  key: PropTypes.integer,
+  article: PropTypes.object,
+  columns: PropTypes.string,
+  summary: PropTypes.boolean,
+  linked: PropTypes.boolean,
 };
 
 export default Item;
