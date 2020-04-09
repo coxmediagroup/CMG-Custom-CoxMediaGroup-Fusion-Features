@@ -6,22 +6,22 @@ class Story extends Component {
     const [header, mainContent, rightRail, footer] = this.props.children;
 
     return (
-      <div className="story-layout">
-        <section className="width-full">{header}</section>
+      <div className='story-layout'>
+        <section className='width-full'>{header}</section>
 
-        <section className="container width-full">
-          <div className="row">
-            <div className="col-sm-8 main-content">
+        <section className='container width-full'>
+          <div className='row'>
+            <div className='col-md-8 main-content'>
               {mainContent}
             </div>
 
-            <div className="col-sm-4 right-rail">
+            <div className='col-md-4 right-rail'>
               {rightRail}
             </div>
           </div>
         </section>
 
-        <footer className="width-full">
+        <footer className='width-full'>
           {footer}
         </footer>
       </div>

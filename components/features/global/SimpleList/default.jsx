@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Item from './item';
 
-const TopPhoto = (props) => {
+const SimpleList = (props) => {
   const {
-    Title, Collection, Linked, Summary, Columns,
+    Title, Collection, Linked, Summary,
   } = props.customFields;
 
   const content = useContent({
@@ -15,34 +15,26 @@ const TopPhoto = (props) => {
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} />;
+    return <Item key={index} article={item} summary={Summary} linked={Linked} />;
   });
 
-  return <div className='top-photo'>
+  return <div className='simple-list'>
       {Title && (
-        <h3>{Title}</h3>
+        <h4>{Title}</h4>
       )}
-      <div className='row'>
+      <ul className='list-unstyled'>
         {items}
-      </div>
+      </ul>
   </div>;
 };
 
-TopPhoto.propTypes = {
+SimpleList.propTypes = {
   customFields: PropTypes.shape({
     Title: PropTypes.string.tag({
       group: 'Feature options',
     }),
     Collection: PropTypes.string.tag({
       group: 'Feature options',
-    }),
-    Columns: PropTypes.oneOf([
-      '1', '3', '4',
-    ]).tag({
-      defaultValue: '1',
-      description: 'This is the number of columns',
-      group: 'Feature options',
-      labels: { 1: '1', 3: '3', 4: '4' },
     }),
     Linked: PropTypes.boolean.tag({
       group: 'Item options',
@@ -55,4 +47,4 @@ TopPhoto.propTypes = {
   }),
 };
 
-export default TopPhoto;
+export default SimpleList;
