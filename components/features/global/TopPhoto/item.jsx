@@ -5,8 +5,6 @@ const Item = (props) => {
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
   let cols;
 
-  console.log("props.centered: ", props)
-
   switch (props.columns) {
     case '1':
       cols = 'col-md-12';
