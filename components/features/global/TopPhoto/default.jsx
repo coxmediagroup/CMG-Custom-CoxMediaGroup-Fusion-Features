@@ -5,7 +5,7 @@ import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    Title, Collection, Linked, Summary, Columns,
+    Title, Collection, Linked, Summary, Columns, Centered,
   } = props.customFields;
 
   const content = useContent({
@@ -15,7 +15,7 @@ const TopPhoto = (props) => {
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} />;
+    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
   });
 
   return <div className='top-photo'>
@@ -49,6 +49,10 @@ TopPhoto.propTypes = {
       defaultValue: true,
     }),
     Summary: PropTypes.boolean.tag({
+      group: 'Item options',
+      defaultValue: true,
+    }),
+    Centered: PropTypes.boolean.tag({
       group: 'Item options',
       defaultValue: true,
     }),

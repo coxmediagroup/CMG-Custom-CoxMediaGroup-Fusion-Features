@@ -5,18 +5,20 @@ const Item = (props) => {
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
   let cols;
 
+  console.log("props.centered: ", props)
+
   switch (props.columns) {
     case '1':
-      cols = 'col-12';
+      cols = 'col-md-12';
       break;
     case '3':
-      cols = 'col-4';
+      cols = 'col-md-4';
       break;
     case '4':
-      cols = 'col-3';
+      cols = 'col-md-3';
       break;
     default:
-      cols = 'col-1';
+      cols = 'col-md-1';
   }
 
   return (
@@ -29,7 +31,9 @@ const Item = (props) => {
                 <img src={props.article.promo_items.lead_art.url} />
               </div>
             )}
-            <h3 className='headline'>{props.article.headlines.basic}</h3>
+            <h4
+              className={`headline${
+                props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}</h4>
             {props.article.description.basic && props.summary && (
               <div className='listText'>{props.article.description.basic}</div>
             )}
@@ -44,7 +48,9 @@ const Item = (props) => {
               <img src={props.article.promo_items.lead_art.url} />
             </div>
           )}
-          <h3 className='headline'>{props.article.headlines.basic}</h3>
+          <h4
+            className={`headline${
+              props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}</h4>
           {props.article.description.basic && props.summary && (
             <div className='listText'>{props.article.description.basic}</div>
           )}
@@ -60,6 +66,7 @@ Item.propTypes = {
   columns: PropTypes.string,
   summary: PropTypes.boolean,
   linked: PropTypes.boolean,
+  centered: PropTypes.boolean,
 };
 
 export default Item;
