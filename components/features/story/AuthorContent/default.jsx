@@ -1,7 +1,13 @@
 /* eslint-disable no-else-return */
 import React from 'react';
+import { useComponentContext } from 'fusion:context';
+
+// const { globalContent } = useComponentContext();
 
 const AuthorContent = () => {
+  // eslint-disable-next-line no-console
+  console.log('globalContent: ', useComponentContext);
+
   return <div className='row'>
     <div className='col-7'>
       <div className="lead-image-container">

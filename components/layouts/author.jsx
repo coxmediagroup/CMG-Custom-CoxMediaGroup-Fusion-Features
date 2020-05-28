@@ -10,6 +10,7 @@ class Author extends Component {
         <section className='width-full'>{header}</section>
 
         <section className='container width-full'>
+          <h1>Leadership</h1>
           {mainContent}
         </section>
 
