@@ -1,10 +1,6 @@
 .navbar {
+  box-sizing: border-box;
   background-color: #fff;
-  
-  &, & * {
-    box-sizing: border-box;
-  }
-  
   width: 100%;
   position: fixed;
   top: 0;
@@ -71,8 +67,8 @@
           padding: 0;
           margin: -1px;
           overflow: hidden;
-          clip: rect(0,0,0,0);
-          border: 0
+          clip: rect(0, 0, 0, 0);
+          border: 0;
         }
 
         .icon-bar {
@@ -91,9 +87,10 @@
 
     .navbar-collapse {
       background-color: #fff;
-      transition: transform 0.5s ease;
+      transition: transform .5s ease;
 
       @media (max-width: 767px) {
+
         &.collapse {
           transform: translateY(-100%);
         }
@@ -111,6 +108,7 @@
         }
   
         li {
+
           a {
             padding: 15px;
             display: block;
@@ -118,7 +116,7 @@
             color: #777;
             text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all .3s ease;
 
             &:hover {
               color: #333;
