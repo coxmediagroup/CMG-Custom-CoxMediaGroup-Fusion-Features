@@ -1,0 +1,131 @@
+.navbar {
+  background-color: #fff;
+  
+  &, & * {
+    box-sizing: border-box;
+  }
+  
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+
+  > .container {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .navbar-header {
+      background-color: #fff;
+      z-index: 100;
+
+      @media (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navbar-brand {
+        display: block;
+
+        .logo {
+          width: 160px;
+          padding: 0 15px;
+
+          @media (min-width: 768px) and (max-width: 1023px) {
+            width: 120px;
+          }
+    
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .navbar-toggle {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        width: 50px;
+        height: 40px;
+        display: none;
+        position: relative;
+        background: none;
+  
+        @media (max-width: 767px) {
+          display: block;
+        }
+
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0
+        }
+
+        .icon-bar {
+          margin-top: 4px;
+          display: block;
+          height: 2px;
+          border-radius: 1px;
+          background-color: #888;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .navbar-collapse {
+      background-color: #fff;
+      transition: transform 0.5s ease;
+
+      @media (max-width: 767px) {
+        &.collapse {
+          transform: translateY(-100%);
+        }
+      }
+      
+      .navbar-nav {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+  
+        @media (max-width: 767px) {
+          flex-direction: column;
+        }
+  
+        li {
+          a {
+            padding: 15px;
+            display: block;
+            font-size: 11px;
+            color: #777;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
