@@ -39,6 +39,11 @@ img {
   width: 100%;
 }
 
+/* new styles for arc */
+.headline {
+  text-transform: uppercase;
+}
+
 .header-main {
   height: 50px;
   margin-bottom: 20px;
