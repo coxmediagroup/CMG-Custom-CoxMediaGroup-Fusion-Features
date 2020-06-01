@@ -15,7 +15,7 @@ h5,
 h6 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 h1 {
@@ -39,10 +39,11 @@ img {
   width: 100%;
 }
 
-/* new styles for arc */
+/* begin new styles for arc */
 .headline {
   text-transform: uppercase;
 }
+/* end new styles for arc */
 
 .header-main {
   height: 50px;
@@ -124,10 +125,6 @@ img {
   width: 100%;
 }
 
-#navbar {
-  float: right;
-}
-
 .navbar {
   margin-bottom: 0;
 }
@@ -145,12 +142,6 @@ img {
 @media (min-width: 768px) and (max-width: 902px) {
   .navbar-default .navbar-nav > li > a {
     padding: 10px 10px 0 0;
-  }
-}
-
-@media (max-width: 767px) {
-  #navbar {
-    float: none;
   }
 }
 
@@ -175,11 +166,6 @@ img {
   color: #292929;
   opacity: 0.5;
   transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-}
-
-.nav .active a {
-  /* background-color: #3775cc; */
 }
 
 .nav > li > a:focus,
@@ -209,7 +195,7 @@ footer h6 {
 .tease {
   margin-bottom: 30px;
   color: #5b5b5b;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial, Helvetica, sans-serif';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -255,7 +241,7 @@ section {
 
 /* twitter and instagram widgets */
 a.twitter-timeline .MediaCard-media {
-  display: none !important;
+  display: none;
 }
 
 .footer {

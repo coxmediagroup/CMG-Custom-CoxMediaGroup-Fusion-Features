@@ -1,7 +1,7 @@
 /* eslint-disable no-else-return */
 import React from 'react';
-
 import { useComponentContext } from 'fusion:context';
+import moment from 'moment';
 
 const StoryContent = () => {
   const { globalContent } = useComponentContext();
@@ -16,22 +16,26 @@ const StoryContent = () => {
     }
   });
 
-  return <div className="base-test">
+  return <>
     <h1>{globalContent.headlines.basic}</h1>
-    <p>
-      <strong>Published: </strong>{ globalContent.last_updated_date }<br />
+    <p className='story-info'>
+      <strong>Published: </strong>{moment(globalContent.last_updated_date).format('dddd, MMMM D, YYYY @ h:mm a')}<br />
       {/* is there at least one credit */}
       {globalContent.credits.by.length > 0 && (
         <span className="bylines">
-            <strong>By: </strong>
+            <strong>By: { globalContent.credits.by[0].name }</strong>
         </span>
       )}
     </p>
     <div className="lead-image-container">
-      <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
+      <div className='lead-image'>
+        <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
+      </div>
     </div>
-    {bodyElements}
-  </div>;
+    <div className='article-content'>
+      {bodyElements}
+    </div>
+  </>;
 };
 
 export default StoryContent;
