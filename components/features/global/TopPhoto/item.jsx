@@ -49,9 +49,10 @@ const Item = (props) => {
           <h4
             className={`headline${
               props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}</h4>
-          {props.article.description.basic && props.summary && (
-            <div className='listText'>{props.article.description.basic}</div>
-          )}
+            {props.article.description.basic && props.summary && (
+              <div className={`listText${
+                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
+            )}
         </div>
       )}
     </div>

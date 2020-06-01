@@ -11,7 +11,7 @@ const AuthorContent = () => {
   }
 
   console.log('authorData: ', authorData);
-  const bioFormatted = authorData.longBio.split(/[\n\r]+/).map(line => `<p>${line}</p>`).join("");
+  const bioFormatted = authorData.longBio.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
 
   return <div className='row'>
     <div className='col-md-7'>
