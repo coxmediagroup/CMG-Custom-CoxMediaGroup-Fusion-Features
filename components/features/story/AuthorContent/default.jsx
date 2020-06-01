@@ -11,8 +11,7 @@ const AuthorContent = () => {
   }
 
   console.log('authorData: ', authorData);
-
-  const bioFormatted = authorData.longBio.split("/n").map(line => `<p>${line}</p>`).join() 
+  const bioFormatted = authorData.longBio.split(/[\n\r]+/).map(line => `<p>${line}</p>`).join("");
 
   return <div className='row'>
     <div className='col-md-7'>
@@ -26,12 +25,7 @@ const AuthorContent = () => {
     <div className='col-md-5'>
       <h1>{authorData.byline}</h1>
       <p className="job-title">{authorData.role}</p>
-      <div className='author-content'>
-
-          {authorData.longBio}
-
-        
-      </div>
+      <div className='author-content' dangerouslySetInnerHTML={{ __html: bioFormatted }}></div>
     </div>
   </div>;
 };
