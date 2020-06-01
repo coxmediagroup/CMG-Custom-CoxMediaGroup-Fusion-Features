@@ -7,10 +7,10 @@ const AuthorContent = () => {
   let authorData;
 
   if (globalContent && globalContent.authors.length > 0) {
+    // eslint-disable-next-line prefer-destructuring
     authorData = globalContent.authors[0];
   }
 
-  console.log('authorData: ', authorData);
   const bioFormatted = authorData.longBio.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
 
   return <div className='row'>
