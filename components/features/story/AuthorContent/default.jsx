@@ -28,7 +28,7 @@ const AuthorContent = () => {
       <p className="job-title">{authorData.role}</p>
       <div className='author-content'>
 
-          {bioFormatted}
+          {authorData.longBio}
 
         
       </div>
