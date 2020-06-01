@@ -1,4 +1,5 @@
-.story-layout {
+.story-layout,
+.author-layout {
 
   h1 {
     text-align: left;
@@ -8,9 +9,63 @@
     margin-bottom: 20px;
     max-height: 400px;
     overflow: hidden;
-    background: #000;
+    background: transparent;
     text-align: center;
     max-width: 712px;
+  }
+
+  .lead-image-container .lead-image {
+    max-height: 400px;
+    overflow: hidden;
+    text-align: center;
+    max-width: 712px;
+  }
+
+  .lead-image-container .lead-image img {
+    width: auto;
+  }
+
+  .article-content,
+  .author-content {
+    margin-bottom: 30px;
+    color: #5b5b5b;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .author-content {
+    line-height: 32px;
+  }
+}
+
+.story-layout {
+  .lead-image-container .lead-image img {
+    width: 100%;
+  }
+}
+
+.author-layout {
+
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .job-title {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    color: #777;
+    font-size: 14px;
+    text-transform: none;
+  }
+
+  p {
+    line-height: 32px;
   }
 }
 

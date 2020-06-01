@@ -28,9 +28,13 @@ const StoryContent = () => {
       )}
     </p>
     <div className="lead-image-container">
-      <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
+      <div className='lead-image'>
+        <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
+      </div>
     </div>
-    {bodyElements}
+    <div className='article-content'>
+      {bodyElements}
+    </div>
   </div>;
 };
 
