@@ -23,7 +23,7 @@ const StoryContent = () => {
       {/* is there at least one credit */}
       {globalContent.credits.by.length > 0 && (
         <span className="bylines">
-            <strong>By: { globalContent.credits.by[0].name }</strong>
+            <strong>By: </strong>{ globalContent.credits.by[0].name }
         </span>
       )}
     </p>
