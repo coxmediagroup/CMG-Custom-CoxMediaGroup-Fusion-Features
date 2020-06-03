@@ -5,7 +5,7 @@ import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    Title, Description, Collection, Linked, Summary, Columns, Centered,
+    Title, Description, Collection, ImagePlacement, Linked, Summary, Columns, Centered,
   } = props.customFields;
 
   const content = useContent({
@@ -17,6 +17,8 @@ const TopPhoto = (props) => {
   const items = content && content.content_elements.map((item, index) => {
     return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
   });
+
+  console.log("ImagePlacement: ", ImagePlacement);
 
   return <div className='photo-list'>
     <div className="feature-options">
@@ -43,6 +45,14 @@ TopPhoto.propTypes = {
     }),
     Collection: PropTypes.string.tag({
       group: 'Feature options',
+    }),
+    ImagePlacement: PropTypes.oneOf([
+      'Top', 'Left', 'Right',
+    ]).tag({
+      defaultValue: 'top',
+      description: 'This is the image placemnet',
+      group: 'Feature options',
+      labels: { top: 'Top', left: 'Left', right: 'Right' },
     }),
     Columns: PropTypes.oneOf([
       '1', '3', '4',
