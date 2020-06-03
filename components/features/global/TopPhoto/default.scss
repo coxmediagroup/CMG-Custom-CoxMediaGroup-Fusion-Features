@@ -1,0 +1,43 @@
+.top-photo .listText {
+  color: #5b5b5b;
+  font-size: 1.13rem;
+  font-weight: 400;
+  line-height: 1.56rem;
+}
+
+@media (max-width: 767px) {
+
+  .top-photo .headline {
+    font-size: 1.38rem;
+    text-align: left;
+  }
+
+  .top-photo .headline.centered {
+    text-align: left;
+  }
+
+  .top-photo .listText.show-me-mobile {
+    display: block;
+    text-align: left;
+  }
+
+  .top-photo .listText.show-me {
+    text-align: left;
+  }
+}
+
+@media (min-width: 767px) {
+
+  .top-photo .headline {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .top-photo .headline.centered {
+    text-align: center;
+  }
+
+  .top-photo .listText.show-me-mobile {
+    display: none;
+  }
+}
