@@ -20,7 +20,8 @@ const Item = (props) => {
   }
 
   return (
-    <div key={props.index} className={cols}>
+    // eslint-disable-next-line react/prop-types
+    <div key={props.key} className={cols}>
       {props.linked && (
         <a href={canonicalUrl}>
           <div className='top-photo'>
