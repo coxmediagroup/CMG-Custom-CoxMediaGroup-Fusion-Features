@@ -15,7 +15,7 @@ const TopPhoto = (props) => {
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
+    return <Item index={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
   });
 
   return <div className='top-photo'>

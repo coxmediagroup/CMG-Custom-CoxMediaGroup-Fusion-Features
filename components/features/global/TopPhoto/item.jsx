@@ -20,7 +20,7 @@ const Item = (props) => {
   }
 
   return (
-    <div key={props.key} className={cols}>
+    <div key={props.index} className={cols}>
       {props.linked && (
         <a href={canonicalUrl}>
           <div className='top-photo'>
@@ -31,9 +31,12 @@ const Item = (props) => {
             )}
             <h4
               className={`headline${
-                props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}</h4>
-            {props.article.description.basic && props.summary && (
-              <div className='listText'>{props.article.description.basic}</div>
+                props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+            </h4>
+            {props.article.description.basic && (
+              <div className={`listText${
+                props.summary ? ' show-me' : ' show-me-mobile'}${
+                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
             )}
           </div>
         </a>
@@ -48,9 +51,11 @@ const Item = (props) => {
           )}
           <h4
             className={`headline${
-              props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}</h4>
-            {props.article.description.basic && props.summary && (
+              props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+          </h4>
+            {props.article.description.basic && (
               <div className={`listText${
+                props.summary ? ' show-me' : ' show-me-mobile'}${
                 props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
             )}
         </div>
@@ -60,7 +65,7 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  key: PropTypes.integer,
+  index: PropTypes.integer,
   article: PropTypes.object,
   columns: PropTypes.string,
   summary: PropTypes.boolean,
