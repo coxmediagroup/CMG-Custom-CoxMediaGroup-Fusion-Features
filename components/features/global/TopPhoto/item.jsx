@@ -19,6 +19,8 @@ const Item = (props) => {
       cols = 'col-md-1';
   }
 
+  console.log("props: ", props);
+
   return (
     // eslint-disable-next-line react/prop-types
     <div key={props.key} className={cols}>
