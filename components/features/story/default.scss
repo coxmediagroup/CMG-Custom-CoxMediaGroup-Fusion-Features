@@ -37,7 +37,13 @@
   }
 
   .article-content a,
-  .author-content a {
+  .article-content a:hover,
+  .article-content a:active,
+  .article-content a:focus,
+  .author-content a,
+  .author-content a:hover,
+  .author-content a:active,
+  .author-content a:focus {
     color: #00b3f0;
   }
 
