@@ -7,6 +7,8 @@ const Parallax = (props) => {
     headline, summary, link, image,
   } = props.customFields;
 
+  const summaryFormatted = summary.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
+
   return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${image})` }}>
         <div className="container">
             <div className="row">
@@ -22,9 +24,7 @@ const Parallax = (props) => {
                         </p>
                         <div className="listText">
                             <a href={link}>
-                                <summary>
-                                    <p>{summary}</p>
-                                </summary>
+                                <summary dangerouslySetInnerHTML={{ __html: summaryFormatted }}></summary>
                             </a>
                         </div>
                     </div>
