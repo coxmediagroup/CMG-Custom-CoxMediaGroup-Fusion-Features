@@ -5,10 +5,14 @@
   line-height: 1.56rem;
 }
 
+// mobile
 @media (max-width: 767px) {
+  .top-photo {
+    border: 1px solid orange;
+  }
 
   .top-photo .headline {
-    font-size: 1.38rem;
+    font-size: 1.13rem;
     text-align: left;
   }
 
@@ -31,6 +35,10 @@
   .top-photo .headline {
     font-size: 1.5rem;
     text-align: left;
+  }
+
+  .top-photo .listText {
+    font-size: 1rem;
   }
 
   .top-photo .headline.centered {
