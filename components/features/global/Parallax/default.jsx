@@ -7,31 +7,31 @@ const Parallax = (props) => {
     headline, summary, link, image,
   } = props.customFields;
 
-  return <section className="full-width-with-background" style={{ backgroundImage: `url(${image})` }}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="tease item-with-background ">
-                            <h3>
-                                <span className="headline ">
-                                    <a href={link}>{headline}</a>
-                                </span>
-                            </h3>
-                            <p>
-                                <a href={link}></a>
-                            </p>
-                            <div className="listText">
-                                <a href={link}>
-                                    <summary>
-                                        <p>{summary}</p>
-                                    </summary>
-                                </a>
-                            </div>
+  return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${image})` }}>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="tease item-with-background ">
+                        <h3>
+                            <span className="headline ">
+                                <a href={link}>{headline}</a>
+                            </span>
+                        </h3>
+                        <p>
+                            <a href={link}></a>
+                        </p>
+                        <div className="listText">
+                            <a href={link}>
+                                <summary>
+                                    <p>{summary}</p>
+                                </summary>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-          </section>;
+        </div>
+    </section>;
 };
 
 Parallax.propTypes = {
@@ -40,12 +40,6 @@ Parallax.propTypes = {
     summary: PropTypes.richtext,
     link: PropTypes.string,
     image: PropTypes.string,
-    // content: PropTypes.contentConfig('single-story').tag({
-    //   name: 'Content Source',
-    // }),
-    // canonicalUrl: PropTypes.string.tag({
-    //   name: 'Composer URL',
-    // }),
   }),
 };
 
