@@ -1,6 +1,7 @@
 .navbar {
-  box-sizing: border-box;
-  background-color: #fff;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 0;
   width: 100%;
   position: fixed;
   top: 0;
@@ -24,7 +25,6 @@
     }
 
     .navbar-header {
-      background-color: #fff;
       z-index: 100;
 
       @media (max-width: 767px) {
@@ -38,9 +38,9 @@
 
         .logo {
           width: 160px;
-          padding: 0 15px;
+          padding: 0;
 
-          @media (min-width: 768px) and (max-width: 1023px) {
+          @media (min-width: 768px) and (max-width: 901px) {
             width: 120px;
           }
     
@@ -51,10 +51,11 @@
       }
 
       .navbar-toggle {
+        margin: 0;
         border: 1px solid #ddd;
         border-radius: 4px;
         padding: 10px;
-        width: 50px;
+        width: 45px;
         height: 40px;
         display: none;
         position: relative;
@@ -76,27 +77,25 @@
         }
 
         .icon-bar {
-          margin-top: 4px;
           display: block;
           height: 2px;
           border-radius: 1px;
           background-color: #888;
 
-          &:first-child {
-            margin-top: 0;
+          & + .icon-bar {
+            margin-top: 4px;
           }
         }
       }
     }
 
     .navbar-collapse {
-      background-color: #fff;
-      transition: transform .5s ease;
+      flex: 0 1 auto;
 
-      @media (max-width: 767px) {
-
+      @media (min-width: 768px) {
+        
         &.collapse {
-          transform: translateY(-100%);
+          display: block;
         }
       }
       
@@ -124,6 +123,10 @@
 
             &:hover {
               color: #333;
+            }
+
+            @media (min-width: 768px) and (max-width: 902px) {
+              padding: 15px 5px;
             }
           }
         }

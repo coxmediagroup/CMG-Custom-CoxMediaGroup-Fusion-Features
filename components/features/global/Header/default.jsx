@@ -12,7 +12,7 @@ const Header = () => {
           <div className="navbar-header">
             <a className="navbar-brand" href="//www.coxreps.com/">
               <div className="logo">
-                <img src="https://www.coxreps.com/rw/PortalConfig/coxreps/assets/images/logo.png" />
+                <img src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.cmg/YDAQIMVRDVA3ZLIUEMXQNOH5GY.png" />
               </div>
             </a>
             <button type="button"
