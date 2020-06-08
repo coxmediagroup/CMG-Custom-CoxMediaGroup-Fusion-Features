@@ -37,7 +37,6 @@
 
 .full-width-with-background .col-md-12 {
   display: table;
-  height: 100%;
   padding: 0;
 }
 
@@ -76,7 +75,7 @@
   display: block;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
 
   .tease.item-with-background h3,
   .tease.item-with-background h3 a {
@@ -86,15 +85,13 @@
   .tease.item-with-background p,
   .tease.item-with-background .listText {
     font-size: 24px;
-    line-height: 64px;
+    line-height: 36px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 956px) {
 
   .full-width-with-background {
-    // height: 600px;
-    height: 100%;
     margin: 0 0 40px;
     padding: 20px 0;
     background-size: 100% auto;
@@ -112,16 +109,11 @@
   .tease.item-with-background p,
   .tease.item-with-background .listText {
     font-size: 24px;
-    line-height: 64px;
+    line-height: 36px;
   }
 }
 
 @media (min-width: 480px) {
-
-  .full-width-with-background .container,
-  .full-width-with-background .row {
-    height: 100%;
-  }
 
   .tease.item-with-background {
     padding: 25px;
