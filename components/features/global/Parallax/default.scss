@@ -48,7 +48,7 @@
   border: 1px solid #fff;
   font-family: "Raleway", sans-serif;
   text-align: center;
-  text-shadow: 2px 2px 2px #000;
+  // text-shadow: 2px 2px 2px #000;
 }
 
 .tease.item-with-background i {
@@ -72,10 +72,29 @@
   line-height: auto;
 }
 
+.parallax summary {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+
+  .tease.item-with-background h3,
+  .tease.item-with-background h3 a {
+    font-size: 48px;
+  }
+
+  .tease.item-with-background p,
+  .tease.item-with-background .listText {
+    font-size: 24px;
+    line-height: 64px;
+  }
+}
+
 @media (min-width: 768px) {
 
   .full-width-with-background {
-    height: 600px;
+    // height: 600px;
+    height: 100%;
     margin: 0 0 40px;
     padding: 20px 0;
     background-size: 100% auto;
@@ -87,7 +106,7 @@
 
   .tease.item-with-background h3,
   .tease.item-with-background h3 a {
-    font-size: 56px;
+    font-size: 48px;
   }
 
   .tease.item-with-background p,
