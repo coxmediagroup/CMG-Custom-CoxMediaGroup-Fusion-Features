@@ -10,7 +10,7 @@ const Header = () => {
     <section className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <a className="navbar-brand" href="//www.coxreps.com/">
+            <a className="navbar-brand" href="/">
               <div className="logo">
                 <img src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.cmg/YDAQIMVRDVA3ZLIUEMXQNOH5GY.png" />
               </div>
@@ -31,19 +31,19 @@ const Header = () => {
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               <li>
-                <a href="//www.coxreps.com/our-companies/">Our Companies</a>
+                <a href="/our-companies/">Our Companies</a>
               </li>
               <li>
-                <a href="//www.coxreps.com/our-leadership/">Our Leadership</a>
+                <a href="/our-leadership/">Our Leadership</a>
               </li>
               <li>
-                <a href="//www.coxreps.com/our-opportunities/">Our Opportunities</a>
+                <a href="/our-opportunities/">Our Opportunities</a>
               </li>
               <li>
-                <a href="//www.coxreps.com/watch-and-read/">Watch &amp; Read</a>
+                <a href="/watch-and-read/">Watch &amp; Read</a>
               </li>
               <li>
-                <a href="//www.coxreps.com/contact-us/">Contact us</a>
+                <a href="/contact-us/">Contact us</a>
               </li>
             </ul>
           </div>
