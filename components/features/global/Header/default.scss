@@ -80,6 +80,10 @@
           display: block;
         }
 
+        &:hover {
+          background-color: #ddd;
+        }
+
         .sr-only {
           position: absolute;
           width: 1px;
