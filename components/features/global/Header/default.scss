@@ -1,6 +1,6 @@
 .navbar {
   margin: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e7e7e7;
   padding: 0;
   width: 100%;
   position: fixed;
@@ -8,8 +8,17 @@
   left: 0;
   z-index: 1030;
 
+  @media (max-width: 767px) {
+    
+    &.navbar-fixed-top,
+    &.navbar-fixed-bottom,
+    &.navbar-static-top {
+      margin: 0;
+    }
+  }
+
   > .container {
-    padding: 0 15px;
+    padding: 0;
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -25,12 +34,18 @@
     }
 
     .navbar-header {
+      padding: 0 15px;
       z-index: 100;
 
       @media (max-width: 767px) {
+        border-bottom: 1px solid #e7e7e7;
         display: flex;
         align-items: center;
         justify-content: space-between;
+      }
+
+      @media (min-width: 768px) and (max-width: 902px) {
+        padding: 0 10px;
       }
 
       .navbar-brand {
@@ -40,7 +55,7 @@
           width: 160px;
           padding: 0;
 
-          @media (min-width: 768px) and (max-width: 901px) {
+          @media (min-width: 768px) and (max-width: 902px) {
             width: 120px;
           }
     
@@ -127,6 +142,7 @@
 
             @media (min-width: 768px) and (max-width: 902px) {
               padding: 15px 5px;
+              font-size: 10px;
             }
           }
         }
