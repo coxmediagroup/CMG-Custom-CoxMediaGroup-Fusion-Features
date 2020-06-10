@@ -1,33 +1,26 @@
 import React from 'react';
-// import PropTypes from 'fusion:prop-types';
 import PropTypes from 'prop-types';
+import Item from './Item';
 
 const Parallax = (props) => {
   const {
-    headline, summary, link, image,
+    headline, summary, link, newTab, image,
   } = props.customFields;
 
-  const summaryFormatted = summary.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
+  const target = newTab ? '_blank' : '_self';
 
   return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${image})` }}>
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    <div className="tease item-with-background ">
-                        <h3>
-                            <span className="headline ">
-                                <a href={link}>{headline}</a>
-                            </span>
-                        </h3>
-                        <p>
-                            <a href={link}></a>
-                        </p>
-                        <div className="listText">
-                            <a href={link}>
-                                <summary dangerouslySetInnerHTML={{ __html: summaryFormatted }}></summary>
-                            </a>
-                        </div>
-                    </div>
+                    {link && (
+                        <a href={link} target={target}>
+                            <Item headline={headline} summary={summary} />
+                        </a>
+                    )}
+                    {!link && (
+                        <Item headline={headline} summary={summary} />
+                    )}
                 </div>
             </div>
         </div>
@@ -36,10 +29,21 @@ const Parallax = (props) => {
 
 Parallax.propTypes = {
   customFields: PropTypes.shape({
-    headline: PropTypes.string,
-    summary: PropTypes.richtext,
-    link: PropTypes.string,
-    image: PropTypes.string,
+    headline: PropTypes.string.tag({
+      label: 'Headline',
+    }),
+    summary: PropTypes.richtext.tag({
+      label: 'Summary',
+    }),
+    link: PropTypes.string.tag({
+      label: 'Link',
+    }),
+    newTab: PropTypes.boolean.tag({
+      label: 'Open in a new tab',
+    }),
+    image: PropTypes.string.tag({
+      label: 'Image',
+    }),
   }),
 };
 
