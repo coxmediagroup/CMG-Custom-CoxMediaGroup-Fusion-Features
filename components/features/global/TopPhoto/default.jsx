@@ -5,17 +5,17 @@ import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    title, description, collection, ImagePlacement, linked, summary, Columns, centered,
+    title, description, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
   const content = useContent({
     source: 'content-api2',
-    query: { id: collection, website: 'cmg-ms-40020' },
+    query: { id, website: 'cmg-ms-40020' },
     filter: '',
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={summary} linked={linked} centered={centered} />;
+    return <Item key={index} article={item} columns={columns} summary={summary} linked={linked} centered={centered} />;
   });
 
   return <div className='top-photo'>
@@ -43,24 +43,26 @@ TopPhoto.propTypes = {
       group: 'Feature options',
       label: 'Description',
     }),
-    collection: PropTypes.string.tag({
+    id: PropTypes.string.tag({
       group: 'Feature options',
-      label: 'Collection',
+      label: 'ID',
     }),
-    ImagePlacement: PropTypes.oneOf([
+    imagePlacement: PropTypes.oneOf([
       'Top', 'Left', 'Right',
     ]).tag({
       defaultValue: 'top',
       description: 'This is the image placemnet',
       group: 'Feature options',
+      label: 'Image Placement',
       labels: { top: 'Top', left: 'Left', right: 'Right' },
     }),
-    Columns: PropTypes.oneOf([
+    columns: PropTypes.oneOf([
       '1', '3', '4',
     ]).tag({
-      defaultValue: '1',
+      defaultValue: '12',
       description: 'This is the number of columns',
       group: 'Feature options',
+      label: 'Columns',
       labels: { 1: '1', 3: '3', 4: '4' },
     }),
     linked: PropTypes.boolean.tag({
