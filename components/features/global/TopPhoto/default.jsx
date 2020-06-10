@@ -5,36 +5,55 @@ import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    Title, Collection, Linked, Summary, Columns, Centered,
+    title, description, collection, ImagePlacement, linked, summary, Columns, centered,
   } = props.customFields;
 
   const content = useContent({
     source: 'content-api2',
-    query: { id: Collection, website: 'cmg-ms-40020' },
+    query: { id: collection, website: 'cmg-ms-40020' },
     filter: '',
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
+    return <Item key={index} article={item} columns={Columns} summary={summary} linked={linked} centered={centered} />;
   });
 
   return <div className='top-photo'>
-      {Title && (
-        <h3>{Title}</h3>
+    <div className="feature-options">
+      {title && (
+        <h3>{title}</h3>
+      )}
+      {description && (
+        <div className="feature-description">{description}</div>
       )}
       <div className='row'>
         {items}
       </div>
+    </div>
   </div>;
 };
 
 TopPhoto.propTypes = {
   customFields: PropTypes.shape({
-    Title: PropTypes.string.tag({
+    title: PropTypes.string.tag({
       group: 'Feature options',
+      label: 'Title',
     }),
-    Collection: PropTypes.string.tag({
+    description: PropTypes.string.tag({
       group: 'Feature options',
+      label: 'Description',
+    }),
+    collection: PropTypes.string.tag({
+      group: 'Feature options',
+      label: 'Collection',
+    }),
+    ImagePlacement: PropTypes.oneOf([
+      'Top', 'Left', 'Right',
+    ]).tag({
+      defaultValue: 'top',
+      description: 'This is the image placemnet',
+      group: 'Feature options',
+      labels: { top: 'Top', left: 'Left', right: 'Right' },
     }),
     Columns: PropTypes.oneOf([
       '1', '3', '4',
@@ -44,16 +63,19 @@ TopPhoto.propTypes = {
       group: 'Feature options',
       labels: { 1: '1', 3: '3', 4: '4' },
     }),
-    Linked: PropTypes.boolean.tag({
+    linked: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Linked',
       defaultValue: true,
     }),
-    Summary: PropTypes.boolean.tag({
+    summary: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Summary',
       defaultValue: true,
     }),
-    Centered: PropTypes.boolean.tag({
+    centered: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Centered',
       defaultValue: true,
     }),
   }),
