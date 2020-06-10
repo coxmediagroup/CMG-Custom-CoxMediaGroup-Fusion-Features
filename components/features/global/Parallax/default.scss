@@ -42,16 +42,12 @@
 
 .tease.item-with-background {
   vertical-align: middle;
-  display: table-cell;
+  display: block;
+  margin-right: 10px;
   padding: 10px;
   border: 1px solid #fff;
   font-family: "Raleway", sans-serif;
   text-align: center;
-  // text-shadow: 2px 2px 2px #000;
-}
-
-.tease.item-with-background i {
-  margin-right: 10px;
 }
 
 .tease.item-with-background h3,
