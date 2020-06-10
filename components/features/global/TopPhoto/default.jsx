@@ -5,14 +5,26 @@ import Item from './item';
 
 const TopPhoto = (props) => {
   const {
-    title, description, id, imagePlacement, linked, summary, columns, centered,
+    title, description, api, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
-  const content = useContent({
-    source: 'content-api2',
-    query: { id, website: 'cmg-ms-40020' },
-    filter: '',
-  });
+  let content;
+  let test;
+
+  if (api === 'contentApi') {
+    test = useContent({
+      source: 'content-api',
+      query: { website_url: id },
+    });
+  } else {
+    content = useContent({
+      source: 'content-api2',
+      query: { id, website: 'cmg-ms-40020' },
+      filter: '',
+    });
+  }
+
+  console.log('test: ', test);
 
   const items = content && content.content_elements.map((item, index) => {
     return <Item key={index} article={item} columns={columns} summary={summary} linked={linked} centered={centered} />;
@@ -42,6 +54,15 @@ TopPhoto.propTypes = {
     description: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Description',
+    }),
+    api: PropTypes.oneOf([
+      'contentApi', 'contentApi2',
+    ]).tag({
+      defaultValue: 'contentApi2',
+      description: 'This is the api you wish to use',
+      group: 'Feature options',
+      label: 'API',
+      labels: { contentApi: 'content-api', contentApi2: 'content-api2' },
     }),
     id: PropTypes.string.tag({
       group: 'Feature options',
