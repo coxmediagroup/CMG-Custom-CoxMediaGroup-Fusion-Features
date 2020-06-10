@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Item from './item';
+import Item2 from './item2';
 
 const TopPhoto = (props) => {
   const {
@@ -9,26 +10,30 @@ const TopPhoto = (props) => {
   } = props.customFields;
 
   let content;
-  let test;
+  let items;
 
   if (api === 'contentApi') {
-    test = useContent({
+    content = useContent({
       source: 'content-api',
       query: { website_url: id },
     });
+
+    console.log("content:" , content)
+
+    items = <Item2 article={content} columns={columns} summary={summary} linked={linked} centered={centered} />;
   } else {
     content = useContent({
       source: 'content-api2',
       query: { id, website: 'cmg-ms-40020' },
       filter: '',
     });
+
+    items = content && content.content_elements.map((item, index) => {
+      return <Item key={index} article={item} columns={columns} summary={summary} linked={linked} centered={centered} />;
+    });
   }
 
-  console.log('test: ', test);
-
-  const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={columns} summary={summary} linked={linked} centered={centered} />;
-  });
+  console.log("content: ", content)
 
   return <div className='top-photo'>
     <div className="feature-options">
