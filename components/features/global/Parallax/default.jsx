@@ -4,22 +4,22 @@ import Item from './Item';
 
 const Parallax = (props) => {
   const {
-    Headline, Summary, Link, newWindow, Image,
+    headline, summary, link, newTab, image,
   } = props.customFields;
 
-  const target = newWindow ? '_blank' : '_self';
+  const target = newTab ? '_blank' : '_self';
 
-  return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${Image})` }}>
+  return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${image})` }}>
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    {Link && (
-                        <a href={Link} target={target}>
-                            <Item headline={Headline} summary={Summary} />
+                    {link && (
+                        <a href={link} target={target}>
+                            <Item headline={headline} summary={summary} />
                         </a>
                     )}
-                    {!Link && (
-                        <Item headline={Headline} summary={Summary} />
+                    {!link && (
+                        <Item headline={headline} summary={summary} />
                     )}
                 </div>
             </div>
@@ -29,11 +29,21 @@ const Parallax = (props) => {
 
 Parallax.propTypes = {
   customFields: PropTypes.shape({
-    Headline: PropTypes.string,
-    Summary: PropTypes.richtext,
-    Link: PropTypes.string,
-    newWindow: PropTypes.boolean,
-    Image: PropTypes.string,
+    headline: PropTypes.string.tag({
+      label: 'Headline',
+    }),
+    summary: PropTypes.richtext.tag({
+      label: 'Summary',
+    }),
+    link: PropTypes.string.tag({
+      label: 'Link',
+    }),
+    newTab: PropTypes.boolean.tag({
+      label: 'Open in a new tab',
+    }),
+    image: PropTypes.string.tag({
+      label: 'Image',
+    }),
   }),
 };
 
