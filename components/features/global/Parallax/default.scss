@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center 70%;
-  background-size: auto;
+  background-size: cover;
   color: #fff;
   font-family: "Raleway", sans-serif;
 }
@@ -99,7 +99,7 @@
   .full-width-with-background {
     margin: 0 0 40px;
     padding: 20px 0;
-    background-size: 100% auto;
+    background-size: cover;
   }
 
   .full-width-with-background .col-md-12 {
