@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Item = (props) => {
   const { headline, summary } = props;
@@ -13,6 +14,11 @@ const Item = (props) => {
         </div>
     </div>
   );
+};
+
+Item.propTypes = {
+  headline: PropTypes.string,
+  summary: PropTypes.string,
 };
 
 export default Item;
