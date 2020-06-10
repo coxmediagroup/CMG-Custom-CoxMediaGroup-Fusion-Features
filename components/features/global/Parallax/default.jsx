@@ -4,20 +4,22 @@ import Item from './Item';
 
 const Parallax = (props) => {
   const {
-    headline, summary, link, image,
+    Headline, Summary, Link, newWindow, Image,
   } = props.customFields;
 
-  return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${image})` }}>
+  const target = newWindow ? '_blank' : '_self';
+
+  return <section className="full-width-with-background parallax" style={{ backgroundImage: `url(${Image})` }}>
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    {link && (
-                        <a href={link}>
-                            <Item headline={headline} summary={summary} />
+                    {Link && (
+                        <a href={Link} target={target}>
+                            <Item headline={Headline} summary={Summary} />
                         </a>
                     )}
-                    {!link && (
-                        <Item headline={headline} summary={summary} />
+                    {!Link && (
+                        <Item headline={Headline} summary={Summary} />
                     )}
                 </div>
             </div>
@@ -27,10 +29,11 @@ const Parallax = (props) => {
 
 Parallax.propTypes = {
   customFields: PropTypes.shape({
-    headline: PropTypes.string,
-    summary: PropTypes.richtext,
-    link: PropTypes.string,
-    image: PropTypes.string,
+    Headline: PropTypes.string,
+    Summary: PropTypes.richtext,
+    Link: PropTypes.string,
+    newWindow: PropTypes.boolean,
+    Image: PropTypes.string,
   }),
 };
 
