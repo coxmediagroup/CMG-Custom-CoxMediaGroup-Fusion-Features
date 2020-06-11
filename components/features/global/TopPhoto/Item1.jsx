@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Item1 = (props) => {
   const { api, key, article, columns, imagePlacement, summary, linked, centered } = props;
-
   let cols;
 
   switch (columns) {
@@ -28,9 +27,9 @@ const Item1 = (props) => {
   console.log('linked: ', linked);
   console.log('centered: ', centered);
 
-  const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
+  const canonicalUrl = `${article.canonical_url}/?_website=cmg-ms-40020`;
 
-  const bodyElements = props.article.content_elements.map((item) => {
+  const bodyElements = article.content_elements.map((item) => {
     if (item.type === 'text') {
       return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
     } if (item.type === 'image') {
@@ -43,16 +42,16 @@ const Item1 = (props) => {
     <div key={key} className={cols}>
       <div className='top-photo'>
         <div className='image-holder'>
-          <img src={ props.article.promo_items.lead_art.url } alt={ props.article.promo_items.lead_art.alt_text } />
+          <img src={ article.promo_items.lead_art.url } alt={ article.promo_items.lead_art.alt_text } />
         </div>
       </div>
       <h4
         className={`headline${
-          props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+          centered ? ' centered' : ''}`}>{article.headlines.basic}
       </h4>
       <div className={`listText${
-        props.summary ? ' show-me' : ' show-me-mobile'}${
-        props.centered ? ' centered' : ''}`}>{ bodyElements }</div>
+        summary ? ' show-me' : ' show-me-mobile'}${
+        centered ? ' centered' : ''}`}>{ bodyElements }</div>
     </div>
   );
 };

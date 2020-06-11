@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Item2 = (props) => {
   const { api, key, article, columns, imagePlacement, summary, linked, centered } = props;
-
   let cols;
 
   switch (columns) {
@@ -28,7 +27,7 @@ const Item2 = (props) => {
   console.log('linked: ', linked);
   console.log('centered: ', centered);
 
-  const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
+  const canonicalUrl = `${article.canonical_url}/?_website=cmg-ms-40020`;
 
   return (
     // eslint-disable-next-line react/prop-types
@@ -36,19 +35,19 @@ const Item2 = (props) => {
       {props.linked && (
         <a href={canonicalUrl}>
           <div className='top-photo'>
-            {props.article.promo_items.lead_art.url && (
+            {article.promo_items.lead_art.url && (
               <div className='image-holder'>
-                <img src={props.article.promo_items.lead_art.url} />
+                <img src={article.promo_items.lead_art.url} />
               </div>
             )}
             <h4
               className={`headline${
-                props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+                props.centered ? ' centered' : ''}`}>{article.headlines.basic}
             </h4>
-            {props.article.description.basic && (
+            {article.description.basic && (
               <div className={`listText${
                 props.summary ? ' show-me' : ' show-me-mobile'}${
-                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
+                props.centered ? ' centered' : ''}`}>{article.description.basic}</div>
             )}
           </div>
         </a>
@@ -56,19 +55,19 @@ const Item2 = (props) => {
 
       {!props.linked && (
         <div className='top-photo'>
-          {props.article.promo_items.lead_art.url && (
+          {article.promo_items.lead_art.url && (
             <div className='image-holder'>
-              <img src={props.article.promo_items.lead_art.url} />
+              <img src={article.promo_items.lead_art.url} />
             </div>
           )}
           <h4
             className={`headline${
-              props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+              props.centered ? ' centered' : ''}`}>{article.headlines.basic}
           </h4>
-            {props.article.description.basic && (
+            {article.description.basic && (
               <div className={`listText${
                 props.summary ? ' show-me' : ' show-me-mobile'}${
-                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
+                props.centered ? ' centered' : ''}`}>{article.description.basic}</div>
             )}
         </div>
       )}
@@ -76,7 +75,7 @@ const Item2 = (props) => {
   );
 };
 
-Item.propTypes = {
+Item2.propTypes = {
   index: PropTypes.integer,
   article: PropTypes.object,
   columns: PropTypes.string,
