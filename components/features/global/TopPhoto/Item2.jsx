@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Item2 = (props) => {
-  console.log('props: ', props.article);
+  // console.log('props: ', props.article);
   let cols;
 
   switch (props.columns) {

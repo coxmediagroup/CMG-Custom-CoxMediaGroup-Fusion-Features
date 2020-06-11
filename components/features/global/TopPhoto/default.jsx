@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Item from './item';
-import Item2 from './item2';
+import Display from './Display';
+import Item from './Item';
+import Item2 from './Item2';
 
 const TopPhoto = (props) => {
   const {
@@ -10,30 +11,19 @@ const TopPhoto = (props) => {
   } = props.customFields;
 
   let content;
-  let items;
 
   if (api === 'contentApi') {
     content = useContent({
       source: 'content-api',
       query: { website_url: id },
     });
-
-    console.log("content:" , content)
-
-    items = <Item2 article={content} columns={columns} summary={summary} linked={linked} centered={centered} />;
   } else {
     content = useContent({
       source: 'content-api2',
       query: { id, website: 'cmg-ms-40020' },
       filter: '',
     });
-
-    items = content && content.content_elements.map((item, index) => {
-      return <Item key={index} article={item} columns={columns} summary={summary} linked={linked} centered={centered} />;
-    });
   }
-
-  console.log("content: ", content)
 
   return <div className='top-photo'>
     <div className="feature-options">
@@ -43,9 +33,8 @@ const TopPhoto = (props) => {
       {description && (
         <div className="feature-description">{description}</div>
       )}
-      <div className='row'>
-        {items}
-      </div>
+      {/* eslint-disable-next-line max-len */}
+      <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
     </div>
   </div>;
 };
