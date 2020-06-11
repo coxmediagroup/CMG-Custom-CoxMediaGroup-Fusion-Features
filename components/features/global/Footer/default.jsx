@@ -52,7 +52,7 @@ const Footer = () => {
             <div>
               <a href="/pf/visitor-agreement/">Visitor Agreement</a> | <a href="/pf/privacy-statement/">Privacy Statement</a>
             </div>
-            <p>© 2020&nbsp;CoxReps</p>
+            <p className="footerCopyRight">© 2020&nbsp;CoxReps</p>
           </div>
         </div>
       </div>
