@@ -9,11 +9,13 @@ const Display = (props) => {
 
   if (api === 'contentApi') {
     // eslint-disable-next-line max-len
-    items = <Item1 api={api} key="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+    items = <Item1 api={api} index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
   } else {
     items = content && content.content_elements.map((item, index) => {
       // eslint-disable-next-line max-len
-      return <Item2 api={api} key={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+      console.log("index: ", index);
+      // eslint-disable-next-line max-len
+      return <Item2 api={api} index={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
     });
   }
 
@@ -22,6 +24,16 @@ const Display = (props) => {
       { items }
     </div>
   );
+};
+
+Display.propTypes = {
+  api: PropTypes.string,
+  content: PropTypes.object,
+  columns: PropTypes.string,
+  imagePlacement: PropTypes.string,
+  summary: PropTypes.boolean,
+  linked: PropTypes.boolean,
+  centered: PropTypes.boolean,
 };
 
 export default Display;
