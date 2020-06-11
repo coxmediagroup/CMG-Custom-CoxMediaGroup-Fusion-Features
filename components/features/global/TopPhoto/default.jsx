@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Display from './Display';
-import Item from './Item';
-import Item2 from './Item2';
 
 const TopPhoto = (props) => {
   const {

@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Item2 = (props) => {
-  // console.log('props: ', props.article);
+  const { api, key, article, columns, imagePlacement, summary, linked, centered } = props;
+
   let cols;
 
-  switch (props.columns) {
+  switch (columns) {
     case '1':
       cols = 'col-md-12';
       break;
@@ -19,31 +20,69 @@ const Item2 = (props) => {
       cols = 'col-md-1';
   }
 
-  const bodyElements = props.article.content_elements.map((item) => {
-    if (item.type === 'text') {
-      return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
-    } if (item.type === 'image') {
-      return <img src={item.url} />;
-    }
-    return null;
-  });
+  console.log('api: ', api);
+  console.log('key: ', key);
+  console.log('article: ', article);
+  console.log('imagePlacement: ', imagePlacement);
+  console.log('summary: ', summary);
+  console.log('linked: ', linked);
+  console.log('centered: ', centered);
+
+  const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
 
   return (
-    <div className={cols}>
-      <div className='top-photo'>
-        <div className='image-holder'>
-          <img src={ props.article.promo_items.lead_art.url } alt={ props.article.promo_items.lead_art.alt_text } />
+    // eslint-disable-next-line react/prop-types
+    <div key={props.key} className={cols}>
+      {props.linked && (
+        <a href={canonicalUrl}>
+          <div className='top-photo'>
+            {props.article.promo_items.lead_art.url && (
+              <div className='image-holder'>
+                <img src={props.article.promo_items.lead_art.url} />
+              </div>
+            )}
+            <h4
+              className={`headline${
+                props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+            </h4>
+            {props.article.description.basic && (
+              <div className={`listText${
+                props.summary ? ' show-me' : ' show-me-mobile'}${
+                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
+            )}
+          </div>
+        </a>
+      )}
+
+      {!props.linked && (
+        <div className='top-photo'>
+          {props.article.promo_items.lead_art.url && (
+            <div className='image-holder'>
+              <img src={props.article.promo_items.lead_art.url} />
+            </div>
+          )}
+          <h4
+            className={`headline${
+              props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
+          </h4>
+            {props.article.description.basic && (
+              <div className={`listText${
+                props.summary ? ' show-me' : ' show-me-mobile'}${
+                props.centered ? ' centered' : ''}`}>{props.article.description.basic}</div>
+            )}
         </div>
-      </div>
-      <h4
-        className={`headline${
-          props.centered ? ' centered' : ''}`}>{props.article.headlines.basic}
-      </h4>
-      <div className={`listText${
-        props.summary ? ' show-me' : ' show-me-mobile'}${
-        props.centered ? ' centered' : ''}`}>{ bodyElements }</div>
+      )}
     </div>
   );
+};
+
+Item.propTypes = {
+  index: PropTypes.integer,
+  article: PropTypes.object,
+  columns: PropTypes.string,
+  summary: PropTypes.boolean,
+  linked: PropTypes.boolean,
+  centered: PropTypes.boolean,
 };
 
 export default Item2;
