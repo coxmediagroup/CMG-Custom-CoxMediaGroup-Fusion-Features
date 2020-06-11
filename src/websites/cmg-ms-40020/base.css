@@ -184,12 +184,19 @@ footer {
   color: #666;
 }
 
+footer p {
+  font-size: 14px;
+  text-align: left;
+}
+
 footer h6 {
   margin-bottom: 10px;
   padding: 15px 0;
   color: #fff;
   border-bottom: 1px solid #666;
   text-transform: uppercase;
+  font-size: 12px;
+  text-align: left;
 }
 
 .tease {
@@ -253,6 +260,11 @@ a.twitter-timeline .MediaCard-media {
 
 .footer a {
   color: #fff;
+  font-size: 14px;
+}
+
+.footerCopyRight {
+  text-align: center;
 }
 
 /* hack for now */
