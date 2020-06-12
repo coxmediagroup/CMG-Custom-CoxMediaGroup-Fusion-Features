@@ -1,0 +1,95 @@
+.photo-list {
+  margin-bottom: 30px;
+}
+
+.photo-list .feature-options {
+  text-align: center;
+}
+
+.photo-list .feature-options h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.photo-list .feature-description {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.photo-list .leftImage .image-holder {
+  width: 40%;
+  float: left;
+  margin: 0 30px 30px 0;
+}
+
+.photo-list .rightImage .image-holder {
+  width: 40%;
+  margin: 0 0 30px 30px;
+  float: right;
+}
+
+.photo-list a .headline {
+  color: #5b5b5b;
+}
+
+.photo-list .leftImage .summary,
+.photo-list .rightImage .summary {
+  text-align: left;
+}
+
+.photo-list summary {
+  color: #333;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 1.13rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.56rem;
+}
+
+@media (min-width: 767px) {
+
+  .photo-list .headline {
+    font-size: 1.38rem;
+    text-align: left;
+  }
+
+  .photo-list .headline.centered {
+    text-align: center;
+  }
+
+  .photo-list summary {
+    font-size: 1rem;
+  }
+
+  .photo-list summary.show-me-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .photo-list .leftImage .image-holder,
+  .photo-list .rightImage .image-holder {
+    width: 100%;
+    float: none;
+    margin: 0 0 20px;
+  }
+
+  .photo-list .headline {
+    font-size: 1.38rem;
+    text-align: left;
+  }
+
+  .photo-list .headline.centered {
+    text-align: left;
+  }
+
+  .photo-list summary.show-me-mobile {
+    display: block;
+    text-align: left;
+  }
+
+  .photo-list summary.show-me {
+    text-align: left;
+  }
+}
