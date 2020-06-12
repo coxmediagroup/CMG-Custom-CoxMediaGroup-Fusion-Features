@@ -24,16 +24,18 @@ const PhotoList = (props) => {
   }
 
   return <div className='photo-list'>
-    <div className="feature-options">
-      {title && (
-        <h3>{title}</h3>
-      )}
-      {description && (
-        <div className="feature-description">{description}</div>
-      )}
-      {/* eslint-disable-next-line max-len */}
-      <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
-    </div>
+    <>
+      <div className="feature-options">
+        {title && (
+          <h3>{title}</h3>
+        )}
+        {description && (
+          <div className="feature-description">{description}</div>
+        )}
+      </div>
+        {/* eslint-disable-next-line max-len */}
+        <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
+    </>
   </div>;
 };
 
