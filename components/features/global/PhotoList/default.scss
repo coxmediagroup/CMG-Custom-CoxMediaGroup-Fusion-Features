@@ -28,13 +28,17 @@
   float: right;
 }
 
+.photo-list a .headline {
+  color: #5b5b5b;
+}
+
 .photo-list .leftImage .summary,
 .photo-list .rightImage .summary {
   text-align: left;
 }
 
 .photo-list summary {
-  color: #5b5b5b;
+  color: #333;
   font-family: "Arial", "Helvetica", sans-serif;
   font-size: 1.13rem;
   font-style: normal;
