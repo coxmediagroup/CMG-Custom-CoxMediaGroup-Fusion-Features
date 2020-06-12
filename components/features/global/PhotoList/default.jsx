@@ -1,80 +1,99 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Item from './item';
+import Display from './Display';
 
-const TopPhoto = (props) => {
+const PhotoList = (props) => {
   const {
-    Title, Description, Collection, ImagePlacement, Linked, Summary, Columns, Centered,
+    title, description, api, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
-  const content = useContent({
-    source: 'content-api2',
-    query: { id: Collection, website: 'cmg-ms-40020' },
-    filter: '',
-  });
+  let content;
 
-  const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} columns={Columns} summary={Summary} linked={Linked} centered={Centered} />;
-  });
-
-  console.log("ImagePlacement: ", ImagePlacement);
+  if (api === 'contentApi') {
+    content = useContent({
+      source: 'content-api',
+      query: { website_url: id },
+    });
+  } else {
+    content = useContent({
+      source: 'content-api2',
+      query: { id, website: 'cmg-ms-40020' },
+      filter: '',
+    });
+  }
 
   return <div className='photo-list'>
     <div className="feature-options">
-      {Title && (
-        <h3>{Title}</h3>
+      {title && (
+        <h3>{title}</h3>
       )}
-      {Description && (
-        <div className="feature-description">{Description}</div>
+      {description && (
+        <div className="feature-description">{description}</div>
       )}
-      <div className='row'>
-        {items}
-      </div>
+      {/* eslint-disable-next-line max-len */}
+      <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
     </div>
   </div>;
 };
 
-TopPhoto.propTypes = {
+PhotoList.propTypes = {
   customFields: PropTypes.shape({
-    Title: PropTypes.string.tag({
+    title: PropTypes.string.tag({
       group: 'Feature options',
+      label: 'Title',
     }),
-    Description: PropTypes.string.tag({
+    description: PropTypes.string.tag({
       group: 'Feature options',
+      label: 'Description',
     }),
-    Collection: PropTypes.string.tag({
+    api: PropTypes.oneOf([
+      'contentApi', 'contentApi2',
+    ]).tag({
+      defaultValue: 'contentApi2',
+      description: 'This is the api you wish to use',
       group: 'Feature options',
+      label: 'API',
+      labels: { contentApi: 'content-api', contentApi2: 'content-api2' },
     }),
-    ImagePlacement: PropTypes.oneOf([
+    id: PropTypes.string.tag({
+      group: 'Feature options',
+      label: 'ID',
+    }),
+    imagePlacement: PropTypes.oneOf([
       'Top', 'Left', 'Right',
     ]).tag({
       defaultValue: 'top',
       description: 'This is the image placemnet',
       group: 'Feature options',
+      label: 'Image Placement',
       labels: { top: 'Top', left: 'Left', right: 'Right' },
     }),
-    Columns: PropTypes.oneOf([
-      '1', '3', '4',
+    columns: PropTypes.oneOf([
+      1, 3, 4,
     ]).tag({
-      defaultValue: '1',
+      defaultValue: '12',
       description: 'This is the number of columns',
       group: 'Feature options',
+      label: 'Columns',
       labels: { 1: '1', 3: '3', 4: '4' },
     }),
-    Linked: PropTypes.boolean.tag({
+    linked: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Linked',
       defaultValue: true,
     }),
-    Summary: PropTypes.boolean.tag({
+    summary: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Summary',
       defaultValue: true,
     }),
-    Centered: PropTypes.boolean.tag({
+    centered: PropTypes.boolean.tag({
       group: 'Item options',
+      label: 'Centered',
       defaultValue: true,
     }),
   }),
 };
 
-export default TopPhoto;
+export default PhotoList;

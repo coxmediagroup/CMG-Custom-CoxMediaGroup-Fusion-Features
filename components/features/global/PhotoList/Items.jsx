@@ -6,23 +6,23 @@ const Items = (props) => {
   const {
     api, index, article, columns, imagePlacement, summary, linked, centered,
   } = props;
-
-  const canonicalUrl = `${article.canonical_url}/?_website=cmg-ms-40020`;
-
   let cols;
+
   switch (columns) {
-    case '1':
+    case 1:
       cols = 'col-md-12';
       break;
-    case '3':
+    case 3:
       cols = 'col-md-4';
       break;
-    case '4':
+    case 4:
       cols = 'col-md-3';
       break;
     default:
       cols = 'col-md-12';
   }
+
+  const canonicalUrl = `${article.canonical_url}/?_website=cmg-ms-40020`;
 
   return (
     <div key={index} className={cols}>
@@ -43,7 +43,7 @@ Items.propTypes = {
   api: PropTypes.string,
   index: PropTypes.integer,
   article: PropTypes.object,
-  columns: PropTypes.string,
+  columns: PropTypes.number,
   imagePlacement: PropTypes.string,
   summary: PropTypes.boolean,
   linked: PropTypes.boolean,

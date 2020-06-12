@@ -1,3 +1,20 @@
+.photo-list .leftImage .image-holder {
+  width: 40%;
+  float: left;
+  margin: 0 30px 30px 0;
+}
+
+.photo-list .rightImage .image-holder {
+  width: 40%;
+  margin: 0 0 30px 30px;
+  float: right;
+}
+
+.photo-list .leftImage .listText, 
+.photo-list .rightImage .listText {
+  text-align: left;
+}
+
 .photo-list .feature-options {
   text-align: center;
 }
@@ -8,12 +25,19 @@
 }
 
 .photo-list .feature-description {
+  margin-bottom: 20px;
   font-size: 1rem;
+}
+
+.photo-list {
+  margin-bottom: 30px;
 }
 
 .photo-list .listText {
   color: #5b5b5b;
+  font-family: "Arial,Helvetica,sans-serif";
   font-size: 1.13rem;
+  font-style: normal;
   font-weight: 400;
   line-height: 1.56rem;
 }
@@ -21,7 +45,7 @@
 @media (max-width: 767px) {
 
   .photo-list .headline {
-    font-size: 1.38rem;
+    font-size: 1.13rem;
     text-align: left;
   }
 
@@ -44,6 +68,10 @@
   .photo-list .headline {
     font-size: 1.5rem;
     text-align: left;
+  }
+
+  .photo-list .listText {
+    font-size: 1rem;
   }
 
   .photo-list .headline.centered {
