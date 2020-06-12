@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Detail from './Detail';
+import Content from './Content';
 
-const Item1 = (props) => {
+const Items = (props) => {
   const { api, index, article, columns, imagePlacement, summary, linked, centered } = props;
   let cols;
 
@@ -26,18 +26,18 @@ const Item1 = (props) => {
     <div key={index} className={cols}>
       {linked && (
         <a href={canonicalUrl}>
-          <Detail api={api} article={article} centered={centered} summary={summary} />
+          <Content api={api} article={article} centered={centered} summary={summary} />
         </a>
       )}
 
       {!linked && (
-        <Detail api={api} article={article} centered={centered} summary={summary} />
+        <Content api={api} article={article} centered={centered} summary={summary} />
       )}
     </div>
   );
 };
 
-Item1.propTypes = {
+Items.propTypes = {
   api: PropTypes.string,
   index: PropTypes.integer,
   article: PropTypes.object,
@@ -48,4 +48,4 @@ Item1.propTypes = {
   centered: PropTypes.boolean,
 };
 
-export default Item1;
+export default Items;

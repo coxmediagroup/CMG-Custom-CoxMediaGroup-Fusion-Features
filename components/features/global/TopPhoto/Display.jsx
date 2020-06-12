@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item1 from './Item1';
-import Item2 from './Item2';
+import Items from './Items';
 
 const Display = (props) => {
   const { api, content, columns, imagePlacement, summary, linked, centered } = props;
-  let items;
+  let itemsArray;
 
   if (api === 'contentApi') {
     // eslint-disable-next-line max-len
-    items = <Item1 api={api} index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+    itemsArray = <Items api={api} index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
   } else {
-    items = content && content.content_elements.map((item, index) => {
+    itemsArray = content && content.content_elements.map((item, index) => {
       // eslint-disable-next-line max-len
-      console.log("index: ", index);
-      // eslint-disable-next-line max-len
-      return <Item2 api={api} index={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+      return <Items api={api} index={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
     });
   }
 
   return (
     <div className='row'>
-      { items }
+      { itemsArray }
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Detail = (props) => {
+const Content = (props) => {
   const { api, article, summary, centered } = props;
 
   let bodyContent;
@@ -39,11 +39,11 @@ const Detail = (props) => {
   );
 };
 
-Detail.propTypes = {
+Content.propTypes = {
   api: PropTypes.string,
   article: PropTypes.object,
   summary: PropTypes.boolean,
   centered: PropTypes.boolean,
 };
 
-export default Detail;
+export default Content;
