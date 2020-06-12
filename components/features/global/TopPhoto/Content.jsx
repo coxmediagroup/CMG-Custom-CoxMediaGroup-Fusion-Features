@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Content = (props) => {
-  const { api, article, summary, centered } = props;
+  const { api, article, imagePlacement, summary, centered } = props;
 
   let bodyContent;
+  let contentClass;
+
+  console.log('imagePlacement: ', imagePlacement);
 
   if (api === 'contentApi') {
     bodyContent = article.content_elements.map((item) => {
@@ -19,8 +22,16 @@ const Content = (props) => {
     bodyContent = article.description.basic;
   }
 
+  if (imagePlacement === 'Left') {
+    contentClass = ' leftImage';
+  } else if (imagePlacement === 'Right') {
+    contentClass = ' rightImage';
+  } else {
+    contentClass = '';
+  }
+
   return (
-    <>
+    <div className={contentClass}>
       {article.promo_items.lead_art.url && (
         <div className='image-holder'>
           <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
@@ -35,7 +46,7 @@ const Content = (props) => {
           summary ? ' show-me' : ' show-me-mobile'}${
           centered ? ' centered' : ''}`}>{bodyContent}</div>
       )}
-    </>
+    </div>
   );
 };
 

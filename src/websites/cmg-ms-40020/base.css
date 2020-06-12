@@ -32,6 +32,7 @@ a:hover,
 a:active,
 a:focus {
   color: #292929;
+  color: #00b3f0;
   text-decoration: none;
 }
 
