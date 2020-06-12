@@ -37,15 +37,17 @@ const Content = (props) => {
           <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
         </div>
       )}
-      <h4
-        className={`headline${
-          centered ? ' centered' : ''}`}>{article.headlines.basic}
-      </h4>
-      {article.description.basic && (
-        <div className={`listText${
-          summary ? ' show-me' : ' show-me-mobile'}${
-          centered ? ' centered' : ''}`}>{bodyContent}</div>
-      )}
+      <div className='content-holder'>
+        <h4
+          className={`headline${
+            centered ? ' centered' : ''}`}>{article.headlines.basic}
+        </h4>
+        {article.description.basic && (
+          <summary className={`${
+            summary ? ' show-me' : ' show-me-mobile'}${
+            centered ? ' centered' : ''}`}>{bodyContent}</summary>
+        )}
+      </div>
     </div>
   );
 };
