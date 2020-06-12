@@ -42,27 +42,6 @@
   line-height: 1.56rem;
 }
 
-@media (max-width: 767px) {
-
-  .photo-list .headline {
-    font-size: 1.38rem;
-    text-align: left;
-  }
-
-  .photo-list .headline.centered {
-    text-align: left;
-  }
-
-  .photo-list summary.show-me-mobile {
-    display: block;
-    text-align: left;
-  }
-
-  .photo-list summary.show-me {
-    text-align: left;
-  }
-}
-
 @media (min-width: 767px) {
 
   .photo-list .headline {
@@ -80,5 +59,33 @@
 
   .photo-list summary.show-me-mobile {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .photo-list .leftImage .image-holder,
+  .photo-list .rightImage .image-holder {
+    width: 100%;
+    float: none;
+    margin: 0 0 20px;
+  }
+
+  .photo-list .headline {
+    font-size: 1.38rem;
+    text-align: left;
+  }
+
+  .photo-list .headline.centered {
+    text-align: left;
+  }
+
+  .photo-list summary.show-me-mobile {
+    display: block;
+    text-align: left;
+  }
+
+  .photo-list summary.show-me {
+    text-align: left;
   }
 }
