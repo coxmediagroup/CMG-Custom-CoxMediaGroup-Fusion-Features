@@ -10,7 +10,7 @@ const PhotoList = (props) => {
 
   let content;
 
-  if (api === 'contentApi') {
+  if (api === 'singleStory') {
     content = useContent({
       source: 'content-api',
       query: { website_url: id },
@@ -50,13 +50,13 @@ PhotoList.propTypes = {
       label: 'Description',
     }),
     api: PropTypes.oneOf([
-      'contentApi', 'contentApi2',
+      'singleStory', 'collection',
     ]).tag({
-      defaultValue: 'contentApi2',
+      defaultValue: 'collection',
       description: 'This is the api you wish to use',
       group: 'Feature options',
       label: 'API',
-      labels: { contentApi: 'content-api', contentApi2: 'content-api2' },
+      labels: { singleStory: 'Single story', collection: 'Collection' },
     }),
     id: PropTypes.string.tag({
       group: 'Feature options',
