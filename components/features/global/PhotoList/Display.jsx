@@ -8,7 +8,7 @@ const Display = (props) => {
   } = props;
   let itemsArray;
 
-  if (api === 'contentApi') {
+  if (api === 'singleStory') {
     // eslint-disable-next-line max-len
     itemsArray = <Items api={api} key="0" index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
   } else {

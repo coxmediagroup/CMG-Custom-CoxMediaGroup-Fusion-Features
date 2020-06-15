@@ -9,7 +9,7 @@ const Content = (props) => {
   let bodyContent;
   let contentClass;
 
-  if (api === 'contentApi') {
+  if (api === 'singleStory') {
     bodyContent = article.content_elements.map((item) => {
       if (item.type === 'text') {
         return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
