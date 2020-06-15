@@ -72,13 +72,13 @@ PhotoList.propTypes = {
       labels: { top: 'Top', left: 'Left', right: 'Right' },
     }),
     columns: PropTypes.oneOf([
-      1, 3, 4,
+      1, 2, 3, 4,
     ]).tag({
       defaultValue: '12',
       description: 'This is the number of columns',
       group: 'Feature options',
       label: 'Columns',
-      labels: { 1: '1', 3: '3', 4: '4' },
+      labels: { 1: '1', 2: '2', 3: '3', 4: '4' },
     }),
     linked: PropTypes.boolean.tag({
       group: 'Item options',

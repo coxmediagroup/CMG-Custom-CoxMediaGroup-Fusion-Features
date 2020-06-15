@@ -12,6 +12,9 @@ const Items = (props) => {
     case 1:
       cols = 'col-md-12';
       break;
+    case 2:
+      cols = 'col-md-6';
+      break;
     case 3:
       cols = 'col-md-4';
       break;
