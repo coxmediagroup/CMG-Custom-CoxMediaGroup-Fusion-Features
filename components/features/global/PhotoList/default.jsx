@@ -55,7 +55,7 @@ PhotoList.propTypes = {
       defaultValue: 'collection',
       description: 'This is the api you wish to use',
       group: 'Feature options',
-      label: 'API',
+      label: 'Content Source',
       labels: { singleStory: 'Single story', collection: 'Collection' },
     }),
     id: PropTypes.string.tag({
