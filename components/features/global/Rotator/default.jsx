@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Swiper from 'swiper';
 
 const Rotator = (props) => {
+  let swiper;
+
+  useEffect(() => {
+    swiper = new Swiper('.swiper-container',
+      {
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      // spaceBetween: 30,
+      });
+  });
+
   const { id } = props.customFields;
 
   const content = useContent({
@@ -15,16 +36,31 @@ const Rotator = (props) => {
   const rotatorItems = content && content.content_elements.map((item, index) => {
     console.log('item: ', item);
     return (
-      <div key={index}>
-        <img src={ item.promo_items.lead_art.url } />
-        <h3>{ item.headlines.basic }</h3>
-        <p>{ item.description.basic }</p>
+      <div className="swiper-slide" key={index}>
+        <div className="image-holder">
+          <img src={ item.promo_items.lead_art.url } alt={ item.headlines.basic } title={ item.headlines.basic } />
+        </div>
+        <div className="content-holder">
+          <p className="headline">{ item.headlines.basic }</p>
+          <div className="list-text">
+              <p>{ item.description.basic }</p>
+          </div>
+        </div>
       </div>
     );
   });
 
-  return <div className='rotator'>
-    { rotatorItems }
+  return <div className='swiper'>
+    <div className="swiperMainContainer">
+      <div className="swiper-container">
+        <div className="swiper-wrapper">
+          {rotatorItems}
+        </div>
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
+      </div>
+    </div>
   </div>;
 };
 
