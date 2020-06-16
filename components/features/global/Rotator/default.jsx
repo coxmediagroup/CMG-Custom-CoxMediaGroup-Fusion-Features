@@ -20,8 +20,7 @@ const Rotator = (props) => {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
-        },
-      // spaceBetween: 30,
+        }
       });
   });
 
@@ -34,7 +33,6 @@ const Rotator = (props) => {
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
-    console.log('item: ', item);
     return (
       <div className="swiper-slide" key={index}>
         <div className="image-holder">
@@ -51,15 +49,13 @@ const Rotator = (props) => {
   });
 
   return <div className='swiper'>
-    <div className="swiperMainContainer">
-      <div className="swiper-container">
-        <div className="swiper-wrapper">
-          {rotatorItems}
-        </div>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+    <div className="swiper-container">
+      <div className="swiper-wrapper">
+        {rotatorItems}
       </div>
+      <div className="swiper-pagination"></div>
+      <div className="swiper-button-prev"></div>
+      <div className="swiper-button-next"></div>
     </div>
   </div>;
 };
