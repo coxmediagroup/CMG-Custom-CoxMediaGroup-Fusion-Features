@@ -11,7 +11,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-lg-4">
             <h6>Our mission</h6>
             <p>
               CoxReps strives to maximize revenue for client stations and provide value to agency partners. Through cutting-edge research
@@ -19,7 +19,7 @@ const Footer = () => {
               solutions that reach audiences on every screen.
             </p>
           </div>
-          <div className="col-md-4 twitter-embed">
+          <div className="col-lg-4 twitter-embed">
             <h6>Twitter feed</h6>
             <a
               className="twitter-timeline"
@@ -30,7 +30,7 @@ const Footer = () => {
               href="https://twitter.com/coxreps"
             ></a>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4">
             <h6>Our instagram</h6>
             <script src="//lightwidget.com/widgets/lightwidget.js"></script>
             <iframe
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12 footer">
+          <div className="col-lg-12 footer">
             <div>
               <a href="/pf/visitor-agreement/">Visitor Agreement</a> | <a href="/pf/privacy-statement/">Privacy Statement</a>
             </div>
