@@ -10,10 +10,10 @@ const Item = (props) => {
         <img src={ item.promo_items.lead_art.url } alt={ item.headlines.basic } title={ item.headlines.basic } />
       </div>
       <div className="content-holder">
-        <p className="headline">{ item.headlines.basic }</p>
-        <div className="list-text">
+        <h4 className="headline">{ item.headlines.basic }</h4>
+        <summary>
             <p>{ item.description.basic }</p>
-        </div>
+        </summary>
       </div>
     </div>
   );
