@@ -1,30 +1,28 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Swiper from 'swiper';
+import Display from './Display';
+import Item from './Item';
 
 const Rotator = (props) => {
-  let swiper;
+  const { id, loop, delay } = props.customFields;
 
-  useEffect(() => {
-    swiper = new Swiper('.swiper-container',
-      {
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }
-      });
-  });
-
-  const { id } = props.customFields;
+  const swiper = new Swiper('.swiper-container',
+    {
+      autoplay: {
+        delay: delay * 1000,
+        disableOnInteraction: false,
+      },
+      loop,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
 
   const content = useContent({
     source: 'content-api2',
@@ -33,31 +31,10 @@ const Rotator = (props) => {
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
-    return (
-      <div className="swiper-slide" key={index}>
-        <div className="image-holder">
-          <img src={ item.promo_items.lead_art.url } alt={ item.headlines.basic } title={ item.headlines.basic } />
-        </div>
-        <div className="content-holder">
-          <p className="headline">{ item.headlines.basic }</p>
-          <div className="list-text">
-              <p>{ item.description.basic }</p>
-          </div>
-        </div>
-      </div>
-    );
+    return <Item key={index} item={item} />;
   });
 
-  return <div className='swiper'>
-    <div className="swiper-container">
-      <div className="swiper-wrapper">
-        {rotatorItems}
-      </div>
-      <div className="swiper-pagination"></div>
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
-    </div>
-  </div>;
+  return <Display rotatorItems={rotatorItems} />;
 };
 
 Rotator.propTypes = {
@@ -65,6 +42,22 @@ Rotator.propTypes = {
     id: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Collection ID',
+    }),
+    loop: PropTypes.boolean.tag({
+      group: 'Feature options',
+      label: 'Loop',
+      defaultValue: true,
+    }),
+    delay: PropTypes.oneOf([
+      10, 7, 5, 3,
+    ]).tag({
+      defaultValue: 7,
+      description: 'This is the delay before advancing',
+      group: 'Feature options',
+      label: 'Delay',
+      labels: {
+        10: '10', 7: '7', 5: '5', 3: '3',
+      },
     }),
   }),
 };
