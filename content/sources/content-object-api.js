@@ -1,9 +1,11 @@
 const resolve = (key = {}) => {
-  if ((key.id).includes('/')) {
-    return `/content/v4/?website=${key.website}&website_url=${key.id}`;
+  const { id, website } = key;
+
+  if ((id).includes('/')) {
+    return `/content/v4/?website=${website}&website_url=${id}`;
   }
 
-  return `/content/v4/?website=${key.website}&_id=${key.id}`;
+  return `/content/v4/?website=${website}&_id=${id}`;
   // if you don't pass an api to search, it will search them all
 };
 
