@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
+import Story from './Story';
+import Gallery from './Gallery';
 
-const Gallery = (props) => {
+const Test = (props) => {
   const { id, api } = props.customFields;
 
   let content;
@@ -19,18 +21,23 @@ const Gallery = (props) => {
     });
   }
 
-  console.log("content: ", content)
+  // console.log("content: ", content)
 
   return <div className='gallery'>
     <>
-      <h4>Type: {content.type}</h4>
+      {api === 'story' && (
+        <Story content={content} />
+      )}
+      {api === 'gallery' && (
+        <Gallery content={content} />
+      )}
     </>
   </div>;
 };
 
-Gallery.label = 'Gallery';
+Test.label = 'Test';
 
-Gallery.propTypes = {
+Test.propTypes = {
   customFields: PropTypes.shape({
     id: PropTypes.string.tag({
       group: 'Feature options',
@@ -48,4 +55,4 @@ Gallery.propTypes = {
   }),
 };
 
-export default Gallery;
+export default Test;

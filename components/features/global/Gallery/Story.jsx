@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 
 const Story = (props) => {
-  // const { id, api } = props.customFields;
+  const { content } = props;
 
   // let content;
 
@@ -19,31 +19,15 @@ const Story = (props) => {
   //   });
   // }
 
-  console.log("content: ", content)
+  console.log("story content: ", content)
 
   return <div className='gallery'>
     <>
-      <h4>Type: {content.type}</h4>
+      {content && content.headlines.basic && (
+        <h4>Story: {content.headlines.basic}</h4>
+      )}
     </>
   </div>;
 };
 
-Gallery.propTypes = {
-  customFields: PropTypes.shape({
-    id: PropTypes.string.tag({
-      group: 'Feature options',
-      label: 'ID',
-    }),
-    api: PropTypes.oneOf([
-      'story', 'gallery',
-    ]).tag({
-      defaultValue: 'gallery',
-      description: 'This is the api you wish to use',
-      group: 'Feature options',
-      label: 'Content Source',
-      labels: { story: 'Story', gallery: 'Gallery' },
-    }),
-  }),
-};
-
-export default Gallery;
+export default Story;
