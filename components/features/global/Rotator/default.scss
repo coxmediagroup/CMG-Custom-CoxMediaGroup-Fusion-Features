@@ -72,6 +72,7 @@
   z-index: 10;
   color: #fff;
   opacity: .7;
+  width: 36px;
 }
 
 .swiper-button-prev:after {
@@ -80,12 +81,10 @@
 }
 
 .swiper-button-prev:hover:after {
-  border: 1px solid red;
   animation: bounce-left 1s infinite;
 }
 
 .swiper-button-next:hover:after {
-  border: 1px solid red;
   animation: bounce-right 1s infinite;
 }
 
