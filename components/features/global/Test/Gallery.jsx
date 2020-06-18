@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Gallery = (props) => {
   const { content } = props;
 
-  console.log("gallery content: ", content)
+  // console.log("gallery content: ", content)
 
   return <div className='gallery'>
     <>

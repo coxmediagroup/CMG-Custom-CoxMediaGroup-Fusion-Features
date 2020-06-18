@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Story = (props) => {
   const { content } = props;
 
-  console.log("story content: ", content)
+  // console.log("story content: ", content)
 
   const bodyContent = content.content_elements.map((item) => {
     if (item.type === 'text') {

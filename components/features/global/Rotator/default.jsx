@@ -28,7 +28,7 @@ const Rotator = (props) => {
       },
     });
 
-  console.log(swiper);
+  // console.log(swiper);
 
   const content = useContent({
     source: 'content-api2',

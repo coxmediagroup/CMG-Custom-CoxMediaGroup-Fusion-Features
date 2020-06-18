@@ -6,18 +6,22 @@ import SwiperDisplay from './SwiperDisplay';
 
 const Swiper = (props) => {
   const {
-    gallery, loop, pagination, delay, 
+    gallery, loop, pagination, navigation, delay, 
   } = props;
 
-  // console.log('gallery: ', gallery);
+  console.log('loop: ', loop);
+  console.log('pagination: ', pagination);
+  console.log('navigation: ', navigation);
   console.log('delay: ', delay);
 
   const swiperConstructor = new SwiperConstructor('.swiper-container',
     {
-      autoplay: {
-        delay: delay * 1000,
-        disableOnInteraction: false,
-      },
+      slidesPerView: 3,
+      spaceBetween: 30,
+      // autoplay: {
+      //   delay: delay * 1000,
+      //   disableOnInteraction: false,
+      // },
       loop,
       pagination: {
         el: '.swiper-pagination',
@@ -36,7 +40,7 @@ const Swiper = (props) => {
     return <SwiperItem key={index} item={item} />;
   });
 
-  return <SwiperDisplay rotatorItems={swiperItems} />;
+  return <SwiperDisplay rotatorItems={swiperItems} navigation={navigation} pagination={pagination} />;
 };
 
 export default Swiper;

@@ -5,16 +5,15 @@ import Swiper from './Swiper';
 
 const GalleryFeature = (props) => {
   const {
-    id, imagePlacement, linked, summary, centered, loop, pagination, delay,
+    id, imagePlacement, linked, summary, centered, loop, pagination, navigation, delay,
   } = props.customFields;
 
   const content = useContent({
-    source: 'content-api',
-    query: { website_url: id },
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
   });
 
-  // console.log('content.promo_items.lead_art.type: ', content.promo_items.lead_art.type);
-  // console.log('imagePlacement: ', imagePlacement);
+  console.log('imagePlacement: ', imagePlacement);
 
   const bodyContent = content.content_elements.map((item) => {
     if (item.type === 'text') {
@@ -27,9 +26,9 @@ const GalleryFeature = (props) => {
 
   return <div className='gallery-feature'>
     <>
-      {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'top' && (
+      {/* {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'top' && (
         <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} delay={delay} />
-      )}
+      )} */}
       <div className="content-holder">
         <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
         {summary && (
@@ -38,9 +37,9 @@ const GalleryFeature = (props) => {
             centered ? ' centered' : ''}`}>{bodyContent}</summary>
         )}
       </div>
-      {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'bottom' && (
-        <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} delay={delay} />
-      )}
+      {/* {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'bottom' && ( */}
+        <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+      {/* )} */}
     </>
   </div>;
 };
@@ -86,6 +85,11 @@ GalleryFeature.propTypes = {
       group: 'Swiper options',
       label: 'Pagination',
       defaultValue: true,
+    }),
+    navigation: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Navigation',
+      defaultValue: false,
     }),
     delay: PropTypes.oneOf([
       10, 7, 5, 3,

@@ -12,7 +12,7 @@ const Test = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  console.log("content: ", content)
+  // console.log("content: ", content)
 
   return <div className='test'>
     <>
