@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 
-const Gallery = (props) => {
-  const { id, api } = props.customFields;
+const Story = (props) => {
+  // const { id, api } = props.customFields;
 
-  let content;
+  // let content;
 
-  if (api === 'story') {
-    content = useContent({
-      source: 'content-object-api',
-      query: { api: 'stories', website: 'cmg-ms-40020', id },
-    });
-  } else {
-    content = useContent({
-      source: 'content-object-api',
-      query: { api: 'galleries', website: 'cmg-ms-40020', id },
-    });
-  }
+  // if (api === 'story') {
+  //   content = useContent({
+  //     source: 'content-object-api',
+  //     query: { api: 'stories', website: 'cmg-ms-40020', id },
+  //   });
+  // } else {
+  //   content = useContent({
+  //     source: 'content-object-api',
+  //     query: { api: 'galleries', website: 'cmg-ms-40020', id },
+  //   });
+  // }
 
   console.log("content: ", content)
 
@@ -27,8 +27,6 @@ const Gallery = (props) => {
     </>
   </div>;
 };
-
-Gallery.label = 'Gallery';
 
 Gallery.propTypes = {
   customFields: PropTypes.shape({
