@@ -28,6 +28,8 @@ const Rotator = (props) => {
       },
     });
 
+  console.log(swiper);
+
   const content = useContent({
     source: 'content-api2',
     query: { id, website: 'cmg-ms-40020' },
