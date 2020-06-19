@@ -5,7 +5,7 @@ const SwiperDisplay = (props) => {
   const { rotatorItems, navigation, pagination } = props;
 
   return (
-    <div className='swiper'>
+    <div className=''>
       <div className="swiper-container">
         <div className="swiper-wrapper">
           {rotatorItems}

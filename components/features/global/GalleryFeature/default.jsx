@@ -13,8 +13,6 @@ const GalleryFeature = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  console.log('imagePlacement: ', imagePlacement);
-
   const bodyContent = content.content_elements.map((item) => {
     if (item.type === 'text') {
       return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
@@ -26,9 +24,9 @@ const GalleryFeature = (props) => {
 
   return <div className='gallery-feature'>
     <>
-      {/* {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'top' && (
+      {imagePlacement && imagePlacement === 'top' && (
         <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} delay={delay} />
-      )} */}
+      )}
       <div className="content-holder">
         <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
         {summary && (
@@ -37,9 +35,9 @@ const GalleryFeature = (props) => {
             centered ? ' centered' : ''}`}>{bodyContent}</summary>
         )}
       </div>
-      {/* {content.promo_items.lead_art.type === 'gallery' && imagePlacement === 'bottom' && ( */}
+      {imagePlacement && imagePlacement === 'bottom' && (
         <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
-      {/* )} */}
+      )}
     </>
   </div>;
 };
@@ -53,9 +51,9 @@ GalleryFeature.propTypes = {
       label: 'ID',
     }),
     imagePlacement: PropTypes.oneOf([
-      'Top', 'Bottom',
+      'top', 'bottom',
     ]).tag({
-      defaultValue: 'top',
+      defaultValue: 'bottom',
       description: 'This is the image placemnet',
       group: 'Feature options',
       label: 'Image Placement',

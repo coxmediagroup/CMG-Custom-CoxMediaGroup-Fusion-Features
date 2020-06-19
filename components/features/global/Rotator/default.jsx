@@ -8,7 +8,7 @@ import Item from './Item';
 const Rotator = (props) => {
   const { id, loop, delay } = props.customFields;
 
-  const swiper = new Swiper('.swiper-container',
+  const swiper = new Swiper('.rotator .swiper-container',
     {
       autoplay: {
         delay: delay * 1000,
@@ -16,15 +16,15 @@ const Rotator = (props) => {
       },
       loop,
       pagination: {
-        el: '.swiper-pagination',
+        el: '.rotator .swiper-pagination',
         clickable: true,
         renderBullet(index, className) {
           return `<span class="${className}">${index + 1}</span>`;
         },
       },
       navigation: {
-        nextEl: 'a.swiper-button-next',
-        prevEl: 'a.swiper-button-prev',
+        nextEl: '.rotator a.swiper-button-next',
+        prevEl: '.rotator a.swiper-button-prev',
       },
     });
 
@@ -40,7 +40,11 @@ const Rotator = (props) => {
     return <Item key={index} item={item} />;
   });
 
-  return <Display rotatorItems={rotatorItems} />;
+  return (
+    <div className='rotator'>
+      <Display rotatorItems={rotatorItems} />
+    </div>
+  );
 };
 
 Rotator.propTypes = {
