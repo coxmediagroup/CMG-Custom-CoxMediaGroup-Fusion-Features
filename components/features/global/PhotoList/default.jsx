@@ -39,6 +39,8 @@ const PhotoList = (props) => {
   </div>;
 };
 
+PhotoList.label = 'Photo List';
+
 PhotoList.propTypes = {
   customFields: PropTypes.shape({
     title: PropTypes.string.tag({

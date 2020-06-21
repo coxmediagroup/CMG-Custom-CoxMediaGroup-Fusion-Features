@@ -38,4 +38,6 @@ const StoryContent = () => {
   </>;
 };
 
+StoryContent.label = 'Story Content';
+
 export default StoryContent;

@@ -18,6 +18,8 @@ const PageCap = (props) => {
     </div>;
 };
 
+PageCap.label = 'Page Cap';
+
 PageCap.propTypes = {
   customFields: PropTypes.shape({
     pagename: PropTypes.string,
