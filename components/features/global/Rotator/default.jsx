@@ -6,7 +6,7 @@ import Display from './Display';
 import Item from './Item';
 
 const Rotator = (props) => {
-  const { id, loop, delay } = props.customFields;
+  const { id, loop, pagination, navigation, delay } = props.customFields;
 
   const swiper = new Swiper('.rotator .swiper-container',
     {
@@ -60,6 +60,16 @@ Rotator.propTypes = {
     loop: PropTypes.boolean.tag({
       group: 'Swiper options',
       label: 'Loop',
+      defaultValue: true,
+    }),
+    pagination: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Pagination',
+      defaultValue: true,
+    }),
+    navigation: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Navigation',
       defaultValue: true,
     }),
     delay: PropTypes.oneOf([
