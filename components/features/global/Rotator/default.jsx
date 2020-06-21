@@ -37,7 +37,9 @@ const Rotator = (props) => {
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
-    return <Item key={index} item={item} />;
+    if (index < 4) {
+      return <Item key={index} item={item} />;
+    }
   });
 
   return (
@@ -47,6 +49,8 @@ const Rotator = (props) => {
   );
 };
 
+Rotator.label = 'Rotator';
+
 Rotator.propTypes = {
   customFields: PropTypes.shape({
     id: PropTypes.string.tag({
@@ -54,7 +58,7 @@ Rotator.propTypes = {
       label: 'Collection ID',
     }),
     loop: PropTypes.boolean.tag({
-      group: 'Feature options',
+      group: 'Swiper options',
       label: 'Loop',
       defaultValue: true,
     }),
@@ -63,7 +67,7 @@ Rotator.propTypes = {
     ]).tag({
       defaultValue: 7,
       description: 'This is the delay before advancing',
-      group: 'Feature options',
+      group: 'Swiper options',
       label: 'Delay',
       labels: {
         10: '10', 7: '7', 5: '5', 3: '3',
