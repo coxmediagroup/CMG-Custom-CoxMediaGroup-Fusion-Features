@@ -5,7 +5,7 @@ import Display from './Display';
 
 const PhotoList = (props) => {
   const {
-    title, description, api, id, imagePlacement, linked, summary, columns, centered,
+    title, description, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
   const content = useContent({
@@ -24,7 +24,7 @@ const PhotoList = (props) => {
         )}
       </div>
         {/* eslint-disable-next-line max-len */}
-        <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
+        <Display type={content.type} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
     </>
   </div>;
 };
@@ -40,15 +40,6 @@ PhotoList.propTypes = {
     description: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Description',
-    }),
-    api: PropTypes.oneOf([
-      'singleStory', 'collection',
-    ]).tag({
-      defaultValue: 'collection',
-      description: 'This is the api you wish to use',
-      group: 'Feature options',
-      label: 'Content Source',
-      labels: { singleStory: 'Single story', collection: 'Collection' },
     }),
     id: PropTypes.string.tag({
       group: 'Feature options',

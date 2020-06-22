@@ -4,7 +4,7 @@ import Content from './Content';
 
 const Items = (props) => {
   const {
-    api, index, article, columns, imagePlacement, summary, linked, centered,
+    type, index, article, columns, imagePlacement, summary, linked, centered,
   } = props;
   let cols;
 
@@ -31,19 +31,19 @@ const Items = (props) => {
     <div key={index} className={cols}>
       {linked && (
         <a href={canonicalUrl}>
-          <Content api={api} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
+          <Content type={type} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
         </a>
       )}
 
       {!linked && (
-        <Content api={api} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
+        <Content type={type} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
       )}
     </div>
   );
 };
 
 Items.propTypes = {
-  api: PropTypes.string,
+  type: PropTypes.string,
   index: PropTypes.integer,
   article: PropTypes.object,
   columns: PropTypes.number,

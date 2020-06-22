@@ -36,7 +36,6 @@ const Rotator = (props) => {
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
-    console.log('index: ', index);
     if (index < 4) {
       return <Item key={index} item={item} />;
     }
