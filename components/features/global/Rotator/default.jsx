@@ -43,6 +43,7 @@ const Rotator = (props) => {
     if (index < 4) {
       return <Item key={index} item={item} />;
     }
+    return null;
   });
 
   return (
