@@ -12,14 +12,13 @@ const PhotoList = (props) => {
 
   if (api === 'singleStory') {
     content = useContent({
-      source: 'content-api',
-      query: { website_url: id },
+      source: 'content-object-api',
+      query: { website: 'cmg-ms-40020', id },
     });
   } else {
     content = useContent({
-      source: 'content-api2',
-      query: { id, website: 'cmg-ms-40020' },
-      filter: '',
+      source: 'content-object-api',
+      query: { website: 'cmg-ms-40020', id },
     });
   }
 

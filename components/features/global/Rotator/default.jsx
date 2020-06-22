@@ -28,15 +28,15 @@ const Rotator = (props) => {
       },
     });
 
-  // console.log(swiper);
+  console.log(swiper);
 
   const content = useContent({
-    source: 'content-api2',
-    query: { id, website: 'cmg-ms-40020' },
-    filter: '',
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
+    console.log('index: ', index);
     if (index < 4) {
       return <Item key={index} item={item} />;
     }

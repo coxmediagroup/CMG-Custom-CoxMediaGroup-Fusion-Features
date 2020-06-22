@@ -6,13 +6,8 @@ import SwiperDisplay from './SwiperDisplay';
 
 const Swiper = (props) => {
   const {
-    gallery, loop, pagination, navigation, delay, 
+    gallery, loop, pagination, navigation, delay,
   } = props;
-
-  console.log('loop: ', loop);
-  console.log('pagination: ', pagination);
-  console.log('navigation: ', navigation);
-  console.log('delay: ', delay);
 
   useEffect(() => {
     const swiper = new SwiperConstructor('.gallery-feature .swiper-container',
@@ -37,6 +32,8 @@ const Swiper = (props) => {
         },
       });
   });
+
+  console.log(swiper);
 
   const swiperItems = gallery && gallery.content_elements.map((item, index) => {
     return <SwiperItem key={index} item={item} />;
