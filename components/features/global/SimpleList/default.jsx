@@ -28,6 +28,8 @@ const SimpleList = (props) => {
   </div>;
 };
 
+SimpleList.label = 'Simple List';
+
 SimpleList.propTypes = {
   customFields: PropTypes.shape({
     Title: PropTypes.string.tag({

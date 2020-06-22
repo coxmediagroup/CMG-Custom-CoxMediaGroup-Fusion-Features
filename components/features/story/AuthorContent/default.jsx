@@ -30,4 +30,6 @@ const AuthorContent = () => {
   </div>;
 };
 
+AuthorContent.label = 'Author Content';
+
 export default AuthorContent;

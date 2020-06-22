@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const Content = (props) => {
   const {
-    api, article, imagePlacement, summary, centered,
+    type, article, imagePlacement, summary, centered,
   } = props;
 
   let bodyContent;
   let contentClass;
 
-  if (api === 'singleStory') {
+  if (type === 'story') {
     bodyContent = article.content_elements.map((item) => {
       if (item.type === 'text') {
         return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
@@ -53,7 +53,7 @@ const Content = (props) => {
 };
 
 Content.propTypes = {
-  api: PropTypes.string,
+  type: PropTypes.string,
   article: PropTypes.object,
   imagePlacement: PropTypes.string,
   summary: PropTypes.boolean,

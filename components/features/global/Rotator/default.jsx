@@ -6,9 +6,11 @@ import Display from './Display';
 import Item from './Item';
 
 const Rotator = (props) => {
-  const { id, loop, delay } = props.customFields;
+  const {
+    id, loop, pagination, navigation, delay,
+  } = props.customFields;
 
-  const swiper = new Swiper('.swiper-container',
+  const swiper = new Swiper('.rotator .swiper-container',
     {
       autoplay: {
         delay: delay * 1000,
@@ -16,32 +18,42 @@ const Rotator = (props) => {
       },
       loop,
       pagination: {
-        el: '.swiper-pagination',
+        el: '.rotator .swiper-pagination',
         clickable: true,
         renderBullet(index, className) {
           return `<span class="${className}">${index + 1}</span>`;
         },
       },
       navigation: {
-        nextEl: 'a.swiper-button-next',
-        prevEl: 'a.swiper-button-prev',
+        nextEl: '.rotator a.swiper-button-next',
+        prevEl: '.rotator a.swiper-button-prev',
       },
     });
 
-  console.log(swiper);
+  console.log('swiper: ', swiper);
+  console.log('pagination: ', pagination);
+  console.log('navigation: ', navigation);
 
   const content = useContent({
-    source: 'content-api2',
-    query: { id, website: 'cmg-ms-40020' },
-    filter: '',
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
   });
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
-    return <Item key={index} item={item} />;
+    if (index < 4) {
+      return <Item key={index} item={item} />;
+    }
+    return null;
   });
 
-  return <Display rotatorItems={rotatorItems} />;
+  return (
+    <div className='rotator'>
+      <Display rotatorItems={rotatorItems} />
+    </div>
+  );
 };
+
+Rotator.label = 'Rotator';
 
 Rotator.propTypes = {
   customFields: PropTypes.shape({
@@ -50,8 +62,18 @@ Rotator.propTypes = {
       label: 'Collection ID',
     }),
     loop: PropTypes.boolean.tag({
-      group: 'Feature options',
+      group: 'Swiper options',
       label: 'Loop',
+      defaultValue: true,
+    }),
+    pagination: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Pagination',
+      defaultValue: true,
+    }),
+    navigation: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Navigation',
       defaultValue: true,
     }),
     delay: PropTypes.oneOf([
@@ -59,7 +81,7 @@ Rotator.propTypes = {
     ]).tag({
       defaultValue: 7,
       description: 'This is the delay before advancing',
-      group: 'Feature options',
+      group: 'Swiper options',
       label: 'Delay',
       labels: {
         10: '10', 7: '7', 5: '5', 3: '3',

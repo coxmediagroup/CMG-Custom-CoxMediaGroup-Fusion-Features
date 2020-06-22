@@ -27,6 +27,8 @@ const Parallax = (props) => {
     </section>;
 };
 
+Parallax.label = 'Parallax';
+
 Parallax.propTypes = {
   customFields: PropTypes.shape({
     headline: PropTypes.string.tag({

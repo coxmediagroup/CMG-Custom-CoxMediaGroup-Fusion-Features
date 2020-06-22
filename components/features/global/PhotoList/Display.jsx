@@ -4,17 +4,17 @@ import Items from './Items';
 
 const Display = (props) => {
   const {
-    api, content, columns, imagePlacement, summary, linked, centered,
+    type, content, columns, imagePlacement, summary, linked, centered,
   } = props;
   let itemsArray;
 
-  if (api === 'singleStory') {
+  if (type === 'story') {
     // eslint-disable-next-line max-len
-    itemsArray = <Items api={api} key="0" index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+    itemsArray = <Items type={type} key="0" index="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
   } else {
     itemsArray = content && content.content_elements.map((item, index) => {
       // eslint-disable-next-line max-len
-      return <Items api={api} key={index} index={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+      return <Items type={type} key={index} index={index} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
     });
   }
 
@@ -26,7 +26,7 @@ const Display = (props) => {
 };
 
 Display.propTypes = {
-  api: PropTypes.string,
+  type: PropTypes.string,
   content: PropTypes.object,
   columns: PropTypes.number,
   imagePlacement: PropTypes.string,

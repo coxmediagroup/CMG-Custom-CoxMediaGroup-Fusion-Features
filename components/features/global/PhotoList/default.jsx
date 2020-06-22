@@ -5,23 +5,13 @@ import Display from './Display';
 
 const PhotoList = (props) => {
   const {
-    title, description, api, id, imagePlacement, linked, summary, columns, centered,
+    title, description, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
-  let content;
-
-  if (api === 'singleStory') {
-    content = useContent({
-      source: 'content-api',
-      query: { website_url: id },
-    });
-  } else {
-    content = useContent({
-      source: 'content-api2',
-      query: { id, website: 'cmg-ms-40020' },
-      filter: '',
-    });
-  }
+  const content = useContent({
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
+  });
 
   return <div className='photo-list'>
     <>
@@ -34,10 +24,12 @@ const PhotoList = (props) => {
         )}
       </div>
         {/* eslint-disable-next-line max-len */}
-        <Display api={api} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
+        <Display type={content.type} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
     </>
   </div>;
 };
+
+PhotoList.label = 'Photo List';
 
 PhotoList.propTypes = {
   customFields: PropTypes.shape({
@@ -48,15 +40,6 @@ PhotoList.propTypes = {
     description: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Description',
-    }),
-    api: PropTypes.oneOf([
-      'singleStory', 'collection',
-    ]).tag({
-      defaultValue: 'collection',
-      description: 'This is the api you wish to use',
-      group: 'Feature options',
-      label: 'Content Source',
-      labels: { singleStory: 'Single story', collection: 'Collection' },
     }),
     id: PropTypes.string.tag({
       group: 'Feature options',

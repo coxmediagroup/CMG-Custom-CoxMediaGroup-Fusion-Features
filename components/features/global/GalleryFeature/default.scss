@@ -1,0 +1,45 @@
+.gallery-feature {
+  margin-bottom: 30px;
+
+  .content-holder {
+    color: #5b5b5b;
+
+    h4.headline {
+      font-size: 3rem;
+      line-height: 3.5rem;
+      font-weight: 900;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    summary {
+      cursor: auto;
+      font-family: "Arial", "Helvetica", sans-serif;
+      font-size: 1.13rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2rem;
+
+      p {
+        margin: 0 0 10px;
+      }
+    }
+  }
+
+  .swiper {
+
+    .swiper-container {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      position: relative;
+      color: #fff;
+
+      .image-holder img {
+        width: 100%;
+      }
+    }
+  }
+}
