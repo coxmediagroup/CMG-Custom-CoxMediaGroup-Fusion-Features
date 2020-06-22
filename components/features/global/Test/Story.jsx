@@ -25,4 +25,8 @@ const Story = (props) => {
   </div>;
 };
 
+Story.propTypes = {
+  content: PropTypes.object,
+};
+
 export default Story;

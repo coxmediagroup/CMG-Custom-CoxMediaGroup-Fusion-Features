@@ -9,10 +9,10 @@ const Swiper = (props) => {
     gallery, loop, pagination, navigation, delay,
   } = props;
 
-  const swiper;
+  let swiper;
 
   useEffect(() => {
-    let swiper = new SwiperConstructor('.gallery-feature .swiper-container',
+    swiper = new SwiperConstructor('.gallery-feature .swiper-container',
       {
         slidesPerView: 6,
         spaceBetween: 30,
@@ -35,7 +35,7 @@ const Swiper = (props) => {
       });
   });
 
-  console.log(swiper);
+  console.log('swiper: ', swiper);
 
   const swiperItems = gallery && gallery.content_elements.map((item, index) => {
     return <SwiperItem key={index} item={item} />;

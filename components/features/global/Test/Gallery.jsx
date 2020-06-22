@@ -15,4 +15,8 @@ const Gallery = (props) => {
   </div>;
 };
 
+Gallery.propTypes = {
+  content: PropTypes.object,
+};
+
 export default Gallery;
