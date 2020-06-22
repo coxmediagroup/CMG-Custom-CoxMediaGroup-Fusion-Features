@@ -14,9 +14,9 @@ const SwiperItem = (props) => {
   );
 };
 
-SwiperItem.propTypes = {
-  key: PropTypes.integer,
-  item: PropTypes.array,
-};
+// SwiperItem.propTypes = {
+//   key: PropTypes.integer,
+//   item: PropTypes.array,
+// };
 
 export default SwiperItem;

@@ -33,7 +33,7 @@ const Swiper = (props) => {
       });
   });
 
-  console.log(swiper);
+  // console.log(swiper);
 
   const swiperItems = gallery && gallery.content_elements.map((item, index) => {
     return <SwiperItem key={index} item={item} />;
