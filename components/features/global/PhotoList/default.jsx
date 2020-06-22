@@ -8,19 +8,10 @@ const PhotoList = (props) => {
     title, description, api, id, imagePlacement, linked, summary, columns, centered,
   } = props.customFields;
 
-  let content;
-
-  if (api === 'singleStory') {
-    content = useContent({
-      source: 'content-object-api',
-      query: { website: 'cmg-ms-40020', id },
-    });
-  } else {
-    content = useContent({
-      source: 'content-object-api',
-      query: { website: 'cmg-ms-40020', id },
-    });
-  }
+  const content = useContent({
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
+  });
 
   return <div className='photo-list'>
     <>
