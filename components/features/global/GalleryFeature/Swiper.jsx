@@ -9,8 +9,10 @@ const Swiper = (props) => {
     gallery, loop, pagination, navigation, delay,
   } = props;
 
+  const swiper;
+
   useEffect(() => {
-    const swiper = new SwiperConstructor('.gallery-feature .swiper-container',
+    let swiper = new SwiperConstructor('.gallery-feature .swiper-container',
       {
         slidesPerView: 6,
         spaceBetween: 30,
@@ -33,13 +35,21 @@ const Swiper = (props) => {
       });
   });
 
-  // console.log(swiper);
+  console.log(swiper);
 
   const swiperItems = gallery && gallery.content_elements.map((item, index) => {
     return <SwiperItem key={index} item={item} />;
   });
 
   return <SwiperDisplay rotatorItems={swiperItems} navigation={navigation} pagination={pagination} />;
+};
+
+Swiper.propTypes = {
+  gallery: PropTypes.object,
+  loop: PropTypes.boolean,
+  pagination: PropTypes.boolean,
+  navigation: PropTypes.boolean,
+  delay: PropTypes.integer,
 };
 
 export default Swiper;

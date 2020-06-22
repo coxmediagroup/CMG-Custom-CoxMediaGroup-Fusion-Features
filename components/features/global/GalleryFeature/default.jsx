@@ -22,6 +22,8 @@ const GalleryFeature = (props) => {
     return null;
   });
 
+  console.log('linked: ', linked);
+
   return <div className='gallery-feature'>
     <>
       {imagePlacement && imagePlacement === 'top' && (

@@ -6,7 +6,9 @@ import Display from './Display';
 import Item from './Item';
 
 const Rotator = (props) => {
-  const { id, loop, pagination, navigation, delay } = props.customFields;
+  const {
+    id, loop, pagination, navigation, delay,
+  } = props.customFields;
 
   const swiper = new Swiper('.rotator .swiper-container',
     {
@@ -28,7 +30,9 @@ const Rotator = (props) => {
       },
     });
 
-  console.log(swiper);
+  console.log('swiper: ', swiper);
+  console.log('pagination: ', pagination);
+  console.log('navigation: ', navigation);
 
   const content = useContent({
     source: 'content-object-api',

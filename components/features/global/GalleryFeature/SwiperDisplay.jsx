@@ -24,8 +24,10 @@ const SwiperDisplay = (props) => {
   );
 };
 
-// SwiperDisplay.propTypes = {
-//   rotatorItems: PropTypes.array,
-// };
+SwiperDisplay.propTypes = {
+  rotatorItems: PropTypes.array,
+  pagination: PropTypes.boolean,
+  navigation: PropTypes.boolean,
+};
 
 export default SwiperDisplay;
