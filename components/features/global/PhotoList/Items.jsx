@@ -8,9 +8,6 @@ const Items = (props) => {
   } = props;
   let cols;
 
-  console.log('type: ', type);
-  console.log('article: ', article);
-
   switch (columns) {
     case 1:
       cols = 'col-md-12';

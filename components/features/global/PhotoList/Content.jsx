@@ -57,6 +57,7 @@ const Content = (props) => {
         {article.promo_items.lead_art.url && imagePlacement === 'Bottom' && (
           <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
         )}
+        {/* eslint-disable-next-line max-len */}
         {article.promo_items.lead_art.type === 'gallery' && article.promo_items.lead_art.content_elements && imagePlacement === 'Bottom' && (
           <img src={article.promo_items.lead_art.content_elements[0].url} alt={ article.promo_items.lead_art.slug } />
         )}
