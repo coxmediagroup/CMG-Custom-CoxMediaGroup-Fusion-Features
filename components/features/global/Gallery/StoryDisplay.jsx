@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Story = (props) => {
+const StoryDisplay = (props) => {
   const { content } = props;
 
   // console.log("story content: ", content)
@@ -25,8 +25,8 @@ const Story = (props) => {
   </div>;
 };
 
-Story.propTypes = {
+StoryDisplay.propTypes = {
   content: PropTypes.object,
 };
 
-export default Story;
+export default StoryDisplay;

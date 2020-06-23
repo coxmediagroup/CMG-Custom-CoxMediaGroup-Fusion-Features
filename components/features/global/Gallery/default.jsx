@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Story from './Story';
-import Gallery from './Gallery';
+import StoryDisplay from './StoryDisplay';
+import GalleryDisplay from './GalleryDisplay';
 
-const Test = (props) => {
+const Gallery = (props) => {
   const {
-    id, linked, summary, centered, loop, pagination, navigation, delay,
+    id, imagePlacement, linked, summary, centered, loop, pagination, navigation, delay,
   } = props.customFields;
 
   const content = useContent({
@@ -17,22 +17,31 @@ const Test = (props) => {
   return <div className='test'>
     <>
       {content && content.type === 'story' && (
-        <Story content={content} linked={linked} summary={summary} centered={centered} />
+        <StoryDisplay content={content} linked={linked} summary={summary} centered={centered} />
       )}
       {content && content.type === 'gallery' && (
-        <Gallery content={content} linked={linked} summary={summary} centered={centered} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+        <GalleryDisplay content={content} imagePlacement={imagePlacement} linked={linked} summary={summary} centered={centered} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
       )}
     </>
   </div>;
 };
 
-Test.label = 'Test';
+Gallery.label = 'Gallery';
 
-Test.propTypes = {
+Gallery.propTypes = {
   customFields: PropTypes.shape({
     id: PropTypes.string.tag({
       group: 'Feature options',
       label: 'ID',
+    }),
+    imagePlacement: PropTypes.oneOf([
+      'top', 'bottom',
+    ]).tag({
+      defaultValue: 'bottom',
+      description: 'This is the image placemnet',
+      group: 'Feature options',
+      label: 'Image Placement',
+      labels: { top: 'Top', bottom: 'Bottom' },
     }),
     linked: PropTypes.boolean.tag({
       group: 'Item options',
@@ -78,4 +87,4 @@ Test.propTypes = {
   }),
 };
 
-export default Test;
+export default Gallery;
