@@ -46,13 +46,15 @@ PhotoList.propTypes = {
       label: 'ID',
     }),
     imagePlacement: PropTypes.oneOf([
-      'Top', 'Left', 'Right',
+      'Top', 'Left', 'Right', 'Bottom',
     ]).tag({
       defaultValue: 'top',
       description: 'This is the image placemnet',
       group: 'Feature options',
       label: 'Image Placement',
-      labels: { top: 'Top', left: 'Left', right: 'Right' },
+      labels: {
+        top: 'Top', left: 'Left', right: 'Right', bottom: 'Bottom',
+      },
     }),
     columns: PropTypes.oneOf([
       1, 2, 3, 4,
