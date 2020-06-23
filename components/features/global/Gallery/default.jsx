@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import StoryDisplay from './StoryDisplay';
-import GalleryDisplay from './GalleryDisplay';
+import Swiper from './Swiper';
 
 const Gallery = (props) => {
   const {
@@ -14,15 +13,23 @@ const Gallery = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  return <div className='test'>
-    <>
-      {content && content.type === 'story' && (
-        <StoryDisplay content={content} linked={linked} summary={summary} centered={centered} />
+  const bodyContent = content.description.basic.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
+
+  return <div className='gallery'>
+    {imagePlacement && imagePlacement === 'top' && (
+      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+    )}
+    <div className="content-holder">
+      <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
+      {summary && (
+        <summary className={`${
+          summary ? ' show-me' : ' show-me-mobile'}${
+          centered ? ' centered' : ''}`} dangerouslySetInnerHTML={{ __html: bodyContent }}></summary>
       )}
-      {content && content.type === 'gallery' && (
-        <GalleryDisplay content={content} imagePlacement={imagePlacement} linked={linked} summary={summary} centered={centered} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
-      )}
-    </>
+    </div>
+    {imagePlacement && imagePlacement === 'bottom' && (
+      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+    )}
   </div>;
 };
 

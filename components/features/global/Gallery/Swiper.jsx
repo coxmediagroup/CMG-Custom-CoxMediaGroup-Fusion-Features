@@ -9,30 +9,38 @@ const Swiper = (props) => {
     gallery, loop, pagination, navigation, delay,
   } = props;
 
+  // eslint-disable-next-line no-unused-vars
   let swiper;
 
   useEffect(() => {
-    swiper = new SwiperConstructor('.test .swiper-container',
-      {
-        slidesPerView: 6,
-        spaceBetween: 30,
-        autoplay: {
-          delay: delay * 1000,
-          disableOnInteraction: false,
+    const swiperOptions = {
+      slidesPerView: 6,
+      spaceBetween: 30,
+      autoplay: {
+        delay: delay * 1000,
+        disableOnInteraction: false,
+      },
+      loop,
+    };
+
+    if (pagination) {
+      swiperOptions.pagination = {
+        el: '.gallery .swiper-pagination',
+        clickable: true,
+        renderBullet(index, className) {
+          return `<span class="${className}">${index + 1}</span>`;
         },
-        loop,
-        pagination: {
-          el: 'gallery-feature .swiper-pagination',
-          clickable: true,
-          renderBullet(index, className) {
-            return `<span class="${className}">${index + 1}</span>`;
-          },
-        },
-        navigation: {
-          nextEl: 'test a.swiper-button-next',
-          prevEl: 'test a.swiper-button-prev',
-        },
-      });
+      };
+    }
+
+    if (navigation) {
+      swiperOptions.navigation = {
+        nextEl: 'gallery a.swiper-button-next',
+        prevEl: 'gallery a.swiper-button-prev',
+      };
+    }
+
+    swiper = new SwiperConstructor('.gallery .swiper-container', swiperOptions);
   });
 
   const swiperItems = gallery.map((item, index) => {
