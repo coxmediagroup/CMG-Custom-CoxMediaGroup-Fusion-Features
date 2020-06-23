@@ -18,7 +18,7 @@ const Swiper = (props) => {
       spaceBetween: 30,
       autoplay: {
         delay: delay * 1000,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       },
       loop,
     };
@@ -28,15 +28,15 @@ const Swiper = (props) => {
         el: '.gallery .swiper-pagination',
         clickable: true,
         renderBullet(index, className) {
-          return `<span class="${className}">${index + 1}</span>`;
+          return `<span class="${className}"></span>`;
         },
       };
     }
 
     if (navigation) {
       swiperOptions.navigation = {
-        nextEl: 'gallery a.swiper-button-next',
-        prevEl: 'gallery a.swiper-button-prev',
+        nextEl: '.gallery a.swiper-button-next',
+        prevEl: '.gallery a.swiper-button-prev',
       };
     }
 
