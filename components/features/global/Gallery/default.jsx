@@ -5,7 +5,7 @@ import Swiper from './Swiper';
 
 const Gallery = (props) => {
   const {
-    id, imagePlacement, linked, summary, centered, loop, pagination, navigation, delay,
+    id, imagePlacement, summary, centered, loop, pagination, navigation, delay,
   } = props.customFields;
 
   const content = useContent({
@@ -81,14 +81,14 @@ Gallery.propTypes = {
       defaultValue: false,
     }),
     delay: PropTypes.oneOf([
-      10, 7, 5, 3,
+      3, 5, 7, 10,
     ]).tag({
       defaultValue: 7,
       description: 'This is the delay before advancing',
       group: 'Swiper options',
       label: 'Delay',
       labels: {
-        10: '10', 7: '7', 5: '5', 3: '3',
+        3: '3', 5: '5', 7: '7', 10: '10',
       },
     }),
   }),

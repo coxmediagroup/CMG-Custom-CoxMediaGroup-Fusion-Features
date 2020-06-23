@@ -16,6 +16,8 @@ const Swiper = (props) => {
     const swiperOptions = {
       slidesPerView: 6,
       spaceBetween: 30,
+      slidesPerGroup: 6,
+      loopFillGroupWithBlank: false,
       autoplay: {
         delay: delay * 1000,
         disableOnInteraction: true,
