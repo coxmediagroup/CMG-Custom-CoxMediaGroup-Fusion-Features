@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Swiper from './Swiper';
 
-const GalleryFeature = (props) => {
+const Gallery = (props) => {
   const {
-    id, imagePlacement, linked, summary, centered, loop, pagination, navigation, delay,
+    id, imagePlacement, summary, centered, loop, pagination, navigation, delay,
   } = props.customFields;
 
   const content = useContent({
@@ -13,40 +13,29 @@ const GalleryFeature = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  const bodyContent = content.content_elements.map((item) => {
-    if (item.type === 'text') {
-      return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
-    } if (item.type === 'image') {
-      return <img src={item.url} />;
-    }
-    return null;
-  });
+  const bodyContent = content.description.basic.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
 
-  console.log('linked: ', linked);
-
-  return <div className='gallery-feature'>
-    <>
-      {imagePlacement && imagePlacement === 'top' && (
-        <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} delay={delay} />
+  return <div className='gallery'>
+    {imagePlacement && imagePlacement === 'top' && (
+      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+    )}
+    <div className="content-holder">
+      <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
+      {summary && (
+        <summary className={`${
+          summary ? ' show-me' : ' show-me-mobile'}${
+          centered ? ' centered' : ''}`} dangerouslySetInnerHTML={{ __html: bodyContent }}></summary>
       )}
-      <div className="content-holder">
-        <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
-        {summary && (
-          <summary className={`${
-            summary ? ' show-me' : ' show-me-mobile'}${
-            centered ? ' centered' : ''}`}>{bodyContent}</summary>
-        )}
-      </div>
-      {imagePlacement && imagePlacement === 'bottom' && (
-        <Swiper gallery={content.promo_items.lead_art} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
-      )}
-    </>
+    </div>
+    {imagePlacement && imagePlacement === 'bottom' && (
+      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+    )}
   </div>;
 };
 
-GalleryFeature.label = 'Gallery Feature';
+Gallery.label = 'Gallery';
 
-GalleryFeature.propTypes = {
+Gallery.propTypes = {
   customFields: PropTypes.shape({
     id: PropTypes.string.tag({
       group: 'Feature options',
@@ -92,17 +81,17 @@ GalleryFeature.propTypes = {
       defaultValue: false,
     }),
     delay: PropTypes.oneOf([
-      10, 7, 5, 3,
+      3, 5, 7, 10,
     ]).tag({
       defaultValue: 7,
       description: 'This is the delay before advancing',
       group: 'Swiper options',
       label: 'Delay',
       labels: {
-        10: '10', 7: '7', 5: '5', 3: '3',
+        3: '3', 5: '5', 7: '7', 10: '10',
       },
     }),
   }),
 };
 
-export default GalleryFeature;
+export default Gallery;

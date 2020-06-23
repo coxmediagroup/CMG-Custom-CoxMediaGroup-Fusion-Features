@@ -32,20 +32,34 @@ const Content = (props) => {
 
   return (
     <div className={contentClass}>
-      {article.promo_items.lead_art.url && (
-        <div className='image-holder'>
+      <div className='image-holder'>
+        {article.promo_items.lead_art.url && imagePlacement !== 'Bottom' && (
           <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
-        </div>
-      )}
+        )}
+       {article.promo_items.lead_art.type === 'gallery' && article.promo_items.lead_art.content_elements && imagePlacement !== 'Bottom' && (
+          <img src={article.promo_items.lead_art.content_elements[0].url} alt={ article.promo_items.lead_art.slug } />
+       )}
+      </div>
+
       <div className='content-holder'>
         <h4
           className={`headline${
             centered ? ' centered' : ''}`}>{article.headlines.basic}
         </h4>
-        {article.description.basic && (
+        {bodyContent && (
           <summary className={`${
             summary ? ' show-me' : ' show-me-mobile'}${
             centered ? ' centered' : ''}`}>{bodyContent}</summary>
+        )}
+      </div>
+
+      <div className='image-holder'>
+        {article.promo_items.lead_art.url && imagePlacement === 'Bottom' && (
+          <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
+        )}
+        {/* eslint-disable-next-line max-len */}
+        {article.promo_items.lead_art.type === 'gallery' && article.promo_items.lead_art.content_elements && imagePlacement === 'Bottom' && (
+          <img src={article.promo_items.lead_art.content_elements[0].url} alt={ article.promo_items.lead_art.slug } />
         )}
       </div>
     </div>

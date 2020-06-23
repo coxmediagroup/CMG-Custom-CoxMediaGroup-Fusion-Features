@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Swiper from 'swiper';
+import SwiperConstructor from 'swiper';
 import Display from './Display';
 import Item from './Item';
 
@@ -10,29 +10,33 @@ const Rotator = (props) => {
     id, loop, pagination, navigation, delay,
   } = props.customFields;
 
-  const swiper = new Swiper('.rotator .swiper-container',
-    {
-      autoplay: {
-        delay: delay * 1000,
-        disableOnInteraction: false,
-      },
-      loop,
-      pagination: {
-        el: '.rotator .swiper-pagination',
-        clickable: true,
-        renderBullet(index, className) {
-          return `<span class="${className}">${index + 1}</span>`;
-        },
-      },
-      navigation: {
-        nextEl: '.rotator a.swiper-button-next',
-        prevEl: '.rotator a.swiper-button-prev',
-      },
-    });
+  const swiperOptions = {
+    autoplay: {
+      delay: delay * 1000,
+      disableOnInteraction: true,
+    },
+    loop,
+  };
 
-  console.log('swiper: ', swiper);
-  console.log('pagination: ', pagination);
-  console.log('navigation: ', navigation);
+  if (pagination) {
+    swiperOptions.pagination = {
+      el: '.rotator .swiper-pagination',
+      clickable: true,
+      renderBullet(index, className) {
+        return `<span class="${className}"></span>`;
+      },
+    };
+  }
+
+  if (navigation) {
+    swiperOptions.navigation = {
+      nextEl: '.rotator a.swiper-button-next',
+      prevEl: '.rotator a.swiper-button-prev',
+    };
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  const swiper = new SwiperConstructor('.rotator .swiper-container', swiperOptions);
 
   const content = useContent({
     source: 'content-object-api',
