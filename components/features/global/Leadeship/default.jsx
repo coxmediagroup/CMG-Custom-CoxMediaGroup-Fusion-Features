@@ -5,11 +5,10 @@ import { useContent } from 'fusion:content';
 const Leadership = (props) => {
   const { slugs } = props.customFields;
 
-  let allSlugs = slugs.split(', ');
-  let leaders = [];
+  const allSlugs = slugs.split(', ');
+  const leaders = [];
 
   allSlugs.forEach((slug) => {
-
     const content = useContent({
       source: 'author-api',
       query: { slug },
@@ -19,26 +18,28 @@ const Leadership = (props) => {
   });
 
   const itemsArray = leaders.length > 0 && leaders.map((item, index) => {
-    console.log('item: ', item.authors[0]);
+    // console.log('item: ', item.authors[0]);
 
     return (
-      <>
+      <div key={index} className="col-md-4">
         <a href={item.authors[0].bio_page}>
           <div className="image-holder">
             <img src={item.authors[0].image} alt={item.authors[0].byline} />
           </div>
           <div className="content-holder">
-            <h4 className="leadership">{item.authors[0].byline}</h4>
+            <h4 className="headline">{item.authors[0].byline}</h4>
             <summary>{item.authors[0].role}</summary>
           </div>
         </a>
-      </>
+      </div>
     );
   });
 
   return (
     <div className="leadership">
-      { itemsArray }
+      <div className='row'>
+        { itemsArray }
+      </div>
     </div>
   );
 };
