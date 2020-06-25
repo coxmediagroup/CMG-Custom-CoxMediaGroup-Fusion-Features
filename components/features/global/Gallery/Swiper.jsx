@@ -13,9 +13,11 @@ const Swiper = (props) => {
   // these are specific options
   const spaceBetween = 30;
   const multislides = true;
+  const slidesPerView = 6;
+  const slidesPerGroup = 6;
 
   // eslint-disable-next-line max-len
-  const swiper = <CommonSwiper identifier='.gallery' spaceBetween={spaceBetween} multislides={multislides} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+  const swiper = <CommonSwiper identifier='.gallery' spaceBetween={spaceBetween} multislides={multislides} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const swiperItems = gallery.map((item, index) => {
     return <SwiperItem key={index} item={item} />;
