@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Display = (props) => {
-  const { rotatorItems } = props;
+  const { rotatorItems, navigation, pagination } = props;
 
   return (
     <div className='swiper'>
@@ -10,9 +10,15 @@ const Display = (props) => {
         <div className="swiper-wrapper">
           {rotatorItems}
         </div>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+        {pagination && (
+          <div className="swiper-pagination"></div>
+        )}
+        {navigation && (
+          <>
+            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next"></div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -20,6 +26,8 @@ const Display = (props) => {
 
 Display.propTypes = {
   rotatorItems: PropTypes.object,
+  pagination: PropTypes.boolean,
+  navigation: PropTypes.boolean,
 };
 
 export default Display;
