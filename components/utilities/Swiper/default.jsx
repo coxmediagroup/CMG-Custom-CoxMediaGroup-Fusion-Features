@@ -2,34 +2,24 @@ import SwiperConstructor from 'swiper';
 
 const Swiper = (props) => {
   const {
-    identifier, multislides, slidesPerView, slidesPerGroup, spaceBetween, loop, pagination, navigation, delay,
+    identifier, slidesPerView, slidesPerGroup, spaceBetween, autoplay, loop, pagination, navigation, delay,
   } = props;
 
-  console.log('this is the latest swiper constructor code: ');
+  console.log('autoplay: ', autoplay);
 
-  // let swiperOptions;
-
-  // if (multislides) {
   const swiperOptions = {
     slidesPerView,
     slidesPerGroup,
     spaceBetween,
-    autoplay: {
-      delay: delay * 1000,
-      disableOnInteraction: true,
-    },
     loop,
   };
-  // } else {
-    // swiperOptions = {
-    //   spaceBetween,
-    //   autoplay: {
-    //     delay: delay * 1000,
-    //     disableOnInteraction: true,
-    //   },
-    //   loop,
-    // };
-  // }
+
+  if (autoplay) {
+    swiperOptions.autoplay = {
+      delay: delay * 1000,
+      disableOnInteraction: true,
+    };
+  }
 
   if (pagination) {
     swiperOptions.pagination = {
@@ -43,8 +33,8 @@ const Swiper = (props) => {
 
   if (navigation) {
     swiperOptions.navigation = {
-      nextEl: `${identifier} a.swiper-button-next`,
-      prevEl: `${identifier}  a.swiper-button-prev`,
+      nextEl: `${identifier} .swiper-button-next`,
+      prevEl: `${identifier} .swiper-button-prev`,
     };
   }
 

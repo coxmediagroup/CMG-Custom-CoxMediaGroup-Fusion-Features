@@ -5,7 +5,7 @@ import Swiper from './Swiper';
 
 const Gallery = (props) => {
   const {
-    id, imagePlacement, summary, centered, loop, pagination, navigation, delay,
+    id, imagePlacement, summary, centered, autoplay, loop, pagination, navigation, delay,
   } = props.customFields;
 
   const content = useContent({
@@ -17,7 +17,8 @@ const Gallery = (props) => {
 
   return <div className='gallery'>
     {imagePlacement && imagePlacement === 'top' && (
-      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+      // eslint-disable-next-line max-len
+      <Swiper gallery={content.content_elements} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
     )}
     <div className="content-holder">
       <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
@@ -63,6 +64,11 @@ Gallery.propTypes = {
     centered: PropTypes.boolean.tag({
       group: 'Item options',
       label: 'Centered',
+      defaultValue: true,
+    }),
+    autoplay: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Autoplay',
       defaultValue: true,
     }),
     loop: PropTypes.boolean.tag({

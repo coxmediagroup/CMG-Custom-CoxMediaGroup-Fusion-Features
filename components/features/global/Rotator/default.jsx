@@ -8,17 +8,17 @@ import CommonSwiper from '../../../utilities/Swiper/default';
 
 const Rotator = (props) => {
   const {
-    id, loop, pagination, navigation, delay,
+    id, autoplay, loop, pagination, navigation, delay,
   } = props.customFields;
 
   // these are specific options
+  const identifier = '.rotator';
   const spaceBetween = 10;
-  const multislides = false;
   const slidesPerView = 1;
   const slidesPerGroup = 1;
 
   // eslint-disable-next-line max-len
-  const swiper = <CommonSwiper identifier='.rotator' multislides={multislides} spaceBetween={spaceBetween} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+  const swiper = <CommonSwiper identifier={identifier} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} spaceBetween={spaceBetween} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const content = useContent({
     source: 'content-object-api',
@@ -36,7 +36,7 @@ const Rotator = (props) => {
     <>
       { swiper }
       <div className='rotator'>
-        <Display rotatorItems={rotatorItems} />
+        <Display rotatorItems={rotatorItems} pagination={pagination} navigation={navigation} />
       </div>
     </>
   );
@@ -49,6 +49,11 @@ Rotator.propTypes = {
     id: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Collection ID',
+    }),
+    autoplay: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Autoplay',
+      defaultValue: true,
     }),
     loop: PropTypes.boolean.tag({
       group: 'Swiper options',
