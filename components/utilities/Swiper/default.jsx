@@ -2,12 +2,13 @@ import SwiperConstructor from 'swiper';
 
 const Swiper = (props) => {
   const {
-    identifier, loop, pagination, navigation, delay,
+    identifier, spaceBetween, loop, pagination, navigation, delay,
   } = props;
 
   console.log('swiper from utilities after change and with identifier: ', loop);
 
   const swiperOptions = {
+    spaceBetween,
     autoplay: {
       delay: delay * 1000,
       disableOnInteraction: true,

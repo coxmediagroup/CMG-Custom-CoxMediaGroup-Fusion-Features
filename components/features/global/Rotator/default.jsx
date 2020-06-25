@@ -11,7 +11,10 @@ const Rotator = (props) => {
     id, loop, pagination, navigation, delay,
   } = props.customFields;
 
-  const swiper = <CommonSwiper identifier='.rotator' loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+  // these are specific options
+  const spaceBetween = 10;
+
+  const swiper = <CommonSwiper identifier='.rotator' spaceBetween={spaceBetween} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const content = useContent({
     source: 'content-object-api',
