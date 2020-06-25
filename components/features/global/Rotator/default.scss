@@ -196,6 +196,36 @@
   }
 }
 
+@media (max-width: 480px) {
+
+  .rotator {
+
+    .swiper {
+
+      .swiper-container {
+        height: 210px;
+
+        .swiper-slide {
+
+          .content-holder {
+            top: 15%;
+
+            p {
+              font-size: .88rem;
+              line-height: 1.25rem;
+            }
+
+            .headline {
+              font-size: 1.13rem;
+              line-height: 1.13rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* animations */
 /* webkit */
 @keyframes bounce-left {
