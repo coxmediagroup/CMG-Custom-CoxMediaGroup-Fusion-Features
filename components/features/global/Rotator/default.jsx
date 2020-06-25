@@ -11,6 +11,7 @@ const Rotator = (props) => {
   } = props.customFields;
 
   const swiperOptions = {
+    spaceBetween: 10,
     autoplay: {
       delay: delay * 1000,
       disableOnInteraction: true,
