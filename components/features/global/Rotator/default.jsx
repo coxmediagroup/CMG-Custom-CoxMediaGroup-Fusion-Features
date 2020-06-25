@@ -14,9 +14,11 @@ const Rotator = (props) => {
   // these are specific options
   const spaceBetween = 10;
   const multislides = false;
+  const slidesPerView = 1;
+  const slidesPerGroup = 1;
 
   // eslint-disable-next-line max-len
-  const swiper = <CommonSwiper identifier='.rotator' multislides={multislides} spaceBetween={spaceBetween} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+  const swiper = <CommonSwiper identifier='.rotator' multislides={multislides} spaceBetween={spaceBetween} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const content = useContent({
     source: 'content-object-api',
