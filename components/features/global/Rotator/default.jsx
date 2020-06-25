@@ -13,8 +13,10 @@ const Rotator = (props) => {
 
   // these are specific options
   const spaceBetween = 10;
+  const multislides = false;
 
-  const swiper = <CommonSwiper identifier='.rotator' spaceBetween={spaceBetween} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+  // eslint-disable-next-line max-len
+  const swiper = <CommonSwiper identifier='.rotator' multislides={multislides} spaceBetween={spaceBetween} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const content = useContent({
     source: 'content-object-api',
