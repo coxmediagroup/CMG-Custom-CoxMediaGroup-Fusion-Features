@@ -5,7 +5,7 @@ import { useContent } from 'fusion:content';
 const Leadership = (props) => {
   const { slugs } = props.customFields;
 
-  const allSlugs = slugs.split(', ');
+  const allSlugs = slugs.split(',').map(slug => slug.trim());
   const leaders = [];
 
   allSlugs.forEach((slug) => {
@@ -50,7 +50,7 @@ Leadership.propTypes = {
   customFields: PropTypes.shape({
     slugs: PropTypes.string.tag({
       group: 'Feature options',
-      label: 'Slugs',
+      label: 'Slugs (comma-separated)',
     }),
   }),
 };
