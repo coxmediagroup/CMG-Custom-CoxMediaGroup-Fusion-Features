@@ -5,7 +5,7 @@ import { useContent } from 'fusion:content';
 const Leadership = (props) => {
   const { slugs } = props.customFields;
 
-  const allSlugs = slugs.split(',').map(slug => slug.trim());
+  const allSlugs = slugs.split(',').map((slug) => { return slug.trim(); });
   const leaders = [];
 
   allSlugs.forEach((slug) => {
