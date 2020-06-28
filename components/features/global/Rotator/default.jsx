@@ -1,43 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import SwiperConstructor from 'swiper';
 import Display from './Display';
 import Item from './Item';
 
+import CommonSwiper from '../../../utilities/Swiper/default';
+
 const Rotator = (props) => {
   const {
-    id, loop, pagination, navigation, delay,
+    id, autoplay, loop, pagination, navigation, delay,
   } = props.customFields;
 
-  const swiperOptions = {
-    spaceBetween: 10,
-    autoplay: {
-      delay: delay * 1000,
-      disableOnInteraction: true,
-    },
-    loop,
-  };
+  // these are specific options
+  const identifier = '.rotator';
+  const spaceBetween = 10;
+  const slidesPerView = 1;
+  const slidesPerGroup = 1;
 
-  if (pagination) {
-    swiperOptions.pagination = {
-      el: '.rotator .swiper-pagination',
-      clickable: true,
-      renderBullet(index, className) {
-        return `<span class="${className}"></span>`;
-      },
-    };
-  }
-
-  if (navigation) {
-    swiperOptions.navigation = {
-      nextEl: '.rotator a.swiper-button-next',
-      prevEl: '.rotator a.swiper-button-prev',
-    };
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  const swiper = new SwiperConstructor('.rotator .swiper-container', swiperOptions);
+  // eslint-disable-next-line max-len
+  const swiper = <CommonSwiper identifier={identifier} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} spaceBetween={spaceBetween} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const content = useContent({
     source: 'content-object-api',
@@ -52,9 +33,12 @@ const Rotator = (props) => {
   });
 
   return (
-    <div className='rotator'>
-      <Display rotatorItems={rotatorItems} />
-    </div>
+    <>
+      { swiper }
+      <div className='rotator'>
+        <Display rotatorItems={rotatorItems} pagination={pagination} navigation={navigation} />
+      </div>
+    </>
   );
 };
 
@@ -65,6 +49,11 @@ Rotator.propTypes = {
     id: PropTypes.string.tag({
       group: 'Feature options',
       label: 'Collection ID',
+    }),
+    autoplay: PropTypes.boolean.tag({
+      group: 'Swiper options',
+      label: 'Autoplay',
+      defaultValue: true,
     }),
     loop: PropTypes.boolean.tag({
       group: 'Swiper options',
