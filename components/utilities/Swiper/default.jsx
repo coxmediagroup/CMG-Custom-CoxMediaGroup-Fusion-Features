@@ -5,8 +5,6 @@ const Swiper = (props) => {
     identifier, slidesPerView, slidesPerGroup, spaceBetween, autoplay, loop, pagination, navigation, delay,
   } = props;
 
-  console.log('autoplay: ', autoplay);
-
   const swiperOptions = {
     slidesPerView,
     slidesPerGroup,
