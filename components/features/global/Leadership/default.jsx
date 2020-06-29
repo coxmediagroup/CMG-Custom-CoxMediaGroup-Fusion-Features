@@ -18,8 +18,6 @@ const Leadership = (props) => {
   });
 
   const itemsArray = leaders.length > 0 && leaders.map((item, index) => {
-    // console.log('item: ', item.authors[0]);
-
     return (
       <div key={index} className="col-md-4">
         <a href={item.authors[0].bio_page}>
