@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SwiperDisplay from './SwiperDisplay';
 
 import CommonSwiper from '../../../utilities/Swiper/default';
 import SwiperItem from '../../../utilities/Swiper/SwiperItem';
+import SwiperDisplay from '../../../utilities/Swiper/SwiperDisplay';
 
 const Swiper = (props) => {
   const {
@@ -26,7 +26,7 @@ const Swiper = (props) => {
   return (
     <>
       { swiper }
-      <SwiperDisplay rotatorItems={swiperItems} navigation={navigation} pagination={pagination} />
+      <SwiperDisplay swiperItems={swiperItems} navigation={navigation} pagination={pagination} />
     </>
   );
 };
