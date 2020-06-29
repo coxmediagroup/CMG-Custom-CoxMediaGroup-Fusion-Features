@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import Display from './Display';
-import Item from './Item';
 
 import CommonSwiper from '../../../utilities/Swiper/default';
+import SwiperItem from '../../../utilities/Swiper/SwiperItem';
 
 const Rotator = (props) => {
   const {
@@ -27,7 +27,7 @@ const Rotator = (props) => {
 
   const rotatorItems = content && content.content_elements.map((item, index) => {
     if (index < 4) {
-      return <Item key={index} item={item} />;
+      return <SwiperItem key={index} item={item} type="overlay" />;
     }
     return null;
   });

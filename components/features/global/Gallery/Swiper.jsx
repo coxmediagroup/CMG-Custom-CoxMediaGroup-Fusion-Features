@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SwiperItem from './SwiperItem';
 import SwiperDisplay from './SwiperDisplay';
 
 import CommonSwiper from '../../../utilities/Swiper/default';
+import SwiperItem from '../../../utilities/Swiper/SwiperItem';
 
 const Swiper = (props) => {
   const {
@@ -20,7 +20,7 @@ const Swiper = (props) => {
   const swiper = <CommonSwiper identifier={identifier} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} spaceBetween={spaceBetween} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
 
   const swiperItems = gallery.map((item, index) => {
-    return <SwiperItem key={index} item={item} />;
+    return <SwiperItem key={index} item={item} type="standard" />;
   });
 
   return (
