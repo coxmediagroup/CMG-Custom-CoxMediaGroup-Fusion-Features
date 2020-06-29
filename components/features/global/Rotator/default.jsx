@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 
 import CommonSwiper from '../../../utilities/Swiper/default';
-import SwiperItem from '../../../utilities/Swiper/SwiperItem';
-import SwiperDisplay from '../../../utilities/Swiper/SwiperDisplay';
+import SwiperItem from '../../../utilities/Swiper/Item';
+import SwiperDisplay from '../../../utilities/Swiper/Display';
 
 const Rotator = (props) => {
   const {

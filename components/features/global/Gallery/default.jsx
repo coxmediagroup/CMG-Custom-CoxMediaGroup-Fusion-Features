@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Swiper from './Swiper';
+
+import CommonSwiper from '../../../utilities/Swiper/default';
+import SwiperItem from '../../../utilities/Swiper/Item';
+import SwiperDisplay from '../../../utilities/Swiper/Display';
 
 const Gallery = (props) => {
   const {
@@ -15,10 +18,27 @@ const Gallery = (props) => {
 
   const bodyContent = content.description.basic.split(/[\n\r]+/).map((line) => { return `<p>${line}</p>`; }).join('');
 
+  // these are specific options
+  const identifier = '.gallery';
+  const spaceBetween = 30;
+  const slidesPerView = 6;
+  const slidesPerGroup = 6;
+
+  // eslint-disable-next-line max-len
+  const swiper = <CommonSwiper identifier={identifier} slidesPerView={slidesPerView} slidesPerGroup={slidesPerGroup} spaceBetween={spaceBetween} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />;
+
+  const gallery = content.content_elements;
+
+  const swiperItems = gallery.map((item, index) => {
+    return <SwiperItem key={index} item={item} type="standard" />;
+  });
+
   return <div className='gallery'>
     {imagePlacement && imagePlacement === 'top' && (
-      // eslint-disable-next-line max-len
-      <Swiper gallery={content.content_elements} autoplay={autoplay} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+      <>
+        { swiper }
+        <SwiperDisplay swiperItems={swiperItems} navigation={navigation} pagination={pagination} />
+      </>
     )}
     <div className="content-holder">
       <h4 className={`headline${centered ? ' centered' : ''}`}>{content.headlines.basic}</h4>
@@ -29,7 +49,10 @@ const Gallery = (props) => {
       )}
     </div>
     {imagePlacement && imagePlacement === 'bottom' && (
-      <Swiper gallery={content.content_elements} loop={loop} pagination={pagination} navigation={navigation} delay={delay} />
+      <>
+        { swiper }
+        <SwiperDisplay swiperItems={swiperItems} navigation={navigation} pagination={pagination} />
+      </>
     )}
   </div>;
 };
