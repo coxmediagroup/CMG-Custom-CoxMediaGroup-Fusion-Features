@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
-import Display from './Display';
-import Item from './Item';
 
 import CommonSwiper from '../../../utilities/Swiper/default';
+import SwiperItem from '../../../utilities/Swiper/Item';
+import SwiperDisplay from '../../../utilities/Swiper/Display';
 
 const Rotator = (props) => {
   const {
@@ -25,9 +25,9 @@ const Rotator = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  const rotatorItems = content && content.content_elements.map((item, index) => {
+  const swiperItems = content && content.content_elements.map((item, index) => {
     if (index < 4) {
-      return <Item key={index} item={item} />;
+      return <SwiperItem key={index} item={item} type="overlay" />;
     }
     return null;
   });
@@ -36,7 +36,7 @@ const Rotator = (props) => {
     <>
       { swiper }
       <div className='rotator'>
-        <Display rotatorItems={rotatorItems} pagination={pagination} navigation={navigation} />
+        <SwiperDisplay swiperItems={swiperItems} pagination={pagination} navigation={navigation} />
       </div>
     </>
   );

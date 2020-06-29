@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Display = (props) => {
-  const { rotatorItems, navigation, pagination } = props;
+const SwiperDisplay = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { swiperItems, navigation, pagination } = props;
 
   return (
     <div className='swiper'>
       <div className="swiper-container">
         <div className="swiper-wrapper">
-          {rotatorItems}
+          {swiperItems}
         </div>
         {pagination && (
           <div className="swiper-pagination"></div>
@@ -24,10 +25,9 @@ const Display = (props) => {
   );
 };
 
-Display.propTypes = {
-  rotatorItems: PropTypes.object,
+SwiperDisplay.propTypes = {
   pagination: PropTypes.boolean,
   navigation: PropTypes.boolean,
 };
 
-export default Display;
+export default SwiperDisplay;
