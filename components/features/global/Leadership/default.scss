@@ -4,6 +4,11 @@
 
     .col-md-4 {
       margin: 0 0 30px;
+
+      @media (min-width: 768px) {
+        max-width: 33%;
+        flex: 0 0 33%;
+      }
       
       a {
         font-weight: 900;
@@ -37,7 +42,7 @@
             font-size: 14px;
             letter-spacing: 2px;
   
-            @media (max-width: 768px) {
+            @media (max-width: 767px) {
               font-size: 18px;
               letter-spacing: 0;
             }
