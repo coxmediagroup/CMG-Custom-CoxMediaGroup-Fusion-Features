@@ -12,6 +12,23 @@ const Swiper = (props) => {
     loop,
   };
 
+  if (slidesPerView > 1) {
+    swiperOptions.breakpoints = {
+      // when window width is >= 994px
+      994: {
+        slidesPerView,
+      },
+      // when window width is >= 770px
+      770: {
+        slidesPerView: 3,
+      },
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 2,
+      },
+    };
+  }
+
   if (autoplay) {
     swiperOptions.autoplay = {
       delay: delay * 1000,
