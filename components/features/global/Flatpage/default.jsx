@@ -21,8 +21,6 @@ const Flatpage = (props) => {
     return null;
   });
 
-  console.log('content: ', content);
-
   return <div className='flatpage'>
     <>
       {bodyContent}
