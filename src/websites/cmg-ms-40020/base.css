@@ -40,6 +40,10 @@ img {
   width: 100%;
 }
 
+summary {
+  display: inherit;
+}
+
 /* begin new styles for arc */
 .headline {
   text-transform: uppercase;
