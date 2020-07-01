@@ -1,11 +1,19 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const Footer = () => {
+const Footer = (props) => {
+  const {
+    missionStatement, twitterUrl,
+  } = props.customFields;
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://platform.twitter.com/widgets.js';
     document.getElementsByClassName('twitter-embed')[0].appendChild(script);
   }, []);
+
+  const date = new Date();
+  const fullyear = date.getFullYear();
 
   return (
     <footer>
@@ -13,11 +21,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4">
             <h6>Our mission</h6>
-            <p>
-              CoxReps strives to maximize revenue for client stations and provide value to agency partners. Through cutting-edge research
-              and data, a steadfast commitment to our clients, and the immeasurable value of our people, we deliver local smart-media
-              solutions that reach audiences on every screen.
-            </p>
+            <p>{missionStatement}</p>
           </div>
           <div className="col-lg-4 twitter-embed">
             <h6>Twitter feed</h6>
@@ -27,7 +31,7 @@ const Footer = () => {
               data-tweet-limit="1"
               hide_media="true"
               data-chrome="nofooter noheader noborders transparent"
-              href="https://twitter.com/coxreps"
+              href={twitterUrl}
             ></a>
           </div>
           <div className="col-lg-4">
@@ -52,7 +56,7 @@ const Footer = () => {
             <div>
               <a href="/pf/visitor-agreement/">Visitor Agreement</a> | <a href="/pf/privacy-statement/">Privacy Statement</a>
             </div>
-            <p className="footerCopyRight">© 2020&nbsp;CoxReps</p>
+            <p className="footerCopyRight">&#169; {fullyear}&nbsp;CoxReps</p>
           </div>
         </div>
       </div>
@@ -61,5 +65,16 @@ const Footer = () => {
 };
 
 Footer.label = 'Footer';
+
+Footer.propTypes = {
+  customFields: PropTypes.shape({
+    missionStatement: PropTypes.string.tag({
+      label: 'Mission Statement',
+    }),
+    twitterUrl: PropTypes.string.tag({
+      label: 'Twitter URL',
+    }),
+  }),
+};
 
 export default Footer;
