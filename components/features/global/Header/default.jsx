@@ -52,4 +52,6 @@ const Header = () => {
   );
 };
 
+Header.label = 'Header';
+
 export default Header;

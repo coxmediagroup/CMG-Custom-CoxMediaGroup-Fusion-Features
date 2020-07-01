@@ -60,4 +60,6 @@ const Footer = () => {
   );
 };
 
+Footer.label = 'Footer';
+
 export default Footer;

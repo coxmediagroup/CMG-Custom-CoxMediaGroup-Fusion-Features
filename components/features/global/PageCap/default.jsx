@@ -22,7 +22,9 @@ PageCap.label = 'Page Cap';
 
 PageCap.propTypes = {
   customFields: PropTypes.shape({
-    pagename: PropTypes.string,
+    pagename: PropTypes.string.tag({
+      label: 'Page Label',
+    }),
   }),
 };
 
