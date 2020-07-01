@@ -278,3 +278,9 @@ a.twitter-timeline .MediaCard-media {
 .row {
   margin-left: -15px;
 }
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
