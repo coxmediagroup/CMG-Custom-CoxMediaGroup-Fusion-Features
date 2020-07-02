@@ -40,6 +40,14 @@ img {
   width: 100%;
 }
 
+summary {
+  display: inherit;
+}
+
+div:focus {
+  outline: none;
+}
+
 /* begin new styles for arc */
 .headline {
   text-transform: uppercase;
