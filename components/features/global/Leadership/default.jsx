@@ -17,8 +17,6 @@ const Leadership = (props) => {
     leaders.push(content);
   });
 
-  console.log('all slugs');
-
   const itemsArray = leaders.length > 0 && leaders.map((item, index) => {
     return (
       <div key={index} className="col-md-4">
