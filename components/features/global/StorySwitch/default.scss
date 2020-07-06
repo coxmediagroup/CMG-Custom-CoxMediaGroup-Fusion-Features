@@ -1,0 +1,63 @@
+.story-switch {
+
+  text-align: center;
+  color: #5b5b5b;
+
+  // Headings
+
+  &_heading {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #5b5b5b;
+  }
+
+  // Tabs
+
+  &_tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0 20px 0;
+  }
+
+  &_tab {
+    width: 168px;
+    margin: 10px 15px;
+    text-align: center;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover,
+    &--selected {
+      opacity: 1;
+    }
+
+    &_caption {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  // Content
+
+  &_content {
+    display: none;
+
+    &--selected {
+      display: block;
+    }
+
+    &_heading {
+      color: #00b3f0;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 48px;
+      text-transform: uppercase;
+    }
+  }
+}
