@@ -42,7 +42,6 @@ $tab-min-width: 85px;
     margin: 10px 15px;
     text-align: center;
     opacity: 0.5;
-    cursor: pointer;
     transition: opacity .3s ease;
 
     &:hover,
@@ -51,6 +50,7 @@ $tab-min-width: 85px;
     }
 
     &_caption {
+      color: #5b5b5b;
       font-size: 11px;
       text-transform: uppercase;
       font-weight: 600;

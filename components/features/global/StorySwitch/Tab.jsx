@@ -10,23 +10,32 @@ const Tab = (props) => {
   } = props;
 
   return (
-    <div className={`story-switch_tab ${isSelected ? 'story-switch_tab--selected' : ''}`} onClick={() => {
-      props.onClick();
-    }}>
+    <a href="#"
+      id={`${props.id}-tab`}
+      role="tab"
+      aria-selected={isSelected}
+      tabIndex={!isSelected && -1}
+      className={`story-switch_tab ${isSelected ? 'story-switch_tab--selected' : ''}`}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        props.onClick();
+      }}>
       {imageURL
         && <img src={imageURL} alt={imageAlt} />
       }
       <div className="story-switch_tab_caption">{caption}</div>
-    </div>
+    </a>
   );
 };
 
 Tab.propTypes = {
+  id: PropTypes.string.isRequired,
   caption: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
   imageURL: PropTypes.string,
   imageAlt: PropTypes.string,
   isSelected: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Tab;

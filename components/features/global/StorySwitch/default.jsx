@@ -18,6 +18,11 @@ const outputBody = (contentElements) => {
 
 /**
  * Display a tabbed interface allowing the user to switch between stories.
+ *
+ * See the following for the accessibility info used here:
+ *
+ * https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html
+ * https://inclusive-components.design/tabbed-interfaces/
  */
 const StorySwitch = (props) => {
   const {
@@ -44,9 +49,11 @@ const StorySwitch = (props) => {
       {description && <div className="story-switch_description">{description}</div>}
 
       {/* Tabs */}
-      <div className="story-switch_tabs">
+      <div className="story-switch_tabs" role="tablist" aria-label={title}>
         {contents.map((story) => {
-          return <Tab key={story._id} caption={story.description.basic}
+          return <Tab key={story._id}
+            id={story._id}
+            caption={story.description.basic}
             imageAlt={story.promo_items.lead_art.alt_text}
             imageURL={story.promo_items.lead_art.url}
             isSelected={story._id === currentStory}
@@ -56,11 +63,17 @@ const StorySwitch = (props) => {
 
       {/* Content */}
       {contents.map((story) => {
-        return <div key={story._id} className={`story-switch_content
-          ${story._id === currentStory ? 'story-switch_content--selected' : ''}`}>
+        return <section
+          key={story._id}
+          className={`story-switch_content
+          ${story._id === currentStory ? 'story-switch_content--selected' : ''}`}
+          role="tabpanel"
+          tabIndex="0"
+          aria-labelledby={`${story._id}-tab`}
+        >
           <h3 className="story-switch_content_heading">{story.description.basic}</h3>
           {outputBody(story.content_elements)}
-        </div>;
+        </section>;
       })}
     </div>
   );
