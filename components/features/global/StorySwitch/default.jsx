@@ -71,11 +71,9 @@ StorySwitch.label = 'Story Switch';
 StorySwitch.propTypes = {
   customFields: PropTypes.shape({
     title: PropTypes.string.tag({
-      group: 'Feature options',
       label: 'Title',
     }),
     description: PropTypes.string.tag({
-      group: 'Feature options',
       label: 'Description',
     }),
     story1: PropTypes.string.tag({
