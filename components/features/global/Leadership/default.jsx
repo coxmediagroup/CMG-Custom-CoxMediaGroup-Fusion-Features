@@ -17,6 +17,8 @@ const Leadership = (props) => {
     leaders.push(content);
   });
 
+  console.log('all slugs');
+
   const itemsArray = leaders.length > 0 && leaders.map((item, index) => {
     return (
       <div key={index} className="col-md-4">
@@ -47,7 +49,6 @@ Leadership.label = 'Leadership';
 Leadership.propTypes = {
   customFields: PropTypes.shape({
     slugs: PropTypes.string.tag({
-      group: 'Feature options',
       label: 'Slugs (comma-separated)',
     }),
   }),
