@@ -47,7 +47,6 @@ Leadership.label = 'Leadership';
 Leadership.propTypes = {
   customFields: PropTypes.shape({
     slugs: PropTypes.string.tag({
-      group: 'Feature options',
       label: 'Slugs (comma-separated)',
     }),
   }),
