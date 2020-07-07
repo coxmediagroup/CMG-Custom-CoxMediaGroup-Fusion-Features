@@ -218,6 +218,7 @@
     "dompurify": "^2.0.12",
     "email-validator": "^2.0.4",
     "moment": "^2.26.0",
+    "node-fetch": "^2.6.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "swiper": "^5.4.5"
   }
