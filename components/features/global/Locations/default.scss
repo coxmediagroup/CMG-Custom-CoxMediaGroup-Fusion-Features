@@ -1,0 +1,48 @@
+.locations {
+  margin-bottom: 30px;
+
+  .feature-options {
+    text-align: center;
+
+    h3 {
+      color: #333;
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+  }
+
+  .feature-description {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+
+  h3,
+  h4,
+  p {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    color: #00b3f0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
