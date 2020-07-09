@@ -2,6 +2,7 @@
   margin-bottom: 30px;
 
   .feature-options {
+    margin-bottom: 30px;
     text-align: center;
 
     h3 {
@@ -28,21 +29,25 @@
 
   h3 {
     color: #00b3f0;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 40px;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 32px;
     text-transform: uppercase;
   }
 
   h4 {
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 36px;
+    line-height: 24px;
   }
 
   p {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 22px;
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
   }
 }
