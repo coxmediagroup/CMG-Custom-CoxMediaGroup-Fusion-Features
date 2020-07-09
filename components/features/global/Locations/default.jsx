@@ -19,8 +19,6 @@ const Locations = (props) => {
     locations.push(content);
   });
 
-  console.log('locations: ', locations);
-
   const locationsArray = locations.length > 0 && locations.map((location, index) => {
     const bodyContent = location.content_elements.map((item) => {
       if (item.level && item.level === 2) {
