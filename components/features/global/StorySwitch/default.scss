@@ -11,15 +11,15 @@ $tab-min-width: 85px;
   // Headings
 
   &_heading {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 1.75rem;
+    line-height: 2rem;
     font-weight: 900;
     text-transform: uppercase;
     color: #5b5b5b;
 
     @media (min-width: $breakpoint-mobile) {
-      font-size: 48px;
-      line-height: 56px;
+      font-size: 3rem;
+      line-height: 3.5rem;
     }
   }
 
@@ -48,7 +48,7 @@ $tab-min-width: 85px;
 
     &_caption {
       color: #5b5b5b;
-      font-size: 11px;
+      font-size: .69rem;
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 1px;
@@ -60,20 +60,24 @@ $tab-min-width: 85px;
   &_content {
     display: none;
 
+    p {
+      font-size: 1.13rem;
+    }
+
     &--selected {
       display: block;
     }
 
     &_heading {
-      font-size: 20px;
-      line-height: 24px;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
       font-weight: 900;
       color: #00b3f0;
       text-transform: uppercase;
 
       @media (min-width: $breakpoint-mobile) {
-        font-size: 36px;
-        line-height: 48px;
+        font-size: 2.25rem;
+        line-height: 3rem;
       }
     }
   }
