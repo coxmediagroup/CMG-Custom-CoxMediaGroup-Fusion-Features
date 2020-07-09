@@ -54,8 +54,8 @@ const StorySwitch = (props) => {
           return <Tab key={story._id}
             id={story._id}
             caption={story.description.basic}
-            imageAlt={story.promo_items.lead_art.alt_text}
-            imageURL={story.promo_items.lead_art.url}
+            imageAlt={story.description.basic}
+            imageURL={story.promo_items.basic ? story.promo_items.basic.url : story.promo_items.lead_art.url}
             isSelected={story._id === currentStory}
             onClick={() => { setCurrentStory(story._id); }} />;
         })}

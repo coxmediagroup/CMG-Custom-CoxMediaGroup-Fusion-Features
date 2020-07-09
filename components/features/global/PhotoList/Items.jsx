@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Content from './Content';
 
 const Items = (props) => {
   const {
-    type, index, article, columns, imagePlacement, summary, linked, centered,
+    type, identifier, article, columns, imagePlacement, summary, linked, centered,
   } = props;
   let cols;
 
@@ -28,15 +29,19 @@ const Items = (props) => {
   const canonicalUrl = `${article.canonical_url}/?_website=cmg-ms-40020`;
 
   return (
-    <div key={index} className={cols}>
-      {linked && (
-        <a href={canonicalUrl}>
-          <Content type={type} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
-        </a>
+    <div className={cols}>
+      {linked && canonicalUrl && (
+        <>
+          <a href={canonicalUrl}>
+            <Content type={type} identifier={identifier} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
+          </a>
+        </>
       )}
 
       {!linked && (
-        <Content type={type} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
+        <>
+          <Content type={type} identifier={identifier} article={article} summary={summary} imagePlacement={imagePlacement} centered={centered} />
+        </>
       )}
     </div>
   );
@@ -44,7 +49,7 @@ const Items = (props) => {
 
 Items.propTypes = {
   type: PropTypes.string,
-  index: PropTypes.integer,
+  identifier: PropTypes.string,
   article: PropTypes.object,
   columns: PropTypes.number,
   imagePlacement: PropTypes.string,
