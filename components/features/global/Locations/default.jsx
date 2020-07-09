@@ -27,14 +27,12 @@ const Locations = (props) => {
         return <h4 dangerouslySetInnerHTML={{ __html: item.content }}></h4>;
       } if (item.type === 'text') {
         return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
-      } if (item.type === 'image') {
-        return <img src={item.url} />;
       }
       return null;
     });
 
     return (
-      <div key={index} className="col-md-4">
+      <div key={index} className="col-md-3">
         {bodyContent}
       </div>
     );
