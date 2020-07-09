@@ -9,7 +9,8 @@ const Item = (props) => {
       {type === 'overlay' && (
         <>
           <div className="image-holder">
-            <img src={ item.promo_items.lead_art.url } alt={ item.headlines.basic } title={ item.headlines.basic } />
+            {/* eslint-disable-next-line max-len */}
+            <img src={ item.promo_items.basic ? item.promo_items.basic.url : item.promo_items.lead_art.url } alt={ item.headlines.basic } title={ item.headlines.basic } />
           </div>
           <div className="content-holder">
             <h4 className="headline">{ item.headlines.basic }</h4>
