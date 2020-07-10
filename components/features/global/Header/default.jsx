@@ -51,9 +51,6 @@ const Header = (props) => {
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               {navigationItems}
-              <li>
-                <a href="/contact-us" alt="Contact Us">Contact Us</a>
-              </li>
             </ul>
           </div>
         </div>
