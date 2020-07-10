@@ -1,6 +1,6 @@
 const resolve = (key = {}) => {
   const { website } = key;
-  return `/navigation/${website}/`;
+  return `/site/v3/navigation/${website}/`;
 };
 
 export default {
