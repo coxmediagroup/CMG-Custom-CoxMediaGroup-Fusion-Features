@@ -1,10 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useContent } from 'fusion:content';
 import './default.scss';
 
 const Header = () => {
   const toggleNavbar = () => {
     document.getElementById('navbar').classList.toggle('collapse');
   };
+
+  const content = useContent({
+    source: 'navigation-api',
+    query: { website: 'cmg-ms-40020' },
+  });
+
+  console.log('navigation: ', content)
 
   return (
     <section className="navbar navbar-default navbar-fixed-top">
