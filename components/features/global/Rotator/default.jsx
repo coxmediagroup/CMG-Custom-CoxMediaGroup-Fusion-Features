@@ -32,14 +32,19 @@ const Rotator = (props) => {
     return null;
   });
 
-  return (
-    <>
-      { swiper }
-      <div className='rotator'>
-        <SwiperDisplay swiperItems={swiperItems} pagination={pagination} navigation={navigation} />
-      </div>
-    </>
-  );
+  console.log('content: ', content)
+
+  if (content) {
+    return (
+      <>
+        { swiper }
+        <div className='rotator'>
+          <SwiperDisplay swiperItems={swiperItems} pagination={pagination} navigation={navigation} />
+        </div>
+      </>
+    );
+  }
+  return null;
 };
 
 Rotator.label = 'Rotator';

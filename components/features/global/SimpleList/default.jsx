@@ -20,14 +20,17 @@ const SimpleList = (props) => {
     return null;
   });
 
-  return <div className='simple-list'>
-      {title && (
-        <h4>{title}</h4>
-      )}
-      <ul className='list-unstyled'>
-        {items}
-      </ul>
-  </div>;
+  if (content) {
+    return <div className='simple-list'>
+        {title && (
+          <h4>{title}</h4>
+        )}
+        <ul className='list-unstyled'>
+          {items}
+        </ul>
+    </div>;
+  }
+  return null;
 };
 
 SimpleList.label = 'Simple List';
