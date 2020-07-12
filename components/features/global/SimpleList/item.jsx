@@ -7,9 +7,7 @@ const Item = (props) => {
   } = props;
 
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
-
-  console.log('article with const: ', article)
-
+  
   return (
     <div key={key}>
       {linked && (

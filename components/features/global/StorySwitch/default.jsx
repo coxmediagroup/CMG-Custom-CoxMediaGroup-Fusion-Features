@@ -51,29 +51,35 @@ const StorySwitch = (props) => {
       {/* Tabs */}
       <div className="story-switch_tabs" role="tablist" aria-label={title}>
         {contents.map((story) => {
-          return <Tab key={story._id}
-            id={story._id}
-            caption={story.description.basic}
-            imageAlt={story.description.basic}
-            imageURL={story.promo_items.basic ? story.promo_items.basic.url : story.promo_items.lead_art.url}
-            isSelected={story._id === currentStory}
-            onClick={() => { setCurrentStory(story._id); }} />;
+          if (story) {
+            return <Tab key={story._id}
+              id={story._id}
+              caption={story.description.basic}
+              imageAlt={story.description.basic}
+              imageURL={story.promo_items.basic ? story.promo_items.basic.url : story.promo_items.lead_art.url}
+              isSelected={story._id === currentStory}
+              onClick={() => { setCurrentStory(story._id); }} />;
+          }
+          return null;
         })}
       </div>
 
       {/* Content */}
       {contents.map((story) => {
-        return <section
-          key={story._id}
-          className={`story-switch_content
-          ${story._id === currentStory ? 'story-switch_content--selected' : ''}`}
-          role="tabpanel"
-          tabIndex="0"
-          aria-labelledby={`${story._id}-tab`}
-        >
-          <h3 className="story-switch_content_heading">{story.description.basic}</h3>
-          {outputBody(story.content_elements)}
-        </section>;
+        if (story) {
+          return <section
+            key={story._id}
+            className={`story-switch_content
+            ${story._id === currentStory ? 'story-switch_content--selected' : ''}`}
+            role="tabpanel"
+            tabIndex="0"
+            aria-labelledby={`${story._id}-tab`}
+          >
+            <h3 className="story-switch_content_heading">{story.description.basic}</h3>
+            {outputBody(story.content_elements)}
+          </section>;
+        }
+        return null;
       })}
     </div>
   );
