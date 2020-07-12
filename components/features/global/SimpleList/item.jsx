@@ -7,7 +7,7 @@ const Item = (props) => {
   } = props;
 
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
-  
+
   return (
     <div key={key}>
       {linked && (

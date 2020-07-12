@@ -32,8 +32,6 @@ const Rotator = (props) => {
     return null;
   });
 
-  console.log('content: ', content)
-
   if (content) {
     return (
       <>
