@@ -13,8 +13,11 @@ const Display = (props) => {
     itemsArray = <Items type={type} identifier="0" article={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
   } else {
     itemsArray = content && content.content_elements.map((item, index) => {
-      // eslint-disable-next-line react/jsx-key
-      return <Items type={type} identifier={index.toString()} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+      if (item._id) {
+        // eslint-disable-next-line react/jsx-key
+        return <Items type={type} identifier={index.toString()} article={item} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />;
+      }
+      return null;
     });
   }
 
