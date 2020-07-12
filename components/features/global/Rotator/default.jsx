@@ -26,7 +26,7 @@ const Rotator = (props) => {
   });
 
   const swiperItems = content && content.content_elements.map((item, index) => {
-    if (index < 4) {
+    if (index < 4 && item._id) {
       return <SwiperItem key={index} item={item} type="overlay" />;
     }
     return null;
