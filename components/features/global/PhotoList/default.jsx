@@ -13,7 +13,8 @@ const PhotoList = (props) => {
     query: { website: 'cmg-ms-40020', id },
   });
 
-  return <div className='photo-list'>
+  if (content) {
+    return <div className='photo-list'>
     <>
       <div className="feature-options">
         {title && (
@@ -27,6 +28,8 @@ const PhotoList = (props) => {
         <Display type={content.type} content={content} columns={columns} imagePlacement={imagePlacement} summary={summary} linked={linked} centered={centered} />
     </>
   </div>;
+  }
+  return null;
 };
 
 PhotoList.label = 'Photo List';

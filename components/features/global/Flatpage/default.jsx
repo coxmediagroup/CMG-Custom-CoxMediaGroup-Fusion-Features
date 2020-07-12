@@ -21,14 +21,17 @@ const Flatpage = (props) => {
     return null;
   });
 
-  return <div className='flatpage'>
-    <>
-      {content.headlines.basic && (
-        <h3>{content.headlines.basic}</h3>
-      )}
-      {bodyContent}
-    </>
-  </div>;
+  if (content) {
+    return <div className='flatpage'>
+      <>
+        {content.headlines.basic && (
+          <h3>{content.headlines.basic}</h3>
+        )}
+        {bodyContent}
+      </>
+    </div>;
+  }
+  return null;
 };
 
 Flatpage.label = 'Flatpage';

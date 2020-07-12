@@ -32,7 +32,7 @@ const Locations = (props) => {
     });
 
     return (
-      <div key={index} className="col-md-3">
+      <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         {bodyContent}
       </div>
     );
