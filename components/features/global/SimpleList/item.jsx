@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Item = (props) => {
   const {
-    identifier, article, summary, linked,
+    key, article, summary, linked,
   } = props;
 
   const canonicalUrl = `${props.article.canonical_url}/?_website=cmg-ms-40020`;
@@ -11,7 +11,7 @@ const Item = (props) => {
   console.log('article with const: ', article)
 
   return (
-    <div key={identifier.toString()}>
+    <div key={key}>
       {linked && (
         <a href={canonicalUrl}>
           <li>
@@ -40,7 +40,7 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  identifier: PropTypes.integer,
+  key: PropTypes.integer,
   article: PropTypes.object,
   summary: PropTypes.boolean,
   linked: PropTypes.boolean,

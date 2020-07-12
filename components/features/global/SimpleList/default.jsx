@@ -15,7 +15,7 @@ const SimpleList = (props) => {
 
   const items = content && content.content_elements.map((item, index) => {
     if (item._id) {
-      return <Item identifier={index} article={item} summary={summary} linked={linked} />;
+      return <Item key={index} article={item} summary={summary} linked={linked} />;
     }
     return null;
   });
