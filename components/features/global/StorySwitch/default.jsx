@@ -36,7 +36,9 @@ const StorySwitch = (props) => {
       source: 'content-object-api',
       query: { website: 'cmg-ms-40020', id: s },
     });
-  });
+  }).filter((s) => { return s; });
+
+  console.log('contents: ', contents)
 
   // Default to the first story being selected, if there is one.
   if (!currentStory && contents[0]) {
