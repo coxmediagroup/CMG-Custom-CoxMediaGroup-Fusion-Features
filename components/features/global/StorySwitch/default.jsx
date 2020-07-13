@@ -38,8 +38,6 @@ const StorySwitch = (props) => {
     });
   }).filter((s) => { return s; });
 
-  console.log('contents: ', contents)
-
   // Default to the first story being selected, if there is one.
   if (!currentStory && contents[0]) {
     setCurrentStory(contents[0]._id);
