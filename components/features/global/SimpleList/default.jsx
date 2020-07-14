@@ -5,45 +5,50 @@ import Item from './item';
 
 const SimpleList = (props) => {
   const {
-    Title, Collection, Linked, Summary,
+    title, id, linked, summary,
   } = props.customFields;
 
   const content = useContent({
-    source: 'content-api2',
-    query: { id: Collection, website: 'cmg-ms-40020' },
-    filter: '',
+    source: 'content-object-api',
+    query: { website: 'cmg-ms-40020', id },
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} summary={Summary} linked={Linked} />;
+    if (item._id) {
+      return <Item key={index} article={item} summary={summary} linked={linked} />;
+    }
+    return null;
   });
 
-  return <div className='simple-list'>
-      {Title && (
-        <h4>{Title}</h4>
-      )}
-      <ul className='list-unstyled'>
-        {items}
-      </ul>
-  </div>;
+  if (content) {
+    return <div className='simple-list'>
+        {title && (
+          <h4>{title}</h4>
+        )}
+        <ul className='list-unstyled'>
+          {items}
+        </ul>
+    </div>;
+  }
+  return null;
 };
 
 SimpleList.label = 'Simple List';
 
 SimpleList.propTypes = {
   customFields: PropTypes.shape({
-    Title: PropTypes.string.tag({
-      group: 'Feature options',
+    title: PropTypes.string.tag({
+      label: 'Title',
     }),
-    Collection: PropTypes.string.tag({
-      group: 'Feature options',
+    id: PropTypes.string.tag({
+      label: 'ID',
     }),
-    Linked: PropTypes.boolean.tag({
-      group: 'Item options',
+    linked: PropTypes.boolean.tag({
+      label: 'Linked',
       defaultValue: true,
     }),
-    Summary: PropTypes.boolean.tag({
-      group: 'Item options',
+    summary: PropTypes.boolean.tag({
+      label: 'Summary',
       defaultValue: true,
     }),
   }),

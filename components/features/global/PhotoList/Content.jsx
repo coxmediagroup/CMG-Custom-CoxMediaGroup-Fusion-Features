@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 
 const Content = (props) => {
   const {
-    type, article, imagePlacement, summary, centered,
+    type, identifier, article, imagePlacement, summary, centered,
   } = props;
 
   let bodyContent;
   let contentClass;
 
   if (type === 'story') {
-    bodyContent = article.content_elements.map((item) => {
+    bodyContent = article.content_elements.map((item, index) => {
       if (item.type === 'text') {
-        return <p dangerouslySetInnerHTML={{ __html: item.content }}></p>;
-      } if (item.type === 'image') {
-        return <img src={item.url} />;
+        return <p key={index} dangerouslySetInnerHTML={{ __html: item.content }}></p>;
       }
       return null;
     });
   } else {
     bodyContent = article.description.basic;
   }
+
+  const leadArt = article.promo_items.basic ? article.promo_items.basic.url : article.promo_items.lead_art.url;
 
   if (imagePlacement === 'Left') {
     contentClass = ' leftImage';
@@ -31,14 +31,11 @@ const Content = (props) => {
   }
 
   return (
-    <div className={contentClass}>
+    <div key={identifier} className={contentClass}>
       <div className='image-holder'>
-        {article.promo_items.lead_art.url && imagePlacement !== 'Bottom' && (
-          <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
+        {leadArt && imagePlacement !== 'Bottom' && (
+          <img src={leadArt} alt={ article.headlines.basic } />
         )}
-       {article.promo_items.lead_art.type === 'gallery' && article.promo_items.lead_art.content_elements && imagePlacement !== 'Bottom' && (
-          <img src={article.promo_items.lead_art.content_elements[0].url} alt={ article.promo_items.lead_art.slug } />
-       )}
       </div>
 
       <div className='content-holder'>
@@ -54,12 +51,8 @@ const Content = (props) => {
       </div>
 
       <div className='image-holder'>
-        {article.promo_items.lead_art.url && imagePlacement === 'Bottom' && (
-          <img src={article.promo_items.lead_art.url} alt={ article.promo_items.lead_art.alt_text } />
-        )}
-        {/* eslint-disable-next-line max-len */}
-        {article.promo_items.lead_art.type === 'gallery' && article.promo_items.lead_art.content_elements && imagePlacement === 'Bottom' && (
-          <img src={article.promo_items.lead_art.content_elements[0].url} alt={ article.promo_items.lead_art.slug } />
+        {leadArt && imagePlacement === 'Bottom' && (
+          <img src={leadArt} alt={ article.headlines.basic } />
         )}
       </div>
     </div>
@@ -68,6 +61,7 @@ const Content = (props) => {
 
 Content.propTypes = {
   type: PropTypes.string,
+  identifier: PropTypes.string,
   article: PropTypes.object,
   imagePlacement: PropTypes.string,
   summary: PropTypes.boolean,
