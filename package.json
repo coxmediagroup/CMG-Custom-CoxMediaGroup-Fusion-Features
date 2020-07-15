@@ -215,7 +215,6 @@
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^4.0.0",
     "bootstrap": "^4.4.1",
-    "dompurify": "^2.0.12",
     "email-validator": "^2.0.4",
     "moment": "^2.26.0",
     "node-fetch": "^2.6.0",
