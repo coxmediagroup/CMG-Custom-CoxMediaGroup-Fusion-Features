@@ -14,17 +14,23 @@ const SimpleList = (props) => {
   });
 
   const items = content && content.content_elements.map((item, index) => {
-    return <Item key={index} article={item} summary={summary} linked={linked} />;
+    if (item._id) {
+      return <Item key={index} article={item} summary={summary} linked={linked} />;
+    }
+    return null;
   });
 
-  return <div className='simple-list'>
-      {title && (
-        <h4>{title}</h4>
-      )}
-      <ul className='list-unstyled'>
-        {items}
-      </ul>
-  </div>;
+  if (content) {
+    return <div className='simple-list'>
+        {title && (
+          <h4>{title}</h4>
+        )}
+        <ul className='list-unstyled'>
+          {items}
+        </ul>
+    </div>;
+  }
+  return null;
 };
 
 SimpleList.label = 'Simple List';

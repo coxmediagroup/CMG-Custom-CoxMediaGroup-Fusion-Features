@@ -17,7 +17,9 @@ const StoryContent = () => {
   });
 
   return <>
-    <h1>{globalContent.headlines.basic}</h1>
+    {globalContent.headlines.basic && (
+      <h1>{globalContent.headlines.basic}</h1>
+    )}
     <p className='story-info'>
       <strong>Published: </strong>{moment(globalContent.last_updated_date).format('dddd, MMMM D, YYYY @ h:mm a')}<br />
       {/* is there at least one credit */}
@@ -29,7 +31,8 @@ const StoryContent = () => {
     </p>
     <div className="lead-image-container">
       <div className='lead-image'>
-        <img src={ globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.lead_art.alt_text } />
+        {/* eslint-disable-next-line max-len */}
+        <img src={ globalContent.promo_items.basic ? globalContent.promo_items.basic.url : globalContent.promo_items.lead_art.url } alt={ globalContent.promo_items.basic ? globalContent.promo_items.basic.subtitle : globalContent.promo_items.lead_art.subtitle } />
       </div>
     </div>
     <div className='article-content'>
