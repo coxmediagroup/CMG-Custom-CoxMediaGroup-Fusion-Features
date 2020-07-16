@@ -83,7 +83,7 @@ class ContactForm extends React.Component {
 
     if (!userDataValidation.valid) {
       this.setState({
-        submission_status: 'ERROR',
+        submission_status: 'ERROR:VALIDATION',
         submission_messages: userDataValidation.messages,
       });
 
@@ -117,6 +117,12 @@ class ContactForm extends React.Component {
             contact_message: '',
           });
         }
+      })
+      .catch(() => {
+        this.setState({
+          submission_status: 'ERROR:SUBMISSION',
+          submission_messages: ['Error while attempting to send feedback. Please try again later.'],
+        });
       });
   }
 
@@ -135,9 +141,16 @@ class ContactForm extends React.Component {
                   </ul>
                 </div>)}
 
-            {this.state.submission_status.toUpperCase() === 'ERROR'
+            {this.state.submission_status.toUpperCase() === 'ERROR:VALIDATION'
             && (<div className="error-message-box">
                   <p>Validation errors occurred. Please confirm the fields and submit it again.</p>
+                  <ul className="list-unstyled">
+                    {this.printList(this.state.submission_messages, ['error-message'])}
+                  </ul>
+                </div>)}
+
+            {this.state.submission_status.toUpperCase() === 'ERROR:SUBMISSION'
+            && (<div className="error-message-box">
                   <ul className="list-unstyled">
                     {this.printList(this.state.submission_messages, ['error-message'])}
                   </ul>
