@@ -12,7 +12,7 @@ class ContactForm extends React.Component {
       contact_email: '',
       contact_subject: '',
       contact_message: '',
-      submission_status: '',
+      submission_status: '', // never manually set this to 'SUCCESS'; only server response should do that
       submission_messages: [],
     };
   }
@@ -101,13 +101,15 @@ class ContactForm extends React.Component {
     fetch(CONTACT_ENDPOINT_URL, params)
       .then((response) => { response.json(); })
       .then((data) => {
+        const submissionStatus = data.status.toUpperCase();
+
         this.setState({
-          submission_status: data.status,
+          submission_status: submissionStatus,
           submission_messages: [data.message],
         });
 
         // Reset form if submission is successful
-        if (data.status === 'SUCCESS') {
+        if (submissionStatus === 'SUCCESS') {
           this.setState({
             contact_name: '',
             contact_email: '',
@@ -126,14 +128,14 @@ class ContactForm extends React.Component {
             <h3>HAVE QUESTIONS?</h3>
             <h5>LET US KNOW HOW WE CAN HELP!</h5>
 
-            {this.state.submission_status === 'SUCCESS'
+            {this.state.submission_status.toUpperCase() === 'SUCCESS'
             && (<div className="contact-form-message">
                   <ul className="list-unstyled">
                     {this.printList(this.state.submission_messages)}
                   </ul>
                 </div>)}
 
-            {this.state.submission_status === 'ERROR'
+            {this.state.submission_status.toUpperCase() === 'ERROR'
             && (<div className="error-message-box">
                   <p>Validation errors occurred. Please confirm the fields and submit it again.</p>
                   <ul className="list-unstyled">
