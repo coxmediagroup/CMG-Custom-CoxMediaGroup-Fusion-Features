@@ -105,6 +105,16 @@ class ContactForm extends React.Component {
           submission_status: data.status,
           submission_messages: [data.message],
         });
+
+        // Reset form if submission is successful
+        if (data.status === 'SUCCESS') {
+          this.setState({
+            contact_name: '',
+            contact_email: '',
+            contact_subject: '',
+            contact_message: '',
+          });
+        }
       });
   }
 
