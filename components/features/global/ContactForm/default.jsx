@@ -1,7 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import * as EmailValidator from 'email-validator';
-import { CONTACT_ENDPOINT_URL, CONTACT_ENDPOINT_API_KEY } from 'fusion:environment';
+
+// TODO switch to CMG-DST values once server-side handler is deployed to CMG-DST
+const CONTACT_ENDPOINT_URL = 'https://39soq7gn4a.execute-api.us-east-1.amazonaws.com/dev/api/v1/coxreps/contact';
+const CONTACT_ENDPOINT_API_KEY = 'r4PanNhSal40lfoedC02D10oPxztz58ga4hXBZpz';
 
 class ContactForm extends React.Component {
   constructor(props) {
