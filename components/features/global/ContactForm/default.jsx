@@ -101,6 +101,12 @@ class ContactForm extends React.Component {
       },
       body: JSON.stringify(userData),
     };
+
+    this.setState({
+      submission_status: 'SUBMITTING',
+      submission_messages: [],
+    });
+
     fetch(CONTACT_ENDPOINT_URL, params)
       .then((response) => { return response.json(); })
       .then((data) => {
@@ -202,7 +208,9 @@ class ContactForm extends React.Component {
                 </label>
               </div>
               <p className="submit">
-                <button type="submit" onSubmit={this.handleSubmit}>Submit</button>
+                <button type="submit" onSubmit={this.handleSubmit}>
+                  {this.state.submission_status.toUpperCase() === 'SUBMITTING' ? 'SUBMITTING...' : 'SUBMIT'}
+                </button>
               </p>
             </form>
           </div>
