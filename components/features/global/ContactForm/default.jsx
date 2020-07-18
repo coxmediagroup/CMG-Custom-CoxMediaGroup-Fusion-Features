@@ -4,7 +4,7 @@ import * as EmailValidator from 'email-validator';
 
 // TODO switch to CMG-DST values once server-side handler is deployed to CMG-DST
 const CONTACT_ENDPOINT_URL = 'https://39soq7gn4a.execute-api.us-east-1.amazonaws.com/dev/api/v1/coxreps/contact';
-const CONTACT_ENDPOINT_API_KEY = 'r4PanNhSal40lfoedC02D10oPxztz58ga4hXBZpz';
+const CONTACT_ENDPOINT_API_KEY = 'oI5wVmsjtA54SQxuVP0omaOJEq7E1K5N8txHNGyW';
 const submissionStatuses = {
   ERROR_VALIDATION: 'ERROR:VALIDATION',
   ERROR_SUBMISSION: 'ERROR:SUBMISSION',
