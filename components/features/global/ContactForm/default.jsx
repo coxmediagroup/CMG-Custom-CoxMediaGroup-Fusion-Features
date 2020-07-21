@@ -24,6 +24,8 @@ class ContactForm extends React.Component {
       submission_status: '', // never manually set this to 'SUCCESS'; only server response should do that
       submission_messages: [],
     };
+
+    this.componentRootRef = React.createRef();
   }
 
   handleChange = (e) => {
@@ -78,6 +80,10 @@ class ContactForm extends React.Component {
     return result;
   }
 
+  scrollToComponentTop = () => {
+    window.scrollTo(0, (window.pageYOffset + this.componentRootRef.current.getBoundingClientRect().y));
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -99,9 +105,8 @@ class ContactForm extends React.Component {
       this.setState({
         submission_status: submissionStatuses.ERROR_VALIDATION,
         submission_messages: userDataValidation.messages,
-      });
-
-      window.scrollTo(0, 0);
+      },
+      this.scrollToComponentTop);
 
       return;
     }
@@ -137,24 +142,22 @@ class ContactForm extends React.Component {
             contact_email: '',
             contact_subject: '',
             contact_message: '',
-          });
+          },
+          this.scrollToComponentTop);
         }
-
-        window.scrollTo(0, 0);
       })
       .catch(() => {
         this.setState({
           submission_status: submissionStatuses.ERROR_SUBMISSION,
           submission_messages: ['Error while attempting to send feedback. Please try again later.'],
-        });
-
-        window.scrollTo(0, 0);
+        },
+        this.scrollToComponentTop);
       });
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="container" ref={this.componentRootRef}>
         <div className="row">
           <div className="col-md-12 contact-form">
             <h3>HAVE QUESTIONS?</h3>
