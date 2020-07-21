@@ -81,6 +81,11 @@ class ContactForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    // Prevent duplicate submissions
+    if (this.state.submission_status.toUpperCase() === submissionStatuses.SUBMITTING) {
+      return;
+    }
+
     const userData = {
       name: this.state.contact_name.trim(),
       email: this.state.contact_email.trim(),
