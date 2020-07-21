@@ -81,6 +81,11 @@ class ContactForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    // Prevent duplicate submissions
+    if (this.state.submission_status.toUpperCase() === submissionStatuses.SUBMITTING) {
+      return;
+    }
+
     const userData = {
       name: this.state.contact_name.trim(),
       email: this.state.contact_email.trim(),
@@ -95,6 +100,8 @@ class ContactForm extends React.Component {
         submission_status: submissionStatuses.ERROR_VALIDATION,
         submission_messages: userDataValidation.messages,
       });
+
+      window.scrollTo(0, 0);
 
       return;
     }
@@ -132,12 +139,16 @@ class ContactForm extends React.Component {
             contact_message: '',
           });
         }
+
+        window.scrollTo(0, 0);
       })
       .catch(() => {
         this.setState({
           submission_status: submissionStatuses.ERROR_SUBMISSION,
           submission_messages: ['Error while attempting to send feedback. Please try again later.'],
         });
+
+        window.scrollTo(0, 0);
       });
   }
 
