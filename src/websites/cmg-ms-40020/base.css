@@ -42,6 +42,11 @@ img {
 
 summary {
   display: inherit;
+  cursor: default;
+}
+
+a summary {
+  cursor: pointer;
 }
 
 div:focus {
