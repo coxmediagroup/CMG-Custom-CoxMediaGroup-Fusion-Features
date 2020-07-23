@@ -215,6 +215,7 @@
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^4.0.0",
     "bootstrap": "^4.4.1",
+    "email-validator": "^2.0.4",
     "moment": "^2.26.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "swiper": "^5.4.5"
